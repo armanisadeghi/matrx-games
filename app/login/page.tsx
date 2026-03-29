@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Gamepad2 } from "lucide-react";
 import { LoginForm } from "./login-form";
 
@@ -12,7 +13,9 @@ export default function LoginPage() {
             Sign in to track your scores and leaderboard rankings
           </p>
         </div>
-        <LoginForm />
+        <Suspense>
+          <LoginForm />
+        </Suspense>
       </div>
     </div>
   );
