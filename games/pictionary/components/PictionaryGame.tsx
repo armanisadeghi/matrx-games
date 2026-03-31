@@ -54,16 +54,18 @@ export function PictionaryGame({
       });
 
       // Also broadcast for non-host clients
-      import("@/lib/game-engine/GameRealtimeService").then(({ gameRealtime }) => {
-        gameRealtime.broadcastEvent(room.id, "guess:result", {
-          playerId: data.playerId,
-          displayName: data.displayName,
-          guess: data.guess,
-          isCorrect,
-        });
-      });
+      import("@/lib/game-engine/GameRealtimeService").then(
+        ({ gameRealtime }) => {
+          gameRealtime.broadcastEvent(room.id, "guess:result", {
+            playerId: data.playerId,
+            displayName: data.displayName,
+            guess: data.guess,
+            isCorrect,
+          });
+        },
+      );
     },
-    [isHost, game, room.id]
+    [isHost, game, room.id],
   );
 
   usePictionaryRealtime({
@@ -80,7 +82,10 @@ export function PictionaryGame({
 
   const handleNextRound = () => {
     game.nextRoundOrEnd();
-    if (game.currentRound < game.settings.roundsPerTeam * game.getTeams().length) {
+    if (
+      game.currentRound <
+      game.settings.roundsPerTeam * game.getTeams().length
+    ) {
       startTimer();
     }
   };
@@ -91,7 +96,7 @@ export function PictionaryGame({
   const isGuesser = isOnActiveTeam && !isDrawer;
   const drawerPlayer = players.find((p) => p.id === game.currentDrawerId);
   const playerNames = Object.fromEntries(
-    players.map((p) => [p.id, p.displayName])
+    players.map((p) => [p.id, p.displayName]),
   );
 
   // Waiting phase
@@ -99,11 +104,13 @@ export function PictionaryGame({
     return (
       <div className="flex flex-col items-center gap-6 p-8">
         <h2 className="text-2xl font-bold">Pictionary</h2>
-        <p className="text-muted-foreground">
-          {players.length} players ready
-        </p>
+        <p className="text-muted-foreground">{players.length} players ready</p>
         {isHost ? (
-          <Button onClick={handleStartGame} size="lg" disabled={players.length < 4}>
+          <Button
+            onClick={handleStartGame}
+            size="lg"
+            disabled={players.length < 2}
+          >
             <Play className="mr-1 h-4 w-4" />
             Start Game
           </Button>
@@ -112,9 +119,9 @@ export function PictionaryGame({
             Waiting for host to start...
           </p>
         )}
-        {players.length < 4 && (
+        {players.length < 2 && (
           <p className="text-sm text-destructive">
-            Need at least 4 players (2 per team)
+            Need at least 2 players to start
           </p>
         )}
       </div>
@@ -169,9 +176,7 @@ export function PictionaryGame({
         <RoundResults
           word={game.currentWord ?? "???"}
           winnerName={
-            game.roundWinner
-              ? playerNames[game.roundWinner] ?? null
-              : null
+            game.roundWinner ? (playerNames[game.roundWinner] ?? null) : null
           }
           scores={game.teamScores}
           isHost={isHost}

@@ -9,7 +9,7 @@ export const pictionaryConfig: GameDefinition = {
   description:
     "Take turns describing words to your team. The team that guesses the most words wins!",
   icon: Pencil,
-  minPlayers: 4,
+  minPlayers: 2,
   maxPlayers: 20,
   supportsTeams: true,
   supportsSinglePlayer: false,
@@ -17,7 +17,7 @@ export const pictionaryConfig: GameDefinition = {
   roles: ["drawer", "guesser"],
   teams: {
     count: 2,
-    minPerTeam: 2,
+    minPerTeam: 1,
     maxPerTeam: 10,
     names: ["Team A", "Team B"],
   },

@@ -3,7 +3,8 @@
 import { useCallback } from "react";
 import { gameRealtime } from "@/lib/game-engine/GameRealtimeService";
 import { usePictionaryStore } from "../state/pictionaryStore";
-import { WORD_LISTS, DEFAULT_SETTINGS } from "../constants";
+import { DEFAULT_SETTINGS } from "../constants";
+import { usePictionaryWords } from "./usePictionaryWords";
 import type { Player } from "@/games/types";
 import type { PictionaryGuess, PictionarySettings } from "../types";
 
@@ -29,12 +30,9 @@ export function usePictionaryGame({
     ...userSettings,
   };
 
-  const getRandomWord = useCallback(() => {
-    const words = WORD_LISTS[settings.wordDifficulty];
-    const available = words.filter((w) => !store.usedWords.includes(w));
-    if (available.length === 0) return words[Math.floor(Math.random() * words.length)];
-    return available[Math.floor(Math.random() * available.length)];
-  }, [settings.wordDifficulty, store.usedWords]);
+  const { pickWord, markWordUsed, resetSessionUsage } = usePictionaryWords({
+    difficulty: settings.wordDifficulty,
+  });
 
   const getTeams = useCallback(() => {
     const teams = new Set(players.map((p) => p.teamId).filter(Boolean));
@@ -49,11 +47,11 @@ export function usePictionaryGame({
       if (!currentDrawerId) return teamPlayers[0];
 
       const currentIndex = teamPlayers.findIndex(
-        (p) => p.id === currentDrawerId
+        (p) => p.id === currentDrawerId,
       );
       return teamPlayers[(currentIndex + 1) % teamPlayers.length];
     },
-    [players]
+    [players],
   );
 
   const startRound = useCallback(() => {
@@ -67,16 +65,18 @@ export function usePictionaryGame({
     const team = teams[teamIndex];
     const drawer = getNextDrawer(
       team,
-      store.currentTeam === team ? store.currentDrawerId : null
+      store.currentTeam === team ? store.currentDrawerId : null,
     );
     if (!drawer) return;
 
-    const word = getRandomWord();
+    const word = pickWord();
 
     store.setCurrentRound(nextRound, team, drawer.id);
     store.setWord(null); // Don't set locally yet, use broadcast
-    store.addUsedWord(word);
     store.setPhase("drawing");
+
+    // Mark used in DB (fire and forget)
+    markWordUsed(word);
 
     // Broadcast round start to everyone (without the word)
     gameRealtime.broadcastEvent(roomId, "round:start", {
@@ -87,14 +87,7 @@ export function usePictionaryGame({
 
     // Broadcast the word (all clients receive, only drawer UI reads it)
     gameRealtime.broadcastEvent(roomId, "word:assigned", { word });
-  }, [
-    isHost,
-    roomId,
-    store,
-    getTeams,
-    getNextDrawer,
-    getRandomWord,
-  ]);
+  }, [isHost, roomId, store, getTeams, getNextDrawer, pickWord, markWordUsed]);
 
   const submitGuess = useCallback(
     (guessText: string) => {
@@ -104,7 +97,7 @@ export function usePictionaryGame({
         guess: guessText,
       });
     },
-    [roomId, player.id, player.displayName]
+    [roomId, player.id, player.displayName],
   );
 
   const handleGuessResult = useCallback(
@@ -117,11 +110,10 @@ export function usePictionaryGame({
 
         const newTeamScores = { ...store.teamScores };
         const guesserTeam = players.find(
-          (p) => p.id === guess.playerId
+          (p) => p.id === guess.playerId,
         )?.teamId;
         if (guesserTeam) {
-          newTeamScores[guesserTeam] =
-            (newTeamScores[guesserTeam] ?? 0) + 100;
+          newTeamScores[guesserTeam] = (newTeamScores[guesserTeam] ?? 0) + 100;
         }
 
         // Drawer also gets points
@@ -142,7 +134,7 @@ export function usePictionaryGame({
         });
       }
     },
-    [isHost, roomId, store, players]
+    [isHost, roomId, store, players],
   );
 
   const handleTimerComplete = useCallback(() => {
@@ -176,10 +168,11 @@ export function usePictionaryGame({
 
   const resetGame = useCallback(() => {
     store.reset();
+    resetSessionUsage();
     if (isHost) {
       gameRealtime.broadcastEvent(roomId, "game:state", { action: "reset" });
     }
-  }, [isHost, roomId, store]);
+  }, [isHost, roomId, store, resetSessionUsage]);
 
   return {
     ...store,
