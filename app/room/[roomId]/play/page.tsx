@@ -8,12 +8,16 @@ import { useRoomRealtime } from "@/features/lobby/hooks/useRoomRealtime";
 import { getGame } from "@/games/registry";
 import type { Player } from "@/games/types";
 import { gameRealtime } from "@/lib/game-engine/GameRealtimeService";
+import { useWakeLock } from "@/hooks/useWakeLock";
 
 export default function PlayPage() {
   const params = useParams<{ roomId: string }>();
   const { room, players, isLoading, fetchRoom, setPlayers } = useRoom();
   const [currentPlayerId] = useState(
-    () => (typeof window !== "undefined" ? localStorage.getItem("player_id") : null) ?? ""
+    () =>
+      (typeof window !== "undefined"
+        ? localStorage.getItem("player_id")
+        : null) ?? "",
   );
 
   const currentPlayer: Player | null =
@@ -21,16 +25,20 @@ export default function PlayPage() {
 
   const isHost = currentPlayer?.role === "host";
 
+  useWakeLock();
+
   const onPlayersUpdate = useCallback(
     (connected: Player[]) => {
       setPlayers((prev) =>
         prev.map((p) => {
           const match = connected.find((c) => c.id === p.id);
-          return match ? { ...p, isConnected: true } : { ...p, isConnected: false };
-        })
+          return match
+            ? { ...p, isConnected: true }
+            : { ...p, isConnected: false };
+        }),
       );
     },
-    [setPlayers]
+    [setPlayers],
   );
 
   useRoomRealtime({
@@ -39,7 +47,9 @@ export default function PlayPage() {
       id: currentPlayerId,
       userId: null,
       displayName:
-        (typeof window !== "undefined" ? localStorage.getItem("display_name") : null) ?? "Player",
+        (typeof window !== "undefined"
+          ? localStorage.getItem("display_name")
+          : null) ?? "Player",
       avatarUrl: null,
       teamId: null,
       role: "player",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Loader2, Play } from "lucide-react";
@@ -9,6 +9,8 @@ import { PlayerList } from "@/features/lobby/components/PlayerList";
 import { useRoom } from "@/features/lobby/hooks/useRoom";
 import { useRoomRealtime } from "@/features/lobby/hooks/useRoomRealtime";
 import { useTeams } from "@/features/lobby/hooks/useTeams";
+import { gameRealtime } from "@/lib/game-engine/GameRealtimeService";
+import { useWakeLock } from "@/hooks/useWakeLock";
 import { ROUTES } from "@/constants/routes";
 import { toast } from "sonner";
 import type { Player } from "@/games/types";
@@ -20,26 +22,47 @@ export default function RoomLobbyPage() {
     useRoom();
   const { autoBalanceTeams } = useTeams(params.roomId);
   const [currentPlayerId] = useState(
-    () => (typeof window !== "undefined" ? localStorage.getItem("player_id") : null) ?? ""
+    () =>
+      (typeof window !== "undefined"
+        ? localStorage.getItem("player_id")
+        : null) ?? "",
   );
+  useWakeLock();
 
-  const currentPlayer: Player | null = players.find(
-    (p) => p.id === currentPlayerId
-  ) ?? null;
+  // Track which player IDs we've already loaded from DB to detect new arrivals
+  const knownPlayerIdsRef = useRef<Set<string>>(new Set());
+
+  const currentPlayer: Player | null =
+    players.find((p) => p.id === currentPlayerId) ?? null;
 
   const isHost = currentPlayer?.role === "host";
 
   const onPlayersUpdate = useCallback(
     (connected: Player[]) => {
+      const connectedIds = new Set(connected.map((p) => p.id));
+
+      // Check if any connected player is not yet in our DB-fetched list
+      const hasNewPlayer = connected.some(
+        (p) => !knownPlayerIdsRef.current.has(p.id),
+      );
+
+      if (hasNewPlayer) {
+        // Re-fetch from DB to pick up the new player row
+        fetchRoom(params.roomId);
+      }
+
+      // Update connected status on existing players
       setPlayers((prev) => {
-        // Merge presence data with DB data
-        return prev.map((p) => {
-          const match = connected.find((c) => c.id === p.id);
-          return match ? { ...p, isConnected: true } : { ...p, isConnected: false };
-        });
+        const updated = prev.map((p) => ({
+          ...p,
+          isConnected: connectedIds.has(p.id),
+        }));
+        // Update known IDs
+        updated.forEach((p) => knownPlayerIdsRef.current.add(p.id));
+        return updated;
       });
     },
-    [setPlayers]
+    [setPlayers, fetchRoom, params.roomId],
   );
 
   useRoomRealtime({
@@ -48,7 +71,9 @@ export default function RoomLobbyPage() {
       id: currentPlayerId,
       userId: null,
       displayName:
-        (typeof window !== "undefined" ? localStorage.getItem("display_name") : null) ?? "Player",
+        (typeof window !== "undefined"
+          ? localStorage.getItem("display_name")
+          : null) ?? "Player",
       avatarUrl: null,
       teamId: null,
       role: "player",
@@ -65,12 +90,14 @@ export default function RoomLobbyPage() {
     }
   }, [params.roomId, fetchRoom]);
 
-  // Listen for game start
+  // Non-host: listen for game:start broadcast to navigate immediately
   useEffect(() => {
-    if (room?.status === "playing") {
-      router.push(ROUTES.ROOM_PLAY(room.id));
-    }
-  }, [room?.status, room?.id, router]);
+    if (isHost) return;
+    const unsub = gameRealtime.onBroadcast(params.roomId, "game:start", () => {
+      router.push(ROUTES.ROOM_PLAY(params.roomId));
+    });
+    return unsub;
+  }, [isHost, params.roomId, router]);
 
   const handleStartGame = async () => {
     if (!isHost || players.length < 2) return;
@@ -79,9 +106,10 @@ export default function RoomLobbyPage() {
     const unassigned = players.filter((p) => !p.teamId);
     if (unassigned.length > 0) {
       const assignments = autoBalanceTeams(players);
-      // Update in database
       for (const [playerId, teamId] of assignments) {
-        const { error } = await (await import("@/utils/supabase/client")).supabase
+        const { error } = await (
+          await import("@/utils/supabase/client")
+        ).supabase
           .from("game_players")
           .update({ team_id: teamId })
           .eq("id", playerId);
@@ -92,7 +120,10 @@ export default function RoomLobbyPage() {
       }
     }
 
+    // Broadcast before updating DB so clients navigate while status is updating
+    await gameRealtime.broadcastEvent(params.roomId, "game:start", {});
     await updateRoomStatus("playing");
+    router.push(ROUTES.ROOM_PLAY(params.roomId));
   };
 
   if (isLoading) {
