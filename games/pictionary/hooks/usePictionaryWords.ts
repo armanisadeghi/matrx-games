@@ -14,9 +14,13 @@ interface WordRecord {
 
 interface UsePictionaryWordsOptions {
   difficulty: PictionaryDifficulty;
+  categories?: string[];
 }
 
-export function usePictionaryWords({ difficulty }: UsePictionaryWordsOptions) {
+export function usePictionaryWords({
+  difficulty,
+  categories = [],
+}: UsePictionaryWordsOptions) {
   const [words, setWords] = useState<WordRecord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const usedInSessionRef = useRef<Set<string>>(new Set());
@@ -26,18 +30,32 @@ export function usePictionaryWords({ difficulty }: UsePictionaryWordsOptions) {
 
     async function fetchWords() {
       setIsLoading(true);
-      const { data, error } = await supabase
+
+      let query = supabase
         .from("game_words")
         .select("id, word, used_count, last_used_at")
         .eq("game_slug", "pictionary")
-        .eq("difficulty", difficulty)
         .order("used_count", { ascending: true })
         .order("last_used_at", { ascending: true, nullsFirst: true });
 
+      if (difficulty !== "any") {
+        query = query.eq("difficulty", difficulty);
+      }
+
+      if (categories.length > 0) {
+        query = query.in("category", categories);
+      }
+
+      const { data, error } = await query;
+
       if (!cancelled) {
         if (error || !data || data.length === 0) {
-          // Fallback to local constants if DB is unavailable
-          const fallback = WORD_LISTS[difficulty].map((w, i) => ({
+          // Fallback to local constants — apply difficulty filter only (no category fallback)
+          const difficultyKey = difficulty === "any" ? null : difficulty;
+          const fallbackWords = difficultyKey
+            ? WORD_LISTS[difficultyKey]
+            : [...WORD_LISTS.easy, ...WORD_LISTS.medium, ...WORD_LISTS.hard];
+          const fallback = fallbackWords.map((w, i) => ({
             id: String(i),
             word: w,
             used_count: 0,
@@ -55,12 +73,14 @@ export function usePictionaryWords({ difficulty }: UsePictionaryWordsOptions) {
     return () => {
       cancelled = true;
     };
-  }, [difficulty]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [difficulty, categories.join(",")]);
 
   const pickWord = useCallback((): string => {
     if (words.length === 0) {
-      // Emergency fallback
-      const list = WORD_LISTS[difficulty];
+      // Emergency fallback — use medium if difficulty is "any"
+      const key = difficulty === "any" ? "medium" : difficulty;
+      const list = WORD_LISTS[key];
       return list[Math.floor(Math.random() * list.length)];
     }
 

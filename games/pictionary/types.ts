@@ -30,5 +30,6 @@ export interface PictionaryGuess {
 export interface PictionarySettings {
   roundsPerTeam: number;
   timerDuration: number;
-  wordDifficulty: "easy" | "medium" | "hard";
+  wordDifficulty: "easy" | "medium" | "hard" | "any";
+  wordCategories: string[];
 }

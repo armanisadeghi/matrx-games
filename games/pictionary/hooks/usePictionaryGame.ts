@@ -32,6 +32,7 @@ export function usePictionaryGame({
 
   const { pickWord, markWordUsed, resetSessionUsage } = usePictionaryWords({
     difficulty: settings.wordDifficulty,
+    categories: settings.wordCategories,
   });
 
   const getTeams = useCallback(() => {
