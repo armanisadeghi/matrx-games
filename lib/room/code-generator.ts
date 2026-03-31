@@ -11,7 +11,8 @@ export function generateRoomCode(length = 6): string {
 }
 
 export function getRoomShareUrl(roomCode: string): string {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_APP_URL || "https://www.gamematrx.com/";
+  const baseUrl = (
+    process.env.NEXT_PUBLIC_APP_URL || "https://www.gamematrx.com"
+  ).replace(/\/$/, "");
   return `${baseUrl}/play/${roomCode}`;
 }
