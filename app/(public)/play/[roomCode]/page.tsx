@@ -20,8 +20,8 @@ export default function JoinViaLinkPage() {
 
   const handleJoin = async () => {
     const name = displayName.trim();
-    if (!name) {
-      toast.error("Please enter your name");
+    if (name.length < 3) {
+      toast.error("Name must be at least 3 characters");
       return;
     }
 
