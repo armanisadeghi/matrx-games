@@ -36,7 +36,7 @@ export function GuesserView({
 
   const handleSubmit = () => {
     const trimmed = input.trim();
-    if (!trimmed || !isGuessing) return;
+    if (trimmed.length < 3 || !isGuessing) return;
     onGuess(trimmed);
     setInput("");
   };
@@ -128,7 +128,6 @@ export function GuesserView({
           />
           <Button
             onClick={handleSubmit}
-            disabled={!input.trim()}
             className="h-14 w-14 shrink-0 bg-[oklch(0.7_0.18_260)] text-white hover:bg-[oklch(0.6_0.18_260)]"
             size="icon"
           >

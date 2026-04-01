@@ -14,7 +14,10 @@ export default function JoinViaLinkPage() {
   const params = useParams<{ roomCode: string }>();
   const router = useRouter();
   const [displayName, setDisplayName] = useState(
-    () => (typeof window !== "undefined" ? localStorage.getItem("display_name") : null) ?? ""
+    () =>
+      (typeof window !== "undefined"
+        ? localStorage.getItem("display_name")
+        : null) ?? "",
   );
   const [isJoining, setIsJoining] = useState(false);
 
@@ -87,11 +90,7 @@ export default function JoinViaLinkPage() {
               autoFocus
             />
           </div>
-          <Button
-            onClick={handleJoin}
-            disabled={!displayName.trim() || isJoining}
-            className="w-full"
-          >
+          <Button onClick={handleJoin} disabled={isJoining} className="w-full">
             {isJoining ? (
               <>
                 <Loader2 className="mr-1 h-4 w-4 animate-spin" />
