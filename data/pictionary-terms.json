@@ -1,0 +1,131 @@
+{
+  "all_categories": [
+    "Movies & TV",
+    "Food & Cooking",
+    "Travel & Adventure",
+    "Music & Performance",
+    "Modern Life & Technology",
+    "Sports & Fitness",
+    "Animals & Nature",
+    "Jobs & Occupations",
+    "Science & Space",
+    "History & Mythology",
+    "Literature & Books",
+    "Art & Design",
+    "Holidays & Celebrations",
+    "Games & Hobbies",
+    "Fashion & Style",
+    "Health & Wellness",
+    "Architecture & Buildings",
+    "Emotions & Feelings",
+    "Weather & Natural Disasters",
+    "Household Items",
+    "School & Education",
+    "Transportation & Vehicles",
+    "Superheroes & Villains",
+    "Fairy Tales & Folklore",
+    "Business & Finance",
+    "Gardening & Plants",
+    "Ocean Life & Sea Creatures",
+    "Famous Landmarks",
+    "Tools & Hardware",
+    "Myths & Urban Legends",
+    "Idioms & Phrases",
+    "Crime & Mystery",
+    "Prehistoric Life",
+    "Astronomy & Night Sky",
+    "Inventions & Discoveries"
+  ],
+  "categories": [
+    {
+      "category": "Movies & TV",
+      "items": {
+        "easy": "Shark",
+        "medium": "Drive-through movie theater",
+        "hard": "Plot twist",
+        "very_hard": "Cliffhanger"
+      }
+    },
+    {
+      "category": "Food & Cooking",
+      "items": {
+        "easy": "Pizza slice",
+        "medium": "Sushi chef rolling a roll",
+        "hard": "Food coma",
+        "very_hard": "Acquired taste"
+      }
+    },
+    {
+      "category": "Travel & Adventure",
+      "items": {
+        "easy": "Suitcase",
+        "medium": "Airport security line",
+        "hard": "Jet lag",
+        "very_hard": "Culture shock"
+      }
+    },
+    {
+      "category": "Music & Performance",
+      "items": {
+        "easy": "Guitar",
+        "medium": "Battle of the bands",
+        "hard": "Dropping the bass",
+        "very_hard": "One-hit wonder"
+      }
+    },
+    {
+      "category": "Modern Life & Technology",
+      "items": {
+        "easy": "Smartphone",
+        "medium": "Video call with family",
+        "hard": "Going viral",
+        "very_hard": "Digital detox"
+      }
+    },
+    {
+      "category": "Idioms & Phrases",
+      "items": {
+        "easy": "Piece of cake",
+        "medium": "Break a leg",
+        "hard": "Elephant in the room",
+        "very_hard": "Barking up the wrong tree"
+      }
+    },
+    {
+      "category": "Crime & Mystery",
+      "items": {
+        "easy": "Magnifying glass",
+        "medium": "Police tape",
+        "hard": "Red herring",
+        "very_hard": "Alibi"
+      }
+    },
+    {
+      "category": "Prehistoric Life",
+      "items": {
+        "easy": "Dinosaur egg",
+        "medium": "Caveman painting",
+        "hard": "Woolly mammoth",
+        "very_hard": "Natural selection"
+      }
+    },
+    {
+      "category": "Astronomy & Night Sky",
+      "items": {
+        "easy": "Crescent moon",
+        "medium": "Shooting star",
+        "hard": "Solar eclipse",
+        "very_hard": "Light-year"
+      }
+    },
+    {
+      "category": "Inventions & Discoveries",
+      "items": {
+        "easy": "Lightbulb",
+        "medium": "Printing press",
+        "hard": "Gravity",
+        "very_hard": "Eureka moment"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3516 @@
+{
+  "all_categories": [
+    "Movies & TV",
+    "Food & Cooking",
+    "Travel & Adventure",
+    "Music & Performance",
+    "Modern Life & Technology",
+    "Sports & Fitness",
+    "Animals & Nature",
+    "Jobs & Occupations",
+    "Science & Space",
+    "History & Mythology",
+    "Literature & Books",
+    "Art & Design",
+    "Holidays & Celebrations",
+    "Games & Hobbies",
+    "Fashion & Style",
+    "Health & Wellness",
+    "Architecture & Buildings",
+    "Emotions & Feelings",
+    "Weather & Natural Disasters",
+    "Household Items",
+    "School & Education",
+    "Transportation & Vehicles",
+    "Superheroes & Villains",
+    "Fairy Tales & Folklore",
+    "Business & Finance",
+    "Gardening & Plants",
+    "Ocean Life & Sea Creatures",
+    "Famous Landmarks",
+    "Tools & Hardware",
+    "Myths & Urban Legends",
+    "Idioms & Phrases",
+    "Crime & Mystery",
+    "Prehistoric Life",
+    "Astronomy & Night Sky",
+    "Inventions & Discoveries",
+    "Magic & Fantasy",
+    "Camping & Outdoors",
+    "Circus & Carnival",
+    "Pirates & Treasure",
+    "Robots & AI",
+    "Dance & Movement",
+    "Bugs & Insects",
+    "Desserts & Sweets",
+    "Winter & Ice",
+    "Beach & Summer",
+    "Toys & Childhood",
+    "Farm Life",
+    "Jungle & Safari",
+    "Nightlife & Parties",
+    "Weddings & Romance",
+    "Board Games & Puzzles",
+    "Bathroom & Grooming",
+    "Office Life",
+    "Monsters & Creatures",
+    "Cowboys & Wild West",
+    "Space Travel & Sci-Fi",
+    "Medieval & Knights",
+    "Survival & Wilderness",
+    "Photography & Film",
+    "Comedy & Humor",
+    "Breakfast & Morning",
+    "Ninjas & Martial Arts",
+    "Underground & Caves",
+    "Royalty & Castles",
+    "Street Food & Markets"
+  ],
+  "categories": [
+    {
+      "category": "Movies & TV",
+      "items": {
+        "easy": [
+          "Shark",
+          "Popcorn",
+          "Movie screen",
+          "Remote control",
+          "3D glasses",
+          "Movie ticket",
+          "Red carpet",
+          "Alien spaceship",
+          "Superhero cape",
+          "Treasure map"
+        ],
+        "medium": [
+          "Drive-in movie theater",
+          "Zombie apocalypse",
+          "Car chase scene",
+          "Cooking show",
+          "Reality TV competition",
+          "Movie villain laughing",
+          "Award ceremony",
+          "Binge watching",
+          "Stunt double",
+          "Game show wheel"
+        ],
+        "hard": [
+          "Plot twist",
+          "Breaking the fourth wall",
+          "Jump scare",
+          "Box office hit",
+          "Blooper reel",
+          "Method acting",
+          "Director's cut",
+          "Spin-off series",
+          "Character development",
+          "Post-credits scene"
+        ],
+        "very_hard": [
+          "Cliffhanger",
+          "Unreliable narrator",
+          "Foreshadowing",
+          "Suspension of disbelief",
+          "Typecasting",
+          "Dramatic irony",
+          "Oscar bait",
+          "Cult classic",
+          "Jumping the shark",
+          "MacGuffin"
+        ]
+      }
+    },
+    {
+      "category": "Food & Cooking",
+      "items": {
+        "easy": [
+          "Pizza slice",
+          "Fried egg",
+          "Birthday cake",
+          "Hot dog",
+          "Ice cream cone",
+          "Hamburger",
+          "Banana split",
+          "Taco",
+          "Donut",
+          "Peanut butter and jelly sandwich"
+        ],
+        "medium": [
+          "Sushi chef rolling a roll",
+          "Flipping a pancake",
+          "Fondue pot",
+          "Soup kitchen",
+          "Barbecue grill smoking",
+          "Deep frying a turkey",
+          "Chopping onions and crying",
+          "Food truck",
+          "Potluck dinner",
+          "Brunch buffet"
+        ],
+        "hard": [
+          "Food coma",
+          "Comfort food",
+          "Leftovers surprise",
+          "Secret family recipe",
+          "Molecular gastronomy",
+          "Five-second rule",
+          "Midnight snack attack",
+          "Hangry",
+          "Brain freeze",
+          "Guilty pleasure meal"
+        ],
+        "very_hard": [
+          "Acquired taste",
+          "Umami",
+          "Farm to table",
+          "Deconstructed dish",
+          "Palette cleanser",
+          "Fusion cuisine",
+          "Mise en place",
+          "Al dente",
+          "Blind taste test",
+          "Food critic"
+        ]
+      }
+    },
+    {
+      "category": "Travel & Adventure",
+      "items": {
+        "easy": [
+          "Suitcase",
+          "Passport",
+          "Airplane",
+          "Map",
+          "Compass",
+          "Tent",
+          "Backpack",
+          "Camera tourist",
+          "Beach umbrella",
+          "Cruise ship"
+        ],
+        "medium": [
+          "Airport security line",
+          "Lost luggage",
+          "Road trip with friends",
+          "Zip lining",
+          "White water rafting",
+          "Snorkeling with fish",
+          "Hitchhiking",
+          "Souvenir shopping",
+          "Passport stamp collection",
+          "Bungee jumping"
+        ],
+        "hard": [
+          "Jet lag",
+          "Travel bug",
+          "Off the beaten path",
+          "Layover in a foreign city",
+          "Tourist trap",
+          "Couch surfing",
+          "Bucket list destination",
+          "Backpacking through Europe",
+          "Language barrier",
+          "Wanderlust"
+        ],
+        "very_hard": [
+          "Culture shock",
+          "Finding yourself abroad",
+          "Overtourism",
+          "Voluntourism",
+          "Digital nomad lifestyle",
+          "Reverse culture shock",
+          "Gap year",
+          "Eco-tourism",
+          "Travel fatigue",
+          "Bleisure trip"
+        ]
+      }
+    },
+    {
+      "category": "Music & Performance",
+      "items": {
+        "easy": [
+          "Guitar",
+          "Drum set",
+          "Microphone",
+          "Piano",
+          "Headphones",
+          "Violin",
+          "Trumpet",
+          "DJ turntable",
+          "Tambourine",
+          "Concert crowd"
+        ],
+        "medium": [
+          "Battle of the bands",
+          "Karaoke night",
+          "Orchestra conductor",
+          "Rock band on tour bus",
+          "Street musician",
+          "Music video filming",
+          "Backstage pass",
+          "Crowd surfing",
+          "Air guitar competition",
+          "Two-person duet"
+        ],
+        "hard": [
+          "Dropping the bass",
+          "Stage fright",
+          "Encore performance",
+          "Earworm song stuck in head",
+          "Lip syncing scandal",
+          "Mosh pit",
+          "Unplugged session",
+          "Garage band practice",
+          "Musical prodigy",
+          "Sound check"
+        ],
+        "very_hard": [
+          "One-hit wonder",
+          "Perfect pitch",
+          "Ghost writer for a song",
+          "Sampling a classic song",
+          "Concept album",
+          "Musical chairs of genres",
+          "Artistic integrity vs selling out",
+          "Synesthesia",
+          "Tone deaf",
+          "Creative block"
+        ]
+      }
+    },
+    {
+      "category": "Modern Life & Technology",
+      "items": {
+        "easy": [
+          "Smartphone",
+          "Laptop",
+          "Selfie",
+          "WiFi symbol",
+          "Charging cable",
+          "Robot vacuum",
+          "Smart watch",
+          "Drone",
+          "Video game controller",
+          "QR code"
+        ],
+        "medium": [
+          "Video call with family",
+          "Online shopping spree",
+          "Password forgotten",
+          "Social media scrolling at 3am",
+          "GPS navigation wrong turn",
+          "Food delivery app",
+          "Smart home assistant",
+          "Unboxing video",
+          "Low battery panic",
+          "Zoom meeting in pajamas"
+        ],
+        "hard": [
+          "Going viral",
+          "Doomscrolling",
+          "Catfishing",
+          "Algorithm bubble",
+          "Cancel culture",
+          "Inbox zero",
+          "Digital footprint",
+          "Rage clicking",
+          "Blue light insomnia",
+          "Reply all disaster"
+        ],
+        "very_hard": [
+          "Digital detox",
+          "Cryptocurrency crash",
+          "Artificial intelligence bias",
+          "Net neutrality",
+          "Planned obsolescence",
+          "Deep fake",
+          "Right to be forgotten",
+          "Blockchain explained simply",
+          "Echo chamber",
+          "Parasocial relationship"
+        ]
+      }
+    },
+    {
+      "category": "Sports & Fitness",
+      "items": {
+        "easy": [
+          "Basketball hoop",
+          "Soccer ball",
+          "Tennis racket",
+          "Swimming pool",
+          "Bowling pins",
+          "Boxing gloves",
+          "Skateboard",
+          "Treadmill",
+          "Yoga mat",
+          "Dumbbell"
+        ],
+        "medium": [
+          "Slam dunk",
+          "Penalty kick",
+          "Relay race baton pass",
+          "Figure skating spin",
+          "Sumo wrestling",
+          "Rock climbing wall",
+          "Cheerleading pyramid",
+          "Marathon finish line",
+          "Dodgeball game",
+          "Arm wrestling match"
+        ],
+        "hard": [
+          "Sportsmanship",
+          "Personal best record",
+          "Monday morning quarterback",
+          "Fantasy football draft",
+          "Throwing in the towel",
+          "Buzzer beater shot",
+          "Runner's high",
+          "Trash talking opponent",
+          "Fair-weather fan",
+          "Hail Mary pass"
+        ],
+        "very_hard": [
+          "Choking under pressure",
+          "Icing the kicker",
+          "Tanking a season",
+          "Rebuilding year",
+          "Home field advantage",
+          "Scouting report",
+          "Cinderella story team",
+          "Performance enhancing doubt",
+          "The yips",
+          "Momentum shift"
+        ]
+      }
+    },
+    {
+      "category": "Animals & Nature",
+      "items": {
+        "easy": [
+          "Dog chasing tail",
+          "Cat in a box",
+          "Elephant",
+          "Penguin",
+          "Butterfly",
+          "Shark fin",
+          "Parrot on shoulder",
+          "Frog on lily pad",
+          "Kangaroo",
+          "Giraffe eating leaves"
+        ],
+        "medium": [
+          "Bear catching salmon",
+          "Chameleon changing colors",
+          "Birds flying in V formation",
+          "Monkey swinging on vines",
+          "Squirrel hoarding nuts",
+          "Wolf howling at moon",
+          "Peacock showing feathers",
+          "Dolphin jumping through hoop",
+          "Raccoon raiding trash can",
+          "Beaver building a dam"
+        ],
+        "hard": [
+          "Animal camouflage",
+          "Migration pattern",
+          "Symbiotic relationship",
+          "Apex predator",
+          "Playing dead opossum",
+          "Nocturnal animal",
+          "Pack mentality",
+          "Endangered species",
+          "Hibernation",
+          "Territorial marking"
+        ],
+        "very_hard": [
+          "Survival of the fittest",
+          "Bioluminescence",
+          "Echolocation",
+          "Mutualism",
+          "Invasive species taking over",
+          "Sixth extinction",
+          "Anthropomorphism",
+          "Imprinting at birth",
+          "Biomimicry",
+          "Convergent evolution"
+        ]
+      }
+    },
+    {
+      "category": "Jobs & Occupations",
+      "items": {
+        "easy": [
+          "Firefighter",
+          "Doctor with stethoscope",
+          "Chef with hat",
+          "Police officer",
+          "Teacher at chalkboard",
+          "Mailman delivering",
+          "Astronaut in space",
+          "Dentist",
+          "Farmer on tractor",
+          "Pilot in cockpit"
+        ],
+        "medium": [
+          "Lifeguard saving someone",
+          "Mechanic under a car",
+          "Magician pulling rabbit from hat",
+          "Zookeeper feeding animals",
+          "Window washer on skyscraper",
+          "Barista making latte art",
+          "Archaeologist on a dig",
+          "Plumber fixing pipe",
+          "Dog walker with many dogs",
+          "Lumberjack chopping tree"
+        ],
+        "hard": [
+          "Undercover detective",
+          "Influencer at work",
+          "Air traffic controller",
+          "Whistleblower",
+          "Standby surgeon",
+          "Crisis negotiator",
+          "Ghost writer",
+          "Corporate spy",
+          "Ethical hacker",
+          "Dream interpreter"
+        ],
+        "very_hard": [
+          "Imposter syndrome at work",
+          "Burnout",
+          "Work-life balance",
+          "Glass ceiling",
+          "Career pivot",
+          "Golden handcuffs",
+          "Quiet quitting",
+          "Moonlighting",
+          "Networking event small talk",
+          "Sunday scaries"
+        ]
+      }
+    },
+    {
+      "category": "Science & Space",
+      "items": {
+        "easy": [
+          "Rocket ship",
+          "Test tube",
+          "Magnet",
+          "Volcano erupting",
+          "Microscope",
+          "Planet Saturn with rings",
+          "Lightning bolt",
+          "Rainbow",
+          "Fossil",
+          "Solar system"
+        ],
+        "medium": [
+          "Lab explosion",
+          "Mars rover",
+          "DNA double helix",
+          "Newton's apple falling",
+          "Black hole",
+          "Chemistry experiment bubbling",
+          "Tectonic plates shifting",
+          "Asteroid hitting Earth",
+          "Space station",
+          "Cloud formation types"
+        ],
+        "hard": [
+          "Speed of light",
+          "Quantum physics",
+          "Greenhouse effect",
+          "Butterfly effect",
+          "Schrödinger's cat",
+          "Theory of relativity",
+          "Photosynthesis",
+          "Dark matter",
+          "Evolution timeline",
+          "Entropy"
+        ],
+        "very_hard": [
+          "String theory",
+          "Observer effect",
+          "Occam's razor",
+          "Heisenberg uncertainty principle",
+          "Fermi paradox",
+          "Heat death of the universe",
+          "Quantum entanglement",
+          "Multiverse theory",
+          "Emergence",
+          "Wave-particle duality"
+        ]
+      }
+    },
+    {
+      "category": "History & Mythology",
+      "items": {
+        "easy": [
+          "Pirate flag",
+          "Sword and shield",
+          "Crown",
+          "Egyptian pyramid",
+          "Knight in armor",
+          "Viking ship",
+          "Castle with moat",
+          "Treasure chest",
+          "Torch",
+          "Ancient scroll"
+        ],
+        "medium": [
+          "Trojan horse",
+          "Gladiator arena fight",
+          "Boston Tea Party",
+          "Gold rush prospector",
+          "Medusa",
+          "Samurai warrior",
+          "Cleopatra",
+          "Robin Hood stealing from rich",
+          "Norse god Thor",
+          "Lewis and Clark expedition"
+        ],
+        "hard": [
+          "Renaissance period",
+          "Industrial revolution",
+          "Cold War tension",
+          "French Revolution guillotine",
+          "Prohibition era speakeasy",
+          "Fall of Rome",
+          "Silk Road trading",
+          "Pandora's box",
+          "Achilles heel",
+          "Manifest destiny"
+        ],
+        "very_hard": [
+          "Revisionist history",
+          "Dark Ages enlightenment",
+          "Cultural imperialism",
+          "Pyrrhic victory",
+          "Bread and circuses",
+          "Sisyphean task",
+          "Machiavellian politics",
+          "Gilded Age inequality",
+          "Historical amnesia",
+          "The fog of war"
+        ]
+      }
+    },
+    {
+      "category": "Literature & Books",
+      "items": {
+        "easy": [
+          "Open book",
+          "Bookmark",
+          "Library",
+          "Fairy tale castle",
+          "Quill and ink",
+          "Bookworm",
+          "Stack of books",
+          "Reading glasses",
+          "Typewriter",
+          "Storyteller by campfire"
+        ],
+        "medium": [
+          "Writer with crumpled papers",
+          "Book club meeting",
+          "Detective with magnifying glass",
+          "Wizard casting a spell",
+          "Ship in a bottle (adventure story)",
+          "Pop-up book",
+          "Comic strip panels",
+          "Book signing event",
+          "Speed reading",
+          "Diary with lock and key"
+        ],
+        "hard": [
+          "Plot hole",
+          "Unreliable narrator",
+          "Red herring in a story",
+          "Writer's block",
+          "Poetic justice",
+          "Page-turner",
+          "Ghostwriter",
+          "Banned book",
+          "Allegory",
+          "Cliff notes"
+        ],
+        "very_hard": [
+          "Stream of consciousness",
+          "Magical realism",
+          "Death of the author",
+          "Kafkaesque situation",
+          "Lost in translation",
+          "Between the lines",
+          "Orwellian society",
+          "Catch-22",
+          "Purple prose",
+          "Deus ex machina"
+        ]
+      }
+    },
+    {
+      "category": "Art & Design",
+      "items": {
+        "easy": [
+          "Paint palette",
+          "Paint brush",
+          "Sculpture",
+          "Crayons",
+          "Easel with canvas",
+          "Color wheel",
+          "Clay pot",
+          "Stick figure",
+          "Art gallery",
+          "Spray paint can"
+        ],
+        "medium": [
+          "Bob Ross painting happy trees",
+          "Art museum heist",
+          "Abstract painting",
+          "Pottery wheel spinning",
+          "Graffiti on a wall",
+          "Art class model posing",
+          "Mona Lisa smile",
+          "Mosaic made of tiles",
+          "Origami crane",
+          "Tie-dye shirt"
+        ],
+        "hard": [
+          "Art forgery",
+          "Beauty is in the eye of the beholder",
+          "Negative space",
+          "Mixed media collage",
+          "Avant-garde movement",
+          "Artistic license",
+          "Art block",
+          "Impressionism style",
+          "Vanishing point perspective",
+          "Minimalism vs maximalism"
+        ],
+        "very_hard": [
+          "Art imitating life",
+          "The sublime",
+          "Postmodern irony",
+          "Conceptual art",
+          "Synaesthetic art experience",
+          "Wabi-sabi",
+          "Chiaroscuro",
+          "Trompe l'oeil",
+          "Gestalt principle",
+          "Anti-art"
+        ]
+      }
+    },
+    {
+      "category": "Holidays & Celebrations",
+      "items": {
+        "easy": [
+          "Christmas tree",
+          "Birthday cake with candles",
+          "Jack-o-lantern",
+          "Fireworks",
+          "Easter egg",
+          "Valentine heart",
+          "Thanksgiving turkey",
+          "Party hat",
+          "Confetti",
+          "Wrapped present"
+        ],
+        "medium": [
+          "New Year's Eve countdown",
+          "Trick or treating kids",
+          "Ugly sweater party",
+          "Piñata smashing",
+          "Thanksgiving food coma",
+          "Gender reveal party",
+          "Surprise birthday party",
+          "Haunted house walkthrough",
+          "Fourth of July barbecue",
+          "Secret Santa gift exchange"
+        ],
+        "hard": [
+          "Holiday spirit",
+          "Post-holiday blues",
+          "New Year's resolution failing",
+          "Last-minute gift shopping panic",
+          "Awkward family reunion",
+          "Food fight at Thanksgiving",
+          "Holiday travel chaos",
+          "Competitive decorating neighbors",
+          "Regifting",
+          "Party crasher"
+        ],
+        "very_hard": [
+          "War on Christmas debate",
+          "Commercialization of holidays",
+          "Seasonal depression",
+          "Hallmark moment",
+          "Festivus airing of grievances",
+          "Sugar rush then crash",
+          "Nostalgia for childhood holidays",
+          "Cultural appropriation of celebrations",
+          "Holiday burnout",
+          "Time capsule ceremony"
+        ]
+      }
+    },
+    {
+      "category": "Games & Hobbies",
+      "items": {
+        "easy": [
+          "Dice",
+          "Puzzle piece",
+          "Chess pieces",
+          "Playing cards",
+          "Kite flying",
+          "Yo-yo",
+          "Fishing rod",
+          "Dart board",
+          "Bicycle",
+          "Video game"
+        ],
+        "medium": [
+          "Escape room",
+          "Scrabble fight over a word",
+          "Jenga tower wobbling",
+          "Dungeons and Dragons",
+          "Paintball battle",
+          "Go-kart racing",
+          "Capture the flag",
+          "Hide and seek champion",
+          "Trivia night at a bar",
+          "Model train set"
+        ],
+        "hard": [
+          "Beginner's luck",
+          "Sore loser flipping the board",
+          "Speed run",
+          "Pay to win",
+          "Easter egg in a game",
+          "Wiki rabbit hole",
+          "Min-maxing a character",
+          "Rage quit",
+          "Rubber duck debugging",
+          "Analysis paralysis"
+        ],
+        "very_hard": [
+          "Metagaming",
+          "Flow state while gaming",
+          "Gamification of life",
+          "Prisoner's dilemma",
+          "The Monty Hall problem",
+          "Diminishing returns",
+          "Sunk cost fallacy in a game",
+          "Completionist mentality",
+          "Speedrunner glitch exploit",
+          "Random number generator luck"
+        ]
+      }
+    },
+    {
+      "category": "Fashion & Style",
+      "items": {
+        "easy": [
+          "Sunglasses",
+          "High heels",
+          "Cowboy hat",
+          "Scarf",
+          "Bow tie",
+          "Sneakers",
+          "Crown",
+          "Handbag",
+          "Rain boots",
+          "Top hat and monocle"
+        ],
+        "medium": [
+          "Fashion runway walk",
+          "Wardrobe malfunction",
+          "Shopping for jeans",
+          "Putting on a tie",
+          "Matching couple outfits",
+          "Thrift store treasure hunting",
+          "Getting measured by a tailor",
+          "Closet overflowing with clothes",
+          "Fashion magazine cover",
+          "Tangled necklace"
+        ],
+        "hard": [
+          "Fashion faux pas",
+          "Dressed to kill",
+          "Fast fashion guilt",
+          "Emperor's new clothes",
+          "Power dressing",
+          "Outfit repeater shame",
+          "Retail therapy",
+          "Capsule wardrobe",
+          "Statement piece",
+          "Vintage vs outdated"
+        ],
+        "very_hard": [
+          "Fashion is cyclical",
+          "Haute couture vs ready to wear",
+          "Dress code ambiguity",
+          "Sustainable fashion movement",
+          "Normcore",
+          "Fashion week exhaustion",
+          "Cultural appropriation in fashion",
+          "Quiet luxury",
+          "Anti-fashion",
+          "Dopamine dressing"
+        ]
+      }
+    },
+    {
+      "category": "Health & Wellness",
+      "items": {
+        "easy": [
+          "Bandage",
+          "Thermometer",
+          "Stethoscope",
+          "Apple for health",
+          "Water bottle",
+          "Running shoes",
+          "Yoga pose",
+          "Pill bottle",
+          "Weight scale",
+          "Toothbrush"
+        ],
+        "medium": [
+          "Getting a shot at the doctor",
+          "Meditation session",
+          "Broken arm in cast",
+          "Catching a cold sneezing",
+          "Physical therapy exercises",
+          "Sleep walking",
+          "Counting calories",
+          "Allergic reaction hives",
+          "Ice pack on injury",
+          "Taking vitamins"
+        ],
+        "hard": [
+          "Placebo effect",
+          "Mind over matter",
+          "Phantom limb",
+          "Stress eating",
+          "Runner's high",
+          "Immune system fighting",
+          "Self-care day",
+          "Gut feeling",
+          "Sleep paralysis",
+          "Side effects"
+        ],
+        "very_hard": [
+          "Hypochondriac",
+          "Wellness industry",
+          "Psychosomatic illness",
+          "Herd immunity",
+          "Nocebo effect",
+          "Holistic medicine",
+          "Burnout recovery",
+          "Medical gaslighting",
+          "Biohacking",
+          "Mind-body connection"
+        ]
+      }
+    },
+    {
+      "category": "Architecture & Buildings",
+      "items": {
+        "easy": [
+          "House",
+          "Skyscraper",
+          "Bridge",
+          "Lighthouse",
+          "Windmill",
+          "Castle",
+          "Barn",
+          "Igloo",
+          "Log cabin",
+          "Church with steeple"
+        ],
+        "medium": [
+          "Leaning Tower of Pisa",
+          "Treehouse",
+          "Building demolition",
+          "Underground tunnel",
+          "Revolving door stuck",
+          "Glass ceiling office",
+          "Elevator ride awkward",
+          "Moving into a new house",
+          "Haunted mansion",
+          "Rooftop garden"
+        ],
+        "hard": [
+          "Blueprint reading",
+          "Urban sprawl",
+          "House of cards",
+          "Gentrification",
+          "Feng shui arrangement",
+          "Load-bearing wall",
+          "Condemned building",
+          "Architect's vision",
+          "Building code violation",
+          "Open concept debate"
+        ],
+        "very_hard": [
+          "Brutalism",
+          "Form follows function",
+          "Not in my backyard mentality",
+          "Adaptive reuse",
+          "Vertical city concept",
+          "McMansion",
+          "Liminal space",
+          "Sacred geometry in design",
+          "Solarpunk architecture",
+          "Organic architecture"
+        ]
+      }
+    },
+    {
+      "category": "Emotions & Feelings",
+      "items": {
+        "easy": [
+          "Happy face",
+          "Crying",
+          "Angry face",
+          "Heart (love)",
+          "Scared person",
+          "Laughing hard",
+          "Surprised face",
+          "Thumbs up",
+          "Facepalm",
+          "Sleepy yawn"
+        ],
+        "medium": [
+          "Butterflies in stomach",
+          "Walking on eggshells",
+          "Green with envy",
+          "Heartbreak",
+          "Road rage",
+          "Stage fright",
+          "Nervous sweating",
+          "Tear of joy",
+          "Belly laugh",
+          "Blushing from embarrassment"
+        ],
+        "hard": [
+          "Bittersweet",
+          "Nostalgia",
+          "Schadenfreude",
+          "Emotional baggage",
+          "Mixed feelings",
+          "Imposter syndrome",
+          "Empathy",
+          "Catharsis",
+          "Secondhand embarrassment",
+          "Emotional rollercoaster"
+        ],
+        "very_hard": [
+          "Existential dread",
+          "Saudade",
+          "Ennui",
+          "Cognitive dissonance",
+          "Emotional intelligence",
+          "Apathy vs antipathy",
+          "Sublimation",
+          "Weltschmerz",
+          "Toxic positivity",
+          "Emotional labor"
+        ]
+      }
+    },
+    {
+      "category": "Weather & Natural Disasters",
+      "items": {
+        "easy": [
+          "Umbrella in rain",
+          "Snowman",
+          "Sun with rays",
+          "Cloud",
+          "Lightning bolt",
+          "Tornado",
+          "Rainbow",
+          "Snowflake",
+          "Puddle splash",
+          "Windy day"
+        ],
+        "medium": [
+          "Flood with floating car",
+          "Hurricane with palm trees bending",
+          "Earthquake shaking buildings",
+          "Hailstorm on car",
+          "Avalanche on mountain",
+          "Wildfire spreading",
+          "Mudslide down hill",
+          "Blizzard white-out",
+          "Dust devil",
+          "Fog so thick you can't see"
+        ],
+        "hard": [
+          "Climate change effects",
+          "Eye of the storm calmness",
+          "Weathering the storm",
+          "Acid rain",
+          "El Niño",
+          "Storm chaser",
+          "Silver lining",
+          "Flash flood warning",
+          "Heat dome",
+          "Atmospheric river"
+        ],
+        "very_hard": [
+          "Microclimate",
+          "Calm before the storm",
+          "Tipping point in climate",
+          "Weather vs climate debate",
+          "Snowball Earth theory",
+          "Butterfly effect on weather",
+          "Once in a lifetime storm every year",
+          "Polar vortex disruption",
+          "Urban heat island",
+          "Thermal inversion"
+        ]
+      }
+    },
+    {
+      "category": "Household Items",
+      "items": {
+        "easy": [
+          "Lamp",
+          "Couch",
+          "Television",
+          "Clock",
+          "Broom",
+          "Pillow",
+          "Scissors",
+          "Key",
+          "Mirror",
+          "Blanket"
+        ],
+        "medium": [
+          "Vacuum cleaner robot",
+          "Leaky faucet dripping",
+          "Junk drawer mess",
+          "Clogged toilet plunger",
+          "Smoke detector beeping",
+          "Tangled Christmas lights",
+          "Assembling IKEA furniture",
+          "Refrigerator magnets",
+          "Squeaky door hinge",
+          "Lost TV remote in couch"
+        ],
+        "hard": [
+          "Spring cleaning frenzy",
+          "That one chair that holds all clothes",
+          "Junk mail pile",
+          "Feng shui rearranging",
+          "The everything drawer",
+          "Moving day chaos",
+          "Hoarding tendency",
+          "Appliance graveyard in garage",
+          "Pillow fort engineering",
+          "Couch cushion archaeology"
+        ],
+        "very_hard": [
+          "Planned obsolescence of appliances",
+          "Marie Kondo sparking joy",
+          "Domestic bliss",
+          "Smart home rebellion",
+          "Minimalist lifestyle",
+          "The mental load of housework",
+          "IKEA effect valuing what you build",
+          "That drawer you never open",
+          "The pile system",
+          "Nesting instinct"
+        ]
+      }
+    },
+    {
+      "category": "School & Education",
+      "items": {
+        "easy": [
+          "Chalkboard",
+          "Backpack",
+          "Pencil",
+          "School bus",
+          "Globe",
+          "Report card",
+          "Lunch box",
+          "Eraser",
+          "School bell",
+          "Ruler"
+        ],
+        "medium": [
+          "Pop quiz surprise",
+          "Science fair volcano",
+          "Food fight in cafeteria",
+          "Detention room",
+          "Show and tell presentation",
+          "Field trip bus ride",
+          "Passing notes in class",
+          "Teacher's pet",
+          "Principal's office visit",
+          "Spelling bee competition"
+        ],
+        "hard": [
+          "Senioritis",
+          "Cramming for finals",
+          "Helicopter parenting at school",
+          "Grade inflation",
+          "School cliques",
+          "All-nighter study session",
+          "Teaching to the test",
+          "Valedictorian pressure",
+          "Gap year decision",
+          "Student debt mountain"
+        ],
+        "very_hard": [
+          "Academic dishonesty debate",
+          "Growth mindset vs fixed mindset",
+          "Socratic method teaching",
+          "Ivory tower academics",
+          "School-to-pipeline issues",
+          "Publish or perish",
+          "Dunning-Kruger effect",
+          "Information literacy crisis",
+          "Lifelong learning",
+          "Standardized testing controversy"
+        ]
+      }
+    },
+    {
+      "category": "Transportation & Vehicles",
+      "items": {
+        "easy": [
+          "Car",
+          "Bicycle",
+          "Helicopter",
+          "Motorcycle",
+          "Train",
+          "Sailboat",
+          "Hot air balloon",
+          "Fire truck",
+          "Ambulance",
+          "Skateboard"
+        ],
+        "medium": [
+          "Flat tire on highway",
+          "Parallel parking struggle",
+          "Road trip playlist",
+          "Backseat driver",
+          "Monster truck rally",
+          "Rush hour traffic jam",
+          "Carpool lane merging",
+          "Fender bender accident",
+          "Road construction detour",
+          "Double-decker bus tour"
+        ],
+        "hard": [
+          "Road rage incident",
+          "Sunday driver",
+          "In the fast lane",
+          "Running on fumes",
+          "Highway hypnosis",
+          "Carjacking",
+          "Autonomous driving dilemma",
+          "Left on read at the drive-through",
+          "Tailgating danger",
+          "Four-way stop standoff"
+        ],
+        "very_hard": [
+          "Ship of Theseus paradox",
+          "Last mile problem",
+          "Transit desert",
+          "Induced demand on highways",
+          "Carpooling awkwardness",
+          "Flying car future",
+          "Hyperloop concept",
+          "Infrastructure decay",
+          "Fifteen-minute city",
+          "Phantom traffic jam"
+        ]
+      }
+    },
+    {
+      "category": "Superheroes & Villains",
+      "items": {
+        "easy": [
+          "Cape flying",
+          "Mask",
+          "Lightning bolt symbol",
+          "Shield",
+          "Web shooting",
+          "Bat signal",
+          "Laser eyes",
+          "Invisible person",
+          "Super strength lifting car",
+          "Villain laughing"
+        ],
+        "medium": [
+          "Hero saving person from building",
+          "Villain lair with traps",
+          "Superhero changing in phone booth",
+          "Robot army attacking city",
+          "Superhero team assembling",
+          "Villain monologue",
+          "Secret identity reveal",
+          "Mind control powers",
+          "Force field bubble",
+          "Time travel hero"
+        ],
+        "hard": [
+          "With great power comes great responsibility",
+          "Anti-hero",
+          "Kryptonite weakness",
+          "Origin story",
+          "Double life of a hero",
+          "Turning to the dark side",
+          "Superhero burnout",
+          "Collateral damage from saving the city",
+          "Reformed villain",
+          "Multiverse crisis"
+        ],
+        "very_hard": [
+          "Vigilante justice debate",
+          "Power corrupts absolutely",
+          "The trolley problem superhero version",
+          "Superhero industrial complex",
+          "Chosen one trope subversion",
+          "Necessary evil",
+          "Hero worship",
+          "The mask as a metaphor",
+          "Nemesis as mirror",
+          "Gray morality"
+        ]
+      }
+    },
+    {
+      "category": "Fairy Tales & Folklore",
+      "items": {
+        "easy": [
+          "Magic wand",
+          "Dragon",
+          "Fairy wings",
+          "Pumpkin carriage",
+          "Glass slipper",
+          "Magic mirror",
+          "Genie lamp",
+          "Three little pigs house",
+          "Beanstalk climbing",
+          "Poisoned apple"
+        ],
+        "medium": [
+          "Big bad wolf blowing house down",
+          "Rapunzel letting down hair",
+          "Sleeping Beauty prick spindle",
+          "Goldilocks trying three beds",
+          "Frog turning into prince",
+          "Hansel and Gretel breadcrumb trail",
+          "Rumpelstiltskin spinning gold",
+          "Ugly duckling becoming swan",
+          "Cinderella at midnight",
+          "Pied Piper leading rats"
+        ],
+        "hard": [
+          "Be careful what you wish for",
+          "Fairy godmother intervention",
+          "Happily ever after questioned",
+          "Wolf in sheep's clothing",
+          "Cursed bloodline",
+          "Trickster spirit",
+          "Enchanted forest",
+          "True love's kiss breaking spell",
+          "Moral of the story",
+          "Forbidden room in the castle"
+        ],
+        "very_hard": [
+          "Folk tale reinterpretation",
+          "Collective unconscious in myths",
+          "Archetype of the hero's journey",
+          "Cautionary tale modernized",
+          "Grimm's original dark endings",
+          "Oral tradition evolution",
+          "Maiden mother crone",
+          "Liminal threshold crossing",
+          "Trickster archetype",
+          "The shadow self"
+        ]
+      }
+    },
+    {
+      "category": "Business & Finance",
+      "items": {
+        "easy": [
+          "Piggy bank",
+          "Dollar sign",
+          "Briefcase",
+          "Handshake",
+          "Office desk",
+          "Bar graph going up",
+          "Credit card",
+          "Cash register",
+          "Gold coins stacked",
+          "Sale sign"
+        ],
+        "medium": [
+          "Stock market crash",
+          "Negotiation at a table",
+          "Getting fired from job",
+          "Startup in a garage",
+          "Tax filing deadline",
+          "Money growing on tree",
+          "Shark tank pitch",
+          "Lemonade stand business",
+          "PowerPoint presentation",
+          "Corporate ladder climbing"
+        ],
+        "hard": [
+          "Golden parachute",
+          "Trickle-down economics",
+          "Money laundering",
+          "Hostile takeover",
+          "Pyramid scheme",
+          "Bull vs bear market",
+          "Monopoly in business",
+          "Bankruptcy filing",
+          "Supply and demand",
+          "Creative accounting"
+        ],
+        "very_hard": [
+          "Invisible hand of the market",
+          "Too big to fail",
+          "Opportunity cost",
+          "Moral hazard",
+          "Market correction",
+          "Quantitative easing",
+          "Regulatory capture",
+          "Creative destruction",
+          "Shadow banking",
+          "The wealth gap"
+        ]
+      }
+    },
+    {
+      "category": "Gardening & Plants",
+      "items": {
+        "easy": [
+          "Flower",
+          "Tree",
+          "Watering can",
+          "Cactus",
+          "Sunflower",
+          "Potted plant",
+          "Garden hose",
+          "Wheelbarrow",
+          "Rake and leaves",
+          "Seed packet"
+        ],
+        "medium": [
+          "Planting a garden",
+          "Venus flytrap catching bug",
+          "Lawn mower mowing in lines",
+          "Bonsai tree trimming",
+          "Greenhouse full of plants",
+          "Composting food scraps",
+          "Scarecrow in field",
+          "Topiary animal shape",
+          "Hanging basket overflowing",
+          "Pulling out weeds"
+        ],
+        "hard": [
+          "Green thumb",
+          "Bloom where you're planted",
+          "Growing pains",
+          "Nipping it in the bud",
+          "Dead houseplant guilt",
+          "Root bound plant",
+          "Invasive species spreading",
+          "Companion planting",
+          "Crop rotation",
+          "Plant parenthood obsession"
+        ],
+        "very_hard": [
+          "Grass is always greener",
+          "Fertile ground for ideas",
+          "Perennial vs annual philosophy",
+          "Biophilia hypothesis",
+          "Succession planting",
+          "Mycorrhizal network",
+          "Victory garden revival",
+          "Permaculture design",
+          "Monoculture dangers",
+          "Forest bathing"
+        ]
+      }
+    },
+    {
+      "category": "Ocean Life & Sea Creatures",
+      "items": {
+        "easy": [
+          "Whale",
+          "Octopus",
+          "Starfish",
+          "Seahorse",
+          "Coral reef",
+          "Jellyfish",
+          "Crab",
+          "Sea turtle",
+          "Clam with pearl",
+          "Shark"
+        ],
+        "medium": [
+          "Scuba diver exploring",
+          "Whale breaching out of water",
+          "Shipwreck underwater",
+          "School of fish swimming",
+          "Orca hunting seal",
+          "Giant squid vs whale battle",
+          "Tide pool ecosystem",
+          "Mermaid on a rock",
+          "Deep sea anglerfish",
+          "Surfing a big wave"
+        ],
+        "hard": [
+          "Ocean current",
+          "The deep unknown",
+          "Plastic island in ocean",
+          "Bioluminescent creatures",
+          "Coral bleaching",
+          "Mariana Trench depth",
+          "Red tide",
+          "Sea level rising",
+          "Symbiosis clownfish and anemone",
+          "Overfishing crisis"
+        ],
+        "very_hard": [
+          "The abyss",
+          "Ocean acidification",
+          "Dead zone in the ocean",
+          "Blue economy",
+          "Thalassophobia",
+          "Deep sea gigantism",
+          "Ocean conveyor belt",
+          "Ghost fishing nets",
+          "Whale fall ecosystem",
+          "Microplastic infiltration"
+        ]
+      }
+    },
+    {
+      "category": "Famous Landmarks",
+      "items": {
+        "easy": [
+          "Eiffel Tower",
+          "Statue of Liberty",
+          "Great Wall of China",
+          "Egyptian Pyramids",
+          "Big Ben",
+          "Leaning Tower of Pisa",
+          "Golden Gate Bridge",
+          "Mount Rushmore",
+          "Hollywood sign",
+          "Colosseum"
+        ],
+        "medium": [
+          "Machu Picchu on a mountain",
+          "Stonehenge circle",
+          "Niagara Falls",
+          "Taj Mahal reflection",
+          "Christ the Redeemer statue",
+          "Great Barrier Reef aerial view",
+          "Mount Everest summit",
+          "Grand Canyon",
+          "Northern Lights over Iceland",
+          "Angkor Wat temple"
+        ],
+        "hard": [
+          "Landmark being built in progress",
+          "Pompeii frozen in time",
+          "Bermuda Triangle mystery",
+          "Area 51 secrets",
+          "Easter Island head statues",
+          "Chernobyl abandoned city",
+          "Lost city of Atlantis",
+          "Route 66 road trip",
+          "Panama Canal ships passing",
+          "Berlin Wall coming down"
+        ],
+        "very_hard": [
+          "Wonder of the world debate",
+          "Cultural heritage preservation",
+          "Dark tourism destination",
+          "Landmark as national identity",
+          "Sacred vs tourist site tension",
+          "Architectural pilgrimage",
+          "Ruins as memento mori",
+          "Sense of place",
+          "Overtourism destroying landmarks",
+          "Digital reconstruction of ruins"
+        ]
+      }
+    },
+    {
+      "category": "Tools & Hardware",
+      "items": {
+        "easy": [
+          "Hammer",
+          "Screwdriver",
+          "Wrench",
+          "Saw",
+          "Drill",
+          "Tape measure",
+          "Nails",
+          "Ladder",
+          "Toolbox",
+          "Pliers"
+        ],
+        "medium": [
+          "Hanging a picture crooked",
+          "DIY project gone wrong",
+          "Chainsaw cutting tree",
+          "Welding sparks flying",
+          "Level checking if straight",
+          "Duct tape fixing everything",
+          "Power washing driveway",
+          "Painting a wall with roller",
+          "Sanding a table smooth",
+          "Jackhammer breaking concrete"
+        ],
+        "hard": [
+          "Right tool for the job",
+          "Measure twice cut once",
+          "When all you have is a hammer",
+          "Rube Goldberg machine",
+          "Swiss army knife of skills",
+          "Tightening the screws on someone",
+          "Nuts and bolts of a plan",
+          "Tooling around",
+          "Built from the ground up",
+          "Fine-tuning"
+        ],
+        "very_hard": [
+          "Tool use as human evolution marker",
+          "Planned obsolescence of tools",
+          "Right to repair movement",
+          "Ship of Theseus with replaced parts",
+          "Human as a tool-using animal",
+          "Digital tools replacing physical",
+          "Craftsmanship vs mass production",
+          "Appropriate technology",
+          "Tool chain dependency",
+          "Reductionism as a tool"
+        ]
+      }
+    },
+    {
+      "category": "Myths & Urban Legends",
+      "items": {
+        "easy": [
+          "Ghost",
+          "Vampire fangs",
+          "Werewolf",
+          "UFO sighting",
+          "Bigfoot footprint",
+          "Witch on broomstick",
+          "Mummy",
+          "Zombie",
+          "Skeleton",
+          "Black cat bad luck"
+        ],
+        "medium": [
+          "Loch Ness monster in lake",
+          "Haunted doll moving on its own",
+          "Crop circles in field",
+          "Walking under a ladder",
+          "Bermuda Triangle airplane vanishing",
+          "Bloody Mary mirror challenge",
+          "Chupacabra sighting",
+          "Ouija board session",
+          "Urban legend campfire story",
+          "Mothman sighting"
+        ],
+        "hard": [
+          "Self-fulfilling prophecy",
+          "Curse passed between people",
+          "Mass hysteria event",
+          "Conspiracy theory web",
+          "Urban legend going viral",
+          "Mandela effect memory",
+          "Old wives' tale debunked",
+          "Superstition rituals",
+          "Cryptid hunting expedition",
+          "Sleep paralysis demon"
+        ],
+        "very_hard": [
+          "Collective unconscious myths",
+          "Folklore as cultural memory",
+          "Meme as modern mythology",
+          "Apophenia pattern seeking",
+          "Confirmation bias in paranormal",
+          "Liminal entity",
+          "Tulpa thought form",
+          "Egregore concept",
+          "Urban legend as social commentary",
+          "Mythological recursion"
+        ]
+      }
+    },
+    {
+      "category": "Idioms & Phrases",
+      "items": {
+        "easy": [
+          "Piece of cake",
+          "Raining cats and dogs",
+          "Crying over spilled milk",
+          "Butterfingers",
+          "Cat got your tongue",
+          "Cold feet",
+          "Break the ice",
+          "Couch potato",
+          "Hit the nail on the head",
+          "Let the cat out of the bag"
+        ],
+        "medium": [
+          "Break a leg",
+          "Kill two birds with one stone",
+          "Burning the midnight oil",
+          "Can of worms opened",
+          "Walking on thin ice",
+          "Stabbed in the back",
+          "Bull in a china shop",
+          "Storm in a teacup",
+          "Bite the bullet",
+          "Bury the hatchet"
+        ],
+        "hard": [
+          "Elephant in the room",
+          "Burning bridges",
+          "The last straw",
+          "Reading between the lines",
+          "Devil's advocate",
+          "The ball is in your court",
+          "Bite off more than you can chew",
+          "Run out of steam",
+          "Throw someone under the bus",
+          "A taste of your own medicine"
+        ],
+        "very_hard": [
+          "Barking up the wrong tree",
+          "The pot calling the kettle black",
+          "A penny for your thoughts",
+          "Catch-22 situation",
+          "The writing on the wall",
+          "Playing devil's advocate",
+          "Crocodile tears",
+          "Pyrrhic victory",
+          "Ship has sailed",
+          "Wild goose chase"
+        ]
+      }
+    },
+    {
+      "category": "Crime & Mystery",
+      "items": {
+        "easy": [
+          "Magnifying glass",
+          "Handcuffs",
+          "Fingerprint",
+          "Jail cell",
+          "Flashlight in the dark",
+          "Safe with combination lock",
+          "Wanted poster",
+          "Footprints in mud",
+          "Burglar mask",
+          "Security camera"
+        ],
+        "medium": [
+          "Police tape at crime scene",
+          "Spy with binoculars",
+          "Bank vault heist",
+          "Car chase down alley",
+          "Disguise with fake mustache",
+          "Witness in courtroom",
+          "Secret passage behind bookshelf",
+          "Pickpocket in crowd",
+          "Lie detector test",
+          "Evidence board with red string"
+        ],
+        "hard": [
+          "Red herring",
+          "Perfect alibi",
+          "Inside job",
+          "Cold case reopened",
+          "Circumstantial evidence",
+          "Double agent revealed",
+          "Money trail following",
+          "Crime of passion",
+          "Reasonable doubt",
+          "Tampering with evidence"
+        ],
+        "very_hard": [
+          "Alibi",
+          "Presumption of innocence",
+          "White-collar crime",
+          "Statute of limitations",
+          "Victimless crime debate",
+          "The perfect crime theory",
+          "Criminal profiling",
+          "Motive vs opportunity",
+          "Miscarriage of justice",
+          "Mob mentality at trial"
+        ]
+      }
+    },
+    {
+      "category": "Prehistoric Life",
+      "items": {
+        "easy": [
+          "Dinosaur egg",
+          "T-Rex",
+          "Caveman",
+          "Volcano erupting",
+          "Bone fossil",
+          "Pterodactyl flying",
+          "Triceratops",
+          "Dinosaur footprint",
+          "Tar pit",
+          "Meteor falling"
+        ],
+        "medium": [
+          "Caveman painting on wall",
+          "Sabertooth tiger hunting",
+          "Woolly mammoth in snow",
+          "Caveman discovering fire",
+          "Fossil dig site",
+          "Ice age glacier",
+          "Stegosaurus with plates",
+          "Baby dinosaur hatching",
+          "Stone tools being made",
+          "Raptor pack hunting together"
+        ],
+        "hard": [
+          "Natural selection",
+          "Mass extinction event",
+          "Evolution of man timeline",
+          "Amber preserved insect",
+          "Pangaea splitting apart",
+          "Survival of the fittest",
+          "Food chain of dinosaur era",
+          "Adaptation to environment",
+          "Fossilization process",
+          "Jurassic vs Cretaceous periods"
+        ],
+        "very_hard": [
+          "Cambrian explosion",
+          "Missing link debate",
+          "Great dying extinction",
+          "Endosymbiosis theory",
+          "Out of Africa hypothesis",
+          "Chicxulub impact hypothesis",
+          "Convergent evolution examples",
+          "Punctuated equilibrium",
+          "Deep time comprehension",
+          "RNA world hypothesis"
+        ]
+      }
+    },
+    {
+      "category": "Astronomy & Night Sky",
+      "items": {
+        "easy": [
+          "Crescent moon",
+          "Star",
+          "Sun",
+          "Telescope",
+          "Planet Saturn",
+          "Constellation",
+          "Full moon",
+          "Comet with tail",
+          "Meteor shower",
+          "Astronaut floating"
+        ],
+        "medium": [
+          "Shooting star wish",
+          "Lunar eclipse",
+          "Space walk outside station",
+          "Rocket launch countdown",
+          "Rover on Mars surface",
+          "Satellite orbiting Earth",
+          "Galaxy spiral",
+          "Ring of fire solar eclipse",
+          "Astronaut on the moon flag",
+          "Northern lights aurora"
+        ],
+        "hard": [
+          "Solar eclipse",
+          "Speed of light beam",
+          "Supernova explosion",
+          "Gravitational pull",
+          "Red shift expanding universe",
+          "Binary star system",
+          "Habitable zone planet",
+          "Space debris field",
+          "Pulsar spinning",
+          "Wormhole travel"
+        ],
+        "very_hard": [
+          "Light-year distance",
+          "Dark energy expansion",
+          "Event horizon of black hole",
+          "Cosmic microwave background",
+          "Exoplanet detection method",
+          "Fermi paradox aliens",
+          "Olbers' paradox dark sky",
+          "Time dilation near black hole",
+          "Great Filter theory",
+          "Pale blue dot perspective"
+        ]
+      }
+    },
+    {
+      "category": "Inventions & Discoveries",
+      "items": {
+        "easy": [
+          "Lightbulb",
+          "Wheel",
+          "Telephone",
+          "Compass",
+          "Television",
+          "Camera",
+          "Bicycle",
+          "Airplane",
+          "Clock",
+          "Printing block"
+        ],
+        "medium": [
+          "Printing press in workshop",
+          "Benjamin Franklin's kite lightning",
+          "First car on road",
+          "Assembly line factory",
+          "Space shuttle launch",
+          "X-ray of skeleton",
+          "First computer filling a room",
+          "Telegraph message sending",
+          "Hot air balloon first flight",
+          "Vaccine needle"
+        ],
+        "hard": [
+          "Gravity discovery apple moment",
+          "Penicillin accidental discovery",
+          "Internet connecting the world",
+          "Nuclear reaction chain",
+          "DNA discovery structure",
+          "Theory of everything",
+          "Archimedes bathtub moment",
+          "Patent race competition",
+          "Reverse engineering",
+          "Innovation vs invention"
+        ],
+        "very_hard": [
+          "Eureka moment",
+          "Standing on shoulders of giants",
+          "Necessity is the mother of invention",
+          "Simultaneous independent discovery",
+          "Technological singularity",
+          "Creative destruction cycle",
+          "Paradigm shift",
+          "Unintended consequences of technology",
+          "Black swan innovation",
+          "The adjacent possible"
+        ]
+      }
+    },
+    {
+      "category": "Magic & Fantasy",
+      "items": {
+        "easy": [
+          "Magic wand",
+          "Crystal ball",
+          "Witch hat",
+          "Wizard beard",
+          "Flying carpet",
+          "Treasure chest",
+          "Potion bottle",
+          "Unicorn",
+          "Dragon breathing fire",
+          "Magic top hat rabbit"
+        ],
+        "medium": [
+          "Pulling a rabbit out of hat",
+          "Levitating person",
+          "Disappearing act",
+          "Fortune teller with cards",
+          "Enchanted sword in stone",
+          "Magic portal to another world",
+          "Invisibility cloak",
+          "Spell book reading",
+          "Fairy dust sprinkling",
+          "Genie granting three wishes"
+        ],
+        "hard": [
+          "Sleight of hand trick",
+          "Smoke and mirrors",
+          "Illusion vs reality",
+          "Dark magic forbidden spell",
+          "Magical thinking",
+          "Enchanted object curse",
+          "The magician's code of secrecy",
+          "Conjuring something from nothing",
+          "Magic system rules",
+          "Familiar spirit animal"
+        ],
+        "very_hard": [
+          "Any sufficiently advanced technology is magic",
+          "Sympathetic magic",
+          "True name power",
+          "Magic as metaphor for privilege",
+          "Faustian bargain",
+          "Law of unintended magical consequences",
+          "The price of magic",
+          "Mundane fantastical",
+          "Disenchantment",
+          "Liminal magic threshold"
+        ]
+      }
+    },
+    {
+      "category": "Camping & Outdoors",
+      "items": {
+        "easy": [
+          "Tent",
+          "Campfire",
+          "Marshmallow on stick",
+          "Sleeping bag",
+          "Flashlight",
+          "Hiking boot",
+          "Fishing rod",
+          "Canoe",
+          "Binoculars",
+          "Trail sign"
+        ],
+        "medium": [
+          "Roasting s'mores",
+          "Bear raiding cooler",
+          "Setting up tent in rain",
+          "Campfire ghost stories",
+          "Mosquito swarm attack",
+          "Skinny dipping in lake",
+          "Trail mix snacking on hike",
+          "Falling into river from canoe",
+          "Star gazing from sleeping bag",
+          "Morning dew on tent"
+        ],
+        "hard": [
+          "Leave no trace principle",
+          "Getting lost on a trail",
+          "Nature calling with no bathroom",
+          "Roughing it",
+          "Glamping vs real camping debate",
+          "One with nature feeling",
+          "Bear hang food stash",
+          "Unplugging from technology",
+          "Trail magic from strangers",
+          "Backcountry navigation"
+        ],
+        "very_hard": [
+          "Into the wild",
+          "The call of the wild",
+          "Wilderness therapy",
+          "Type 2 fun misery now joy later",
+          "Ultralight philosophy",
+          "Summit fever danger",
+          "Peak bagging obsession",
+          "Friluftsliv open air living",
+          "Rewilding",
+          "Thru-hiking culture"
+        ]
+      }
+    },
+    {
+      "category": "Circus & Carnival",
+      "items": {
+        "easy": [
+          "Clown nose",
+          "Ferris wheel",
+          "Juggling balls",
+          "Cotton candy",
+          "Roller coaster",
+          "Balloon animal",
+          "Carnival mask",
+          "Stilts walking",
+          "Popcorn machine",
+          "Ticket booth"
+        ],
+        "medium": [
+          "Trapeze artist mid-swing",
+          "Lion tamer with whip and chair",
+          "Sword swallower",
+          "Human cannonball launch",
+          "Tightrope walker on wire",
+          "Fire breather performance",
+          "Magician sawing person in half",
+          "Bumper cars crashing",
+          "Ring of fire motorcycle jump",
+          "Strong man bending metal"
+        ],
+        "hard": [
+          "Running away to join the circus",
+          "Carnival barker calling the crowd",
+          "Behind the curtain truth",
+          "Freak show controversy",
+          "Death-defying act",
+          "The show must go on",
+          "Three-ring circus chaos",
+          "Rigged carnival game",
+          "Last performance closing night",
+          "Dark carnival atmosphere"
+        ],
+        "very_hard": [
+          "Bread and circuses distraction",
+          "Circus of life metaphor",
+          "Media circus frenzy",
+          "Carnivalesque subversion",
+          "Not my circus not my monkeys",
+          "Grotesque and beautiful",
+          "Flying without a net",
+          "Modern circus reinvention",
+          "Spectacle society",
+          "The absurd performance"
+        ]
+      }
+    },
+    {
+      "category": "Pirates & Treasure",
+      "items": {
+        "easy": [
+          "Pirate flag skull and crossbones",
+          "Treasure chest",
+          "Pirate ship",
+          "Eye patch",
+          "Treasure map with X",
+          "Parrot on shoulder",
+          "Pirate hook hand",
+          "Gold coins",
+          "Cannon on ship",
+          "Pirate sword"
+        ],
+        "medium": [
+          "Walking the plank",
+          "Ship battle with cannons firing",
+          "Digging for buried treasure",
+          "Pirate crew mutiny",
+          "Desert island castaway",
+          "Kraken attacking ship",
+          "Pirate swinging on rope to other ship",
+          "Message in a bottle",
+          "Marooned on island",
+          "Mermaid luring sailors"
+        ],
+        "hard": [
+          "Dead men tell no tales",
+          "Pirate's code of honor",
+          "X marks the spot deception",
+          "Sunken treasure recovery",
+          "Cursed gold",
+          "Pirate democracy on ship",
+          "Letters of marque privateer",
+          "Ghost ship appearing in fog",
+          "Treasure hunt clue solving",
+          "Davy Jones' locker"
+        ],
+        "very_hard": [
+          "One man's pirate is another's freedom fighter",
+          "Piracy as economic redistribution",
+          "Modern digital piracy",
+          "Finders keepers legal debate",
+          "Treasure beyond gold",
+          "Sea of endless possibility",
+          "Libertarian pirate republic",
+          "The real treasure was friendship",
+          "Romanticization of piracy",
+          "Maritime law loopholes"
+        ]
+      }
+    },
+    {
+      "category": "Robots & AI",
+      "items": {
+        "easy": [
+          "Robot",
+          "Robot arm",
+          "Computer brain",
+          "Drone flying",
+          "Robot dog",
+          "Factory robot welding",
+          "Remote control robot",
+          "Cyborg half face",
+          "Robot hand waving",
+          "AI chat on screen"
+        ],
+        "medium": [
+          "Robot learning to walk",
+          "AI painting a picture",
+          "Self-driving car deciding",
+          "Robot butler serving dinner",
+          "Assembly line robots in factory",
+          "Human vs computer chess match",
+          "Robot vacuum stuck on rug",
+          "Smart assistant answering question",
+          "Robot uprising beginning",
+          "Clone army marching"
+        ],
+        "hard": [
+          "Uncanny valley creepiness",
+          "Turing test conversation",
+          "Robot replacing human worker",
+          "AI hallucination wrong answer",
+          "Three laws of robotics broken",
+          "Emergent AI behavior",
+          "Machine learning training",
+          "Digital consciousness",
+          "Robot rights protest",
+          "Algorithmic bias"
+        ],
+        "very_hard": [
+          "Singularity moment",
+          "Chinese room argument",
+          "AI alignment problem",
+          "Artificial general intelligence",
+          "Paperclip maximizer scenario",
+          "Ghost in the machine",
+          "Technological unemployment",
+          "Machine sentience debate",
+          "Black box decision making",
+          "The trolley problem for self-driving cars"
+        ]
+      }
+    },
+    {
+      "category": "Dance & Movement",
+      "items": {
+        "easy": [
+          "Ballet dancer",
+          "Disco ball",
+          "Breakdancing spin",
+          "Tap shoes",
+          "Hula hoop",
+          "Moonwalk",
+          "Jumping rope",
+          "Conga line",
+          "Salsa partners",
+          "Dance floor"
+        ],
+        "medium": [
+          "Flash mob dance",
+          "Wedding first dance",
+          "Dance battle showdown",
+          "Ballet leap across stage",
+          "Tango dip",
+          "Line dance at country bar",
+          "Robot dance move",
+          "Dancing in the rain",
+          "Limbo bar bending backward",
+          "Belly dance shimmy"
+        ],
+        "hard": [
+          "Dancing around the issue",
+          "Two left feet",
+          "Dance like nobody's watching",
+          "Choreography breaking down",
+          "Mosh pit at a concert",
+          "Dance of death",
+          "Rhythm and timing off",
+          "Dance floor politics",
+          "Interpretive dance",
+          "Last dance of the night"
+        ],
+        "very_hard": [
+          "The body as instrument",
+          "Dance as protest",
+          "Movement therapy",
+          "Dance notation system",
+          "Cultural dance appropriation",
+          "Kinesthetic empathy",
+          "Flow state in movement",
+          "Dance of the cosmos",
+          "Embodied cognition",
+          "Dance marathon endurance"
+        ]
+      }
+    },
+    {
+      "category": "Bugs & Insects",
+      "items": {
+        "easy": [
+          "Butterfly",
+          "Spider web",
+          "Ladybug",
+          "Ant",
+          "Bee on flower",
+          "Caterpillar",
+          "Firefly glowing",
+          "Mosquito",
+          "Dragonfly",
+          "Grasshopper"
+        ],
+        "medium": [
+          "Ant farm colony",
+          "Spider catching fly in web",
+          "Caterpillar becoming butterfly",
+          "Bee hive with bees swarming",
+          "Praying mantis hunting",
+          "Cockroach surviving everything",
+          "Dung beetle rolling ball",
+          "Mosquito bite itching",
+          "Centipede with many legs moving",
+          "Firefly jar catching"
+        ],
+        "hard": [
+          "Bug in the system",
+          "Fly on the wall",
+          "Bugging someone",
+          "Hive mind mentality",
+          "Social insect hierarchy",
+          "Parasitic relationship",
+          "Swarm intelligence",
+          "Metamorphosis stages",
+          "Insect apocalypse",
+          "Bee dance communication"
+        ],
+        "very_hard": [
+          "Kafka's Metamorphosis",
+          "Biomimicry from insects",
+          "Colony collapse disorder",
+          "Eusocial behavior",
+          "Pollination crisis",
+          "Insect as indicator species",
+          "Entomophobia",
+          "Superorganism concept",
+          "Coevolution of flowers and pollinators",
+          "The butterfly effect"
+        ]
+      }
+    },
+    {
+      "category": "Desserts & Sweets",
+      "items": {
+        "easy": [
+          "Cupcake",
+          "Chocolate bar",
+          "Lollipop",
+          "Cookie",
+          "Ice cream sundae",
+          "Candy cane",
+          "Gummy bear",
+          "Donut with sprinkles",
+          "Pie slice",
+          "Popsicle"
+        ],
+        "medium": [
+          "Baking cookies with someone",
+          "Chocolate fountain dipping",
+          "Crème brûlée torch caramelizing",
+          "Layer cake stacking wobble",
+          "Candy store kid in awe",
+          "Soufflé deflating",
+          "Making cotton candy",
+          "Birthday cake candle blowing",
+          "Churros dipping in chocolate",
+          "Banana split assembly"
+        ],
+        "hard": [
+          "Death by chocolate",
+          "Sweet tooth addiction",
+          "Sugar rush then crash",
+          "Forbidden fruit dessert",
+          "Guilty pleasure treat",
+          "So sweet it hurts",
+          "Having your cake and eating it too",
+          "The cherry on top",
+          "Sugar coating the truth",
+          "Dessert stomach phenomenon"
+        ],
+        "very_hard": [
+          "Sweetness as a metaphor for life",
+          "Artisanal vs commercial sweets",
+          "Sugar industrial complex",
+          "Nostalgia in flavors",
+          "The economics of chocolate",
+          "Empty calories as metaphor",
+          "Comfort in sweetness",
+          "Bittersweet chocolate philosophy",
+          "Fair trade chocolate ethics",
+          "Molecular dessert deconstruction"
+        ]
+      }
+    },
+    {
+      "category": "Winter & Ice",
+      "items": {
+        "easy": [
+          "Snowman",
+          "Ice skates",
+          "Mittens",
+          "Sled",
+          "Icicle",
+          "Snowball",
+          "Hot chocolate mug",
+          "Igloo",
+          "Snow angel",
+          "Scarf"
+        ],
+        "medium": [
+          "Snowball fight",
+          "Skating on thin ice",
+          "Building an igloo",
+          "Frozen car scraping windshield",
+          "Kids catching snowflakes on tongue",
+          "Slipping on ice fall",
+          "Ice fishing through hole",
+          "Ski jump launch",
+          "Penguin sliding on belly",
+          "Snow fort battle"
+        ],
+        "hard": [
+          "Cold shoulder",
+          "Breaking the ice socially",
+          "Tip of the iceberg hidden part",
+          "Snowball effect growing bigger",
+          "Walking on thin ice danger",
+          "Cabin fever from being snowed in",
+          "Frostbite warning signs",
+          "Frozen in place with fear",
+          "Ice queen personality",
+          "Winter blues"
+        ],
+        "very_hard": [
+          "Nuclear winter concept",
+          "Ice age cycle theory",
+          "Cryogenics freezing a person",
+          "Permafrost melting danger",
+          "Cold as a metaphor for death",
+          "The long winter of discontent",
+          "Glacial pace of change",
+          "Cold war mentality",
+          "Frozen in time preservation",
+          "Entropy as heat death"
+        ]
+      }
+    },
+    {
+      "category": "Beach & Summer",
+      "items": {
+        "easy": [
+          "Beach ball",
+          "Sandcastle",
+          "Palm tree",
+          "Sunglasses",
+          "Surfboard",
+          "Flip flops",
+          "Seashell",
+          "Beach umbrella",
+          "Sunscreen bottle",
+          "Pool floatie"
+        ],
+        "medium": [
+          "Building a sandcastle moat",
+          "Surfer wiping out on wave",
+          "Sunburn peeling",
+          "Beach volleyball game",
+          "Finding a seashell at shore",
+          "Ice cream truck at the beach",
+          "Tug-of-war on beach",
+          "Hammock between palm trees",
+          "Buried in sand up to neck",
+          "Lighthouse at sunset"
+        ],
+        "hard": [
+          "Endless summer vibes",
+          "Tanline marks",
+          "Riptide danger",
+          "Summer fling ending",
+          "Hot enough to fry an egg",
+          "Summer reading list ignored",
+          "Beach body pressure",
+          "Seasonal job ending",
+          "Sand in everything",
+          "Barefoot on hot sand hopping"
+        ],
+        "very_hard": [
+          "Summer of discontent",
+          "Nostalgia for endless summers",
+          "Indian summer late warmth",
+          "Seasonal affective disorder inverse",
+          "Beach erosion climate change",
+          "Summer solstice ancient ritual",
+          "The lazy river of life",
+          "Tourist economy dependence",
+          "Hedonistic adaptation to paradise",
+          "The last summer before change"
+        ]
+      }
+    },
+    {
+      "category": "Toys & Childhood",
+      "items": {
+        "easy": [
+          "Teddy bear",
+          "Building blocks",
+          "Toy car",
+          "Doll",
+          "Yo-yo",
+          "Jack-in-the-box",
+          "Rubber duck",
+          "Toy soldier",
+          "Crayon drawing",
+          "Bubble wand"
+        ],
+        "medium": [
+          "Kid opening presents on birthday",
+          "Pillow fort sleepover",
+          "Playing house pretend",
+          "Toy box overflowing",
+          "First bicycle ride no training wheels",
+          "Blanket cape superhero",
+          "Playing tag in park",
+          "Imaginary friend tea party",
+          "Stepping on a Lego",
+          "Swing set going high"
+        ],
+        "hard": [
+          "Outgrowing your favorite toy",
+          "Imaginary friend only you can see",
+          "Childhood innocence lost",
+          "The floor is lava game",
+          "Toy story come to life",
+          "Monster under the bed fear",
+          "Growing up too fast",
+          "Playground politics",
+          "Security blanket attachment",
+          "Make-believe world"
+        ],
+        "very_hard": [
+          "Nostalgia for childhood simplicity",
+          "Inner child healing",
+          "Play as developmental tool",
+          "Commodification of childhood",
+          "Helicopter vs free-range parenting",
+          "Loss of unstructured play",
+          "Transitional object psychology",
+          "Peter Pan syndrome",
+          "Rite of passage to adulthood",
+          "The wonder years"
+        ]
+      }
+    },
+    {
+      "category": "Farm Life",
+      "items": {
+        "easy": [
+          "Cow",
+          "Chicken",
+          "Barn",
+          "Tractor",
+          "Pig in mud",
+          "Hay bale",
+          "Corn stalk",
+          "Horse",
+          "Egg basket",
+          "Scarecrow"
+        ],
+        "medium": [
+          "Rooster crowing at dawn",
+          "Milking a cow by hand",
+          "Sheep herding with dog",
+          "Farmer driving tractor in field",
+          "Apple picking from tree",
+          "Barn dance party",
+          "Feeding chickens grain",
+          "Building a fence post by post",
+          "Harvest season combine",
+          "Goat standing on everything"
+        ],
+        "hard": [
+          "Counting sheep to fall asleep",
+          "Don't put all eggs in one basket",
+          "Sowing wild oats",
+          "Reaping what you sow",
+          "Good fences make good neighbors",
+          "Cash crop dependence",
+          "Family farm vs factory farm",
+          "Crop failure drought",
+          "Farm-to-table chain",
+          "Early bird gets the worm"
+        ],
+        "very_hard": [
+          "Agrarian ideal vs reality",
+          "Food security crisis",
+          "Pastoral nostalgia",
+          "Monsanto seed controversy",
+          "Subsistence farming struggle",
+          "Agricultural revolution impact",
+          "Tragedy of the commons",
+          "Vertical farming future",
+          "Farm subsidy politics",
+          "Dust Bowl lesson"
+        ]
+      }
+    },
+    {
+      "category": "Jungle & Safari",
+      "items": {
+        "easy": [
+          "Lion",
+          "Monkey in tree",
+          "Elephant",
+          "Snake",
+          "Parrot",
+          "Toucan",
+          "Zebra",
+          "Hippo in water",
+          "Crocodile",
+          "Jungle vine"
+        ],
+        "medium": [
+          "Safari jeep with tourists",
+          "Tarzan swinging on vines",
+          "Lion pride hunting",
+          "Elephant herd crossing river",
+          "Gorilla beating chest",
+          "Chameleon blending into leaf",
+          "Quicksand sinking",
+          "Waterfall hidden in jungle",
+          "Safari photographer with long lens",
+          "Tribal village in clearing"
+        ],
+        "hard": [
+          "Law of the jungle",
+          "Concrete jungle comparison",
+          "Apex predator hierarchy",
+          "Deforestation consequences",
+          "Lost civilization in jungle",
+          "Biodiversity hotspot",
+          "Poaching crisis",
+          "Canopy level ecosystem",
+          "Jungle fever",
+          "It's a jungle out there"
+        ],
+        "very_hard": [
+          "Heart of darkness",
+          "Ecological balance tipping",
+          "Trophy hunting morality",
+          "Noble savage myth",
+          "Keystone species removal",
+          "Rainforest as earth's lungs",
+          "Biopiracy in the jungle",
+          "Indigenous knowledge theft",
+          "Edge effect ecology",
+          "Corridor connectivity"
+        ]
+      }
+    },
+    {
+      "category": "Nightlife & Parties",
+      "items": {
+        "easy": [
+          "Disco ball",
+          "DJ booth",
+          "Balloons",
+          "Confetti",
+          "Champagne bottle",
+          "Dance floor",
+          "Karaoke microphone",
+          "Party invitation",
+          "Neon sign",
+          "Cocktail glass"
+        ],
+        "medium": [
+          "Bouncer at the door",
+          "Crowded dance floor",
+          "Last call at the bar",
+          "Photobooth with props",
+          "Toga party",
+          "Silent disco headphones",
+          "Surprise party hiding behind furniture",
+          "Pool party cannon ball",
+          "Costume party best dressed",
+          "Bar crawl group"
+        ],
+        "hard": [
+          "Life of the party",
+          "Wallflower at a party",
+          "Fashionably late arrival",
+          "Party animal reputation",
+          "FOMO seeing party on social media",
+          "After party exclusive",
+          "Pregaming before the event",
+          "Party foul moment",
+          "The morning after regret",
+          "Being the designated driver"
+        ],
+        "very_hard": [
+          "Nightlife as escape",
+          "The witching hour energy",
+          "Cultural nightlife differences",
+          "Closing time existentialism",
+          "Party as performance",
+          "Nocturnal economy",
+          "Social lubrication concept",
+          "The scene vs the substance",
+          "VIP culture criticism",
+          "When the music stops"
+        ]
+      }
+    },
+    {
+      "category": "Weddings & Romance",
+      "items": {
+        "easy": [
+          "Wedding ring",
+          "Heart shape",
+          "Rose",
+          "Wedding cake",
+          "Love letter",
+          "Bouquet of flowers",
+          "Cupid's arrow",
+          "Wedding dress",
+          "Candle dinner",
+          "Kiss"
+        ],
+        "medium": [
+          "Proposal on one knee",
+          "Bouquet toss catch",
+          "First dance at wedding",
+          "Bride and groom at altar",
+          "Love at first sight",
+          "Slow dance together",
+          "Writing wedding vows",
+          "Catching the garter",
+          "Serenading with guitar",
+          "Wedding crasher sneaking in"
+        ],
+        "hard": [
+          "Cold feet before wedding",
+          "Love triangle",
+          "Puppy love",
+          "Rebound relationship",
+          "Love language mismatch",
+          "Bridezilla behavior",
+          "Long-distance relationship struggle",
+          "Blind date gone wrong",
+          "Wedding planning stress",
+          "Rekindling an old flame"
+        ],
+        "very_hard": [
+          "Love is blind",
+          "Marriage as institution",
+          "Arranged vs love marriage spectrum",
+          "The honeymoon phase ending",
+          "Sunk cost in relationships",
+          "Companionate love evolution",
+          "The paradox of choice in dating",
+          "Emotional availability",
+          "Wedding industrial complex",
+          "Attachment style theory"
+        ]
+      }
+    },
+    {
+      "category": "Board Games & Puzzles",
+      "items": {
+        "easy": [
+          "Puzzle pieces",
+          "Chess board",
+          "Dice",
+          "Playing cards hand",
+          "Spinner",
+          "Game board path",
+          "Timer hourglass",
+          "Connect four grid",
+          "Domino tiles",
+          "Rubik's cube"
+        ],
+        "medium": [
+          "Monopoly argument over money",
+          "Jenga block pull wobble",
+          "Chess checkmate move",
+          "Scrabble triple word score",
+          "Clue deduction accusation",
+          "Risk world domination",
+          "Uno draw four revenge",
+          "Trivial Pursuit pie completion",
+          "Operation buzzer going off",
+          "Battleship hit and sinking"
+        ],
+        "hard": [
+          "Thinking ten moves ahead",
+          "Game theory strategy",
+          "Stalemate in chess",
+          "The long game patience",
+          "Bluffing with a bad hand",
+          "Puzzle missing one piece",
+          "House rules disagreement",
+          "Cooperative vs competitive mindset",
+          "Playing the odds",
+          "Beginner's luck streak"
+        ],
+        "very_hard": [
+          "Nash equilibrium",
+          "Zero-sum game mentality",
+          "The metagame evolving",
+          "Infinite game concept",
+          "Gamification of everything",
+          "The prisoner's dilemma",
+          "Paradox of choice in strategy",
+          "Information asymmetry",
+          "Dominant strategy trap",
+          "The game playing us"
+        ]
+      }
+    },
+    {
+      "category": "Bathroom & Grooming",
+      "items": {
+        "easy": [
+          "Toothbrush",
+          "Bathtub",
+          "Soap bar",
+          "Towel",
+          "Hair brush",
+          "Shower head",
+          "Toilet",
+          "Rubber duck in bath",
+          "Mirror",
+          "Razor"
+        ],
+        "medium": [
+          "Singing in the shower",
+          "Bad hair day fixing",
+          "Bubble bath overflowing",
+          "Shaving cream beard",
+          "Running out of hot water",
+          "Toilet paper roll empty",
+          "Hair dryer blowing hair everywhere",
+          "Stepping on wet floor slipping",
+          "Clogged drain hair ball",
+          "Face mask selfie"
+        ],
+        "hard": [
+          "Bathroom hogging family member",
+          "Mirror mirror on the wall moment",
+          "Shower thoughts genius idea",
+          "Grooming routine obsession",
+          "Bathroom renovation nightmare",
+          "Self-care ritual",
+          "The morning rush shared bathroom",
+          "Body image in the mirror",
+          "Spa day at home gone wrong",
+          "Singing like nobody can hear you"
+        ],
+        "very_hard": [
+          "Vanity as concept",
+          "The mirror stage psychology",
+          "Beauty standards through history",
+          "Clean as a metaphor for pure",
+          "Bathroom as the only private space",
+          "Ritual purification across cultures",
+          "Self-presentation theory",
+          "The beauty industrial complex",
+          "Grooming as social signaling",
+          "Hygiene theater"
+        ]
+      }
+    },
+    {
+      "category": "Office Life",
+      "items": {
+        "easy": [
+          "Desk",
+          "Stapler",
+          "Coffee mug",
+          "Filing cabinet",
+          "Computer monitor",
+          "Sticky note",
+          "Paper clip",
+          "Printer",
+          "Whiteboard",
+          "Office chair"
+        ],
+        "medium": [
+          "Water cooler gossip",
+          "Meeting that could have been an email",
+          "Paper jam in printer",
+          "Office birthday party awkward",
+          "Cubicle decorating",
+          "Someone stealing lunch from fridge",
+          "Reply all email mistake",
+          "Broken elevator taking stairs",
+          "Coffee machine line",
+          "Open office distractions"
+        ],
+        "hard": [
+          "Corporate jargon overload",
+          "Passive aggressive email",
+          "Office politics chess game",
+          "Micromanagement",
+          "Quiet quitting movement",
+          "Synergy meeting meaningless",
+          "The glass ceiling hitting",
+          "Monday morning dread",
+          "Work-from-home vs office debate",
+          "The Peter Principle"
+        ],
+        "very_hard": [
+          "Bullshit jobs concept",
+          "Corporate culture toxicity",
+          "Parkinson's law expanding work",
+          "The organization man",
+          "Presenteeism vs productivity",
+          "Golden handcuffs dilemma",
+          "Quiet firing",
+          "Kafka at work bureaucracy",
+          "The rat race treadmill",
+          "Dilbert principle management"
+        ]
+      }
+    },
+    {
+      "category": "Monsters & Creatures",
+      "items": {
+        "easy": [
+          "Frankenstein's monster",
+          "Mummy wrapped in bandages",
+          "Ghost floating",
+          "Dragon",
+          "Cyclops one eye",
+          "Troll under bridge",
+          "Yeti in snow",
+          "Goblin",
+          "Ogre",
+          "Sea monster"
+        ],
+        "medium": [
+          "Werewolf transforming at full moon",
+          "Medusa turning man to stone",
+          "Kraken pulling ship underwater",
+          "Cerberus three-headed dog",
+          "Hydra growing heads when cut",
+          "Phoenix rising from ashes",
+          "Minotaur in labyrinth",
+          "Chimera hybrid creature",
+          "Grim Reaper at door",
+          "Banshee screaming"
+        ],
+        "hard": [
+          "Monster under the bed fear",
+          "Inner demon battle",
+          "Shapeshifter deception",
+          "Frankenstein's hubris",
+          "Beauty and the beast transformation",
+          "The monster was human all along",
+          "Jekyll and Hyde personality",
+          "Monster mash party",
+          "Creating your own monster",
+          "Sympathetic monster"
+        ],
+        "very_hard": [
+          "The real monsters are humans",
+          "Othering as monster creation",
+          "Technological Frankenstein",
+          "Monster as metaphor for fear",
+          "Body horror transformation",
+          "Lovecraftian cosmic horror",
+          "The uncanny and the monstrous",
+          "Abjection theory",
+          "Monster in the mirror",
+          "Monstrosity as social construct"
+        ]
+      }
+    },
+    {
+      "category": "Cowboys & Wild West",
+      "items": {
+        "easy": [
+          "Cowboy hat",
+          "Horse",
+          "Cactus",
+          "Sheriff star badge",
+          "Lasso rope",
+          "Cowboy boots",
+          "Wanted poster",
+          "Revolver gun",
+          "Saloon doors",
+          "Tumbleweed"
+        ],
+        "medium": [
+          "Cowboy riding into sunset",
+          "Showdown at high noon",
+          "Cattle drive stampede",
+          "Gold panning in river",
+          "Bank robbery in progress",
+          "Rodeo bull riding",
+          "Stagecoach holdup",
+          "Campfire on the range",
+          "Poker game in saloon",
+          "Lasso catching a calf"
+        ],
+        "hard": [
+          "The good the bad and the ugly",
+          "Showdown standoff",
+          "Wild West justice",
+          "Ghost town abandoned",
+          "Frontier mentality",
+          "Snake oil salesman",
+          "Lone ranger rides again",
+          "Manifest destiny westward",
+          "Quick draw champion",
+          "Outlaw with a heart of gold"
+        ],
+        "very_hard": [
+          "The myth of the American frontier",
+          "Cowboys vs indigenous people reality",
+          "Romanticization of the Wild West",
+          "Cowboy as American archetype",
+          "The closing of the frontier",
+          "Spaghetti Western genre",
+          "Revisionist Western",
+          "Gunslinger existentialism",
+          "Cowboy code of honor",
+          "The West that never was"
+        ]
+      }
+    },
+    {
+      "category": "Space Travel & Sci-Fi",
+      "items": {
+        "easy": [
+          "Rocket ship",
+          "Alien",
+          "Flying saucer",
+          "Astronaut helmet",
+          "Space suit",
+          "Moon landing",
+          "Laser gun",
+          "Robot companion",
+          "Star wars lightsaber",
+          "Asteroid field"
+        ],
+        "medium": [
+          "Alien abduction beam",
+          "Warp speed travel",
+          "Space station life",
+          "First contact with aliens",
+          "Zero gravity floating objects",
+          "Terraforming a planet",
+          "Cryosleep for long journey",
+          "Space battle laser blasts",
+          "Colony on Mars",
+          "Teleportation beam"
+        ],
+        "hard": [
+          "Wormhole shortcut",
+          "Time paradox from time travel",
+          "Prime directive non-interference",
+          "Generation ship city",
+          "Alien language decoding",
+          "Space madness isolation",
+          "The vastness of space loneliness",
+          "Dyson sphere around star",
+          "First man on another planet emotion",
+          "AI spaceship mutiny"
+        ],
+        "very_hard": [
+          "Fermi paradox where are they",
+          "Space colonialism ethics",
+          "Faster than light impossibility",
+          "The overview effect",
+          "Simulation hypothesis",
+          "Post-scarcity society",
+          "Drake equation probability",
+          "The Great Filter",
+          "Cosmic loneliness",
+          "Interstellar vs intergalactic scale"
+        ]
+      }
+    },
+    {
+      "category": "Medieval & Knights",
+      "items": {
+        "easy": [
+          "Knight in armor",
+          "Castle",
+          "Sword",
+          "Dragon",
+          "Crown",
+          "Shield with crest",
+          "Drawbridge",
+          "Throne",
+          "Jousting lance",
+          "Bow and arrow"
+        ],
+        "medium": [
+          "Knight slaying dragon",
+          "Jousting tournament",
+          "Siege of a castle with catapult",
+          "King sitting on throne",
+          "Blacksmith forging sword",
+          "Princess in a tower",
+          "Medieval feast at long table",
+          "Peasant revolt mob",
+          "Knight being dubbed",
+          "Archer on castle wall"
+        ],
+        "hard": [
+          "Chivalry code of honor",
+          "Holy grail quest",
+          "Round table equality",
+          "Court jester speaking truth",
+          "Trial by combat",
+          "The crusades controversy",
+          "Sword in the stone legend",
+          "Dark ages misconception",
+          "Feudal system hierarchy",
+          "Divine right of kings"
+        ],
+        "very_hard": [
+          "Might makes right debate",
+          "Medieval scholasticism",
+          "Courtly love vs reality",
+          "The Black Death social change",
+          "Noblesse oblige obligation",
+          "The Magna Carta moment",
+          "Medieval vs modern justice",
+          "The code vs survival",
+          "Chivalry is dead",
+          "Rewriting medieval history"
+        ]
+      }
+    },
+    {
+      "category": "Survival & Wilderness",
+      "items": {
+        "easy": [
+          "Campfire",
+          "Knife",
+          "Water bottle",
+          "Compass",
+          "Rope",
+          "First aid kit",
+          "Shelter lean-to",
+          "Fishing with stick",
+          "Backpack",
+          "Signal fire"
+        ],
+        "medium": [
+          "Building a shelter from branches",
+          "Purifying water in the wild",
+          "Bear encounter standoff",
+          "Starting fire with sticks",
+          "Crossing a raging river",
+          "Catching fish with bare hands",
+          "Signaling for rescue with mirror",
+          "Foraging for berries",
+          "Climbing tree to escape animal",
+          "Making a raft from logs"
+        ],
+        "hard": [
+          "Survival of the fittest reality",
+          "Rationing supplies",
+          "Fight or flight response",
+          "Lost with no compass",
+          "Cannibalism ethical dilemma",
+          "Drinking your own survival",
+          "Making fire in rain",
+          "Morale keeping spirits up",
+          "Trust no one survival mode",
+          "Rule of threes survival"
+        ],
+        "very_hard": [
+          "Into the wild philosophy",
+          "Man vs nature eternal struggle",
+          "Survivorship bias",
+          "The will to live",
+          "Civilization as thin veneer",
+          "Learned helplessness",
+          "Post-apocalyptic community building",
+          "The unabomber's cabin",
+          "Rawlsian veil in survival group",
+          "Robinson Crusoe colonialism"
+        ]
+      }
+    },
+    {
+      "category": "Photography & Film",
+      "items": {
+        "easy": [
+          "Camera",
+          "Film reel",
+          "Tripod",
+          "Flash going off",
+          "Photo frame",
+          "Selfie stick",
+          "Photo album",
+          "Video camera",
+          "Polaroid developing",
+          "Clapperboard"
+        ],
+        "medium": [
+          "Paparazzi chasing celebrity",
+          "Photo bomb stranger",
+          "Developing photos in dark room",
+          "Drone aerial shot",
+          "Time-lapse camera setup",
+          "Behind the scenes on movie set",
+          "Green screen studio",
+          "Slow motion replay",
+          "Nature photographer in camouflage",
+          "Red eye in flash photo"
+        ],
+        "hard": [
+          "The decisive moment capture",
+          "Photo worth a thousand words",
+          "Through the lens differently",
+          "Selective memory of photos",
+          "Filter vs reality",
+          "Documentary truth vs fiction",
+          "Staged vs candid",
+          "Perspective and framing bias",
+          "Nostalgia triggered by old photo",
+          "The male gaze in cinema"
+        ],
+        "very_hard": [
+          "Photographs steal the soul myth",
+          "Observer changes the observed",
+          "Deepfake doubt",
+          "Cinema verité truth",
+          "Death of film medium",
+          "The auteur theory",
+          "Post-truth visual era",
+          "The panopticon and surveillance",
+          "Representation matters",
+          "Memory and photography paradox"
+        ]
+      }
+    },
+    {
+      "category": "Comedy & Humor",
+      "items": {
+        "easy": [
+          "Clown",
+          "Banana peel slip",
+          "Pie in the face",
+          "Whoopee cushion",
+          "Funny glasses with nose",
+          "Laughing face",
+          "Jack-in-the-box surprise",
+          "Person tripping",
+          "Silly hat",
+          "Tickling someone"
+        ],
+        "medium": [
+          "Stand-up comedian on stage",
+          "Prank phone call",
+          "Slapstick comedy scene",
+          "April Fools' Day trick",
+          "Dad joke groan reaction",
+          "Comedy roast insults",
+          "Laughing until crying",
+          "Mime stuck in invisible box",
+          "Improv comedy scene",
+          "Two people telling same joke"
+        ],
+        "hard": [
+          "Deadpan delivery",
+          "Sarcasm going over someone's head",
+          "Awkward silence after bad joke",
+          "Nervous laughter",
+          "Unintentionally funny",
+          "Gallows humor coping",
+          "Running gag",
+          "Self-deprecating humor",
+          "Inside joke exclusive",
+          "Timing is everything"
+        ],
+        "very_hard": [
+          "Tragedy plus time equals comedy",
+          "Punching up vs punching down",
+          "The absurdity of existence is funny",
+          "Humor as defense mechanism",
+          "Schadenfreude comedy",
+          "Satire vs parody",
+          "The uncanny valley of humor",
+          "Laughing to keep from crying",
+          "Comedy as social commentary",
+          "The anatomy of a joke"
+        ]
+      }
+    },
+    {
+      "category": "Breakfast & Morning",
+      "items": {
+        "easy": [
+          "Alarm clock",
+          "Coffee cup",
+          "Pancake stack",
+          "Cereal bowl",
+          "Toast popping up",
+          "Orange juice glass",
+          "Fried egg sunny side up",
+          "Alarm clock ringing",
+          "Slippers",
+          "Newspaper"
+        ],
+        "medium": [
+          "Hitting snooze alarm repeatedly",
+          "Making breakfast in bed",
+          "Messy morning hair coffee",
+          "Breakfast buffet loading plate",
+          "Burning toast smoke alarm",
+          "Trying to be a morning person",
+          "Spilling coffee on shirt",
+          "Kids not wanting to wake up",
+          "Rooster crowing at dawn",
+          "Sunrise yoga routine"
+        ],
+        "hard": [
+          "Not a morning person identity",
+          "Breakfast is the most important meal debate",
+          "Brunch culture",
+          "Monday morning feeling",
+          "Hangover morning struggle",
+          "Intermittent fasting skipping breakfast",
+          "Dawn of a new day",
+          "The early bird catches the worm",
+          "Morning routine optimization",
+          "Coffee addiction cycle"
+        ],
+        "very_hard": [
+          "Circadian rhythm disruption",
+          "The myth of the productive morning",
+          "Breakfast as social class marker",
+          "Morning as metaphor for beginning",
+          "The morning after consequences",
+          "Hustle culture morning routines",
+          "Dawn of civilization",
+          "Time is a flat breakfast",
+          "Chronotype science",
+          "Each morning is a little birth"
+        ]
+      }
+    },
+    {
+      "category": "Ninjas & Martial Arts",
+      "items": {
+        "easy": [
+          "Ninja mask",
+          "Throwing star",
+          "Karate chop",
+          "Nunchucks",
+          "Black belt",
+          "Samurai sword",
+          "Ninja hiding",
+          "Karate kid crane pose",
+          "Punching bag",
+          "Bow to opponent"
+        ],
+        "medium": [
+          "Ninja vanishing in smoke",
+          "Breaking boards with hand",
+          "Kung fu movie fight scene",
+          "Sensei teaching student",
+          "Ninja climbing wall",
+          "Sparring match",
+          "Catching an arrow mid-air",
+          "Walking on water illusion",
+          "Ninja star hitting target",
+          "Martial arts tournament"
+        ],
+        "hard": [
+          "Wax on wax off training",
+          "The way of the warrior",
+          "Inner peace through combat",
+          "Defeat into victory lesson",
+          "Master becoming the student",
+          "Stealth mode in real life",
+          "Chi energy channeling",
+          "Mind over body",
+          "Art of war strategy",
+          "The last samurai stand"
+        ],
+        "very_hard": [
+          "Bushido code philosophy",
+          "Empty your mind like water",
+          "Violence as last resort philosophy",
+          "Cultural appropriation of martial arts",
+          "Zen and the art of fighting",
+          "The path is the destination",
+          "Warrior monk paradox",
+          "Mushin no mind state",
+          "Honor vs survival",
+          "The sword that gives life"
+        ]
+      }
+    },
+    {
+      "category": "Underground & Caves",
+      "items": {
+        "easy": [
+          "Cave entrance",
+          "Bat",
+          "Mining helmet light",
+          "Crystal",
+          "Tunnel",
+          "Stalactite dripping",
+          "Treasure in cave",
+          "Lantern in dark",
+          "Pickaxe",
+          "Underground river"
+        ],
+        "medium": [
+          "Exploring a dark cave with flashlight",
+          "Cave paintings on wall",
+          "Bat colony hanging upside down",
+          "Miner digging for gold",
+          "Underground waterfall",
+          "Spelunker squeezing through tight spot",
+          "Glowing mushrooms in cave",
+          "Mine cart ride",
+          "Crystal cavern sparkling",
+          "Echo in empty cave"
+        ],
+        "hard": [
+          "Light at the end of the tunnel",
+          "Digging your own grave",
+          "Underground movement secret",
+          "Plato's cave shadows",
+          "Buried alive fear",
+          "Unearthing a secret",
+          "Going underground in hiding",
+          "Mining for meaning",
+          "The underground economy",
+          "Claustrophobia"
+        ],
+        "very_hard": [
+          "Plato's allegory of the cave",
+          "Descent into the unknown",
+          "Underworld mythology",
+          "Subterranean civilization",
+          "The underground railroad metaphor",
+          "Deep ecology",
+          "Geological time layers",
+          "Bunker mentality",
+          "The subconscious as underground",
+          "Mining as extractive metaphor"
+        ]
+      }
+    },
+    {
+      "category": "Royalty & Castles",
+      "items": {
+        "easy": [
+          "Crown",
+          "Throne",
+          "Castle",
+          "King",
+          "Queen",
+          "Prince and princess",
+          "Royal scepter",
+          "Royal guard",
+          "Moat with drawbridge",
+          "Jewels and treasure"
+        ],
+        "medium": [
+          "Coronation ceremony",
+          "Royal banquet feast",
+          "Jester entertaining the court",
+          "Knight kneeling before king",
+          "Princess locked in tower",
+          "Royal wedding procession",
+          "King making a decree",
+          "Castle under siege",
+          "Royal family portrait",
+          "Dungeon prisoner"
+        ],
+        "hard": [
+          "Heavy is the head that wears the crown",
+          "Power behind the throne",
+          "Abdication of duty",
+          "Court intrigue poison plot",
+          "Royal scandal",
+          "Heir to the throne rivalry",
+          "Noblesse oblige",
+          "The king is dead long live the king",
+          "Royal exile",
+          "Puppet king"
+        ],
+        "very_hard": [
+          "Divine right questioned",
+          "Monarchy vs democracy",
+          "The gilded cage",
+          "Royal blood myth",
+          "Symbolic monarchy modern role",
+          "The prince by Machiavelli",
+          "Crown as burden metaphor",
+          "Regal nostalgia",
+          "Aristocratic decline",
+          "Royalty as celebrity archetype"
+        ]
+      }
+    },
+    {
+      "category": "Street Food & Markets",
+      "items": {
+        "easy": [
+          "Hot dog stand",
+          "Pretzel",
+          "Ice cream truck",
+          "Fruit stand",
+          "Popcorn cart",
+          "Kebab on stick",
+          "Food stall",
+          "Shopping bag",
+          "Price tag",
+          "Cash hand exchange"
+        ],
+        "medium": [
+          "Farmer's market browsing",
+          "Food truck festival",
+          "Haggling over price",
+          "Street performer juggling",
+          "Fish market fresh catch",
+          "Night market lantern lit",
+          "Tasting samples at market",
+          "Vendor calling out specials",
+          "Cooking on open flame street side",
+          "Flea market treasure finding"
+        ],
+        "hard": [
+          "Hidden gem restaurant",
+          "The local's secret spot",
+          "Food as cultural exchange",
+          "Gentrification of markets",
+          "Authenticity vs tourist version",
+          "Street food safety gamble",
+          "Food desert neighborhood",
+          "Market economy in miniature",
+          "Vendor competition",
+          "The soul of a city in its food"
+        ],
+        "very_hard": [
+          "Global food chain in one market",
+          "Economic microclimate of vendors",
+          "Food sovereignty movement",
+          "Market as public square democracy",
+          "Informal economy importance",
+          "Cultural homogenization fear",
+          "Slow food vs fast food",
+          "The commons and shared space",
+          "Food as identity",
+          "Market forces at street level"
+        ]
+      }
+    }
+  ]
+}

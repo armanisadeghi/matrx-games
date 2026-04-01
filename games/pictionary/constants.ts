@@ -137,17 +137,33 @@ export const WORD_LISTS = {
   ],
 } as const;
 
+export const DIFFICULTY_CONFIG = {
+  easy:            { label: "Easy",            points: 50,  color: "text-[oklch(0.65_0.18_150)]", bg: "bg-[oklch(0.75_0.18_150)]/15", border: "border-[oklch(0.75_0.18_150)]/30" },
+  medium:          { label: "Medium",          points: 100, color: "text-[oklch(0.6_0.18_260)]",  bg: "bg-[oklch(0.7_0.18_260)]/15",  border: "border-[oklch(0.7_0.18_260)]/30" },
+  hard:            { label: "Hard",            points: 200, color: "text-[oklch(0.6_0.18_50)]",   bg: "bg-[oklch(0.72_0.18_50)]/15",  border: "border-[oklch(0.72_0.18_50)]/30" },
+  very_hard:       { label: "Very Hard",       points: 300, color: "text-[oklch(0.58_0.22_25)]",  bg: "bg-[oklch(0.65_0.22_25)]/15",  border: "border-[oklch(0.65_0.22_25)]/30" },
+  extra_challenge: { label: "Extra Challenge", points: 500, color: "text-[oklch(0.55_0.25_310)]", bg: "bg-[oklch(0.65_0.25_310)]/15", border: "border-[oklch(0.65_0.25_310)]/30" },
+} as const;
+
+export type PictionaryDifficulty =
+  | "easy"
+  | "medium"
+  | "hard"
+  | "very_hard"
+  | "extra_challenge"
+  | "any";
+
 export const WORD_CATEGORIES = {
-  animals: { label: "Animals", emoji: "🐾" },
-  food: { label: "Food & Drink", emoji: "🍕" },
-  nature: { label: "Nature", emoji: "🌿" },
-  transport: { label: "Transport", emoji: "🚗" },
-  objects: { label: "Objects", emoji: "🔧" },
-  places: { label: "Places", emoji: "🏰" },
-  fantasy: { label: "Fantasy", emoji: "🧙" },
+  animals:    { label: "Animals",    emoji: "🐾" },
+  food:       { label: "Food & Drink", emoji: "🍕" },
+  nature:     { label: "Nature",     emoji: "🌿" },
+  transport:  { label: "Transport",  emoji: "🚗" },
+  objects:    { label: "Objects",    emoji: "🔧" },
+  places:     { label: "Places",     emoji: "🏰" },
+  fantasy:    { label: "Fantasy",    emoji: "🧙" },
   activities: { label: "Activities", emoji: "🎪" },
-  science: { label: "Science", emoji: "🔬" },
-  concepts: { label: "Concepts", emoji: "💭" },
+  science:    { label: "Science",    emoji: "🔬" },
+  concepts:   { label: "Concepts",   emoji: "💭" },
 } as const;
 
 export type PictionaryCategory = keyof typeof WORD_CATEGORIES;
@@ -159,8 +175,6 @@ export const ALL_CATEGORIES = Object.keys(
 export const DEFAULT_SETTINGS = {
   roundsPerTeam: 3,
   timerDuration: 60000,
-  wordDifficulty: "medium" as "easy" | "medium" | "hard" | "any",
+  wordDifficulty: "any" as PictionaryDifficulty,
   wordCategories: [] as string[],
 };
-
-export type PictionaryDifficulty = keyof typeof WORD_LISTS | "any";

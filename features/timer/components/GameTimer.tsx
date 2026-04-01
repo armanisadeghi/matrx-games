@@ -17,34 +17,43 @@ function formatTime(ms: number): string {
 }
 
 export function GameTimer({ timer, className, size = "md" }: GameTimerProps) {
-  const percentage = timer.duration > 0 ? (timer.remaining / timer.duration) * 100 : 0;
+  const percentage =
+    timer.duration > 0 ? (timer.remaining / timer.duration) * 100 : 0;
   const isLow = timer.remaining <= 10000 && timer.remaining > 0;
-  const isExpired = timer.remaining <= 0 && timer.isRunning === false && timer.startedAt !== null;
+  const isVeryLow = timer.remaining <= 5000 && timer.remaining > 0;
+  const isExpired =
+    timer.remaining <= 0 &&
+    timer.isRunning === false &&
+    timer.startedAt !== null;
 
   return (
-    <div
-      className={cn(
-        "flex flex-col items-center gap-2",
-        className
-      )}
-    >
+    <div className={cn("flex flex-col items-center gap-3", className)}>
       <div
         className={cn(
-          "font-mono font-bold tabular-nums",
-          size === "sm" && "text-2xl",
-          size === "md" && "text-4xl",
-          size === "lg" && "text-6xl",
-          isLow && "text-destructive animate-pulse",
-          isExpired && "text-muted-foreground"
+          "font-mono font-black tabular-nums transition-colors duration-300",
+          size === "sm" && "text-3xl",
+          size === "md" && "text-5xl",
+          size === "lg" && "text-7xl",
+          !isLow && !isExpired && "text-foreground",
+          isLow &&
+            !isVeryLow &&
+            "text-[oklch(0.72_0.18_50)] dark:text-[oklch(0.82_0.18_50)]",
+          isVeryLow &&
+            "animate-pulse text-[oklch(0.6_0.22_25)] dark:text-[oklch(0.72_0.22_25)]",
+          isExpired && "text-muted-foreground",
         )}
       >
         {formatTime(timer.remaining)}
       </div>
-      <div className="h-2 w-full max-w-xs overflow-hidden rounded-full bg-muted">
+
+      {/* Progress bar */}
+      <div className="h-3 w-full max-w-sm overflow-hidden rounded-full bg-muted">
         <div
           className={cn(
-            "h-full rounded-full transition-all duration-100",
-            isLow ? "bg-destructive" : "bg-primary"
+            "h-full rounded-full transition-all duration-150",
+            !isLow && "bg-[oklch(0.7_0.18_260)]",
+            isLow && !isVeryLow && "bg-[oklch(0.72_0.18_50)]",
+            isVeryLow && "bg-[oklch(0.6_0.22_25)]",
           )}
           style={{ width: `${percentage}%` }}
         />

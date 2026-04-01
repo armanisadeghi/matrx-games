@@ -1,10 +1,11 @@
 import { create } from "zustand";
-import type { PictionaryGameState, PictionaryGuess } from "../types";
+import type { PictionaryGameState, PictionaryGuess, PictionaryDifficultyLevel } from "../types";
 
 interface PictionaryStoreActions {
   setPhase: (phase: PictionaryGameState["phase"]) => void;
   setCurrentRound: (round: number, team: string, drawerId: string) => void;
-  setWord: (word: string | null) => void;
+  setWord: (word: string | null, difficulty?: PictionaryDifficultyLevel | null, category?: string | null, pointValue?: number) => void;
+  setCurrentPointValue: (points: number) => void;
   addGuess: (guess: PictionaryGuess) => void;
   clearGuesses: () => void;
   updateScores: (scores: Record<string, number>, teamScores: Record<string, number>) => void;
@@ -20,6 +21,9 @@ const initialState: PictionaryGameState = {
   currentTeam: "",
   currentDrawerId: null,
   currentWord: null,
+  currentWordCategory: null,
+  currentWordDifficulty: null,
+  currentPointValue: 100,
   guesses: [],
   scores: {},
   teamScores: {},
@@ -41,10 +45,21 @@ export const usePictionaryStore = create<PictionaryGameState & PictionaryStoreAc
         guesses: [],
         roundWinner: null,
         currentWord: null,
+        currentWordCategory: null,
+        currentWordDifficulty: null,
+        currentPointValue: 100,
         phase: "round_start",
       }),
 
-    setWord: (word) => set({ currentWord: word }),
+    setWord: (word, difficulty = null, category = null, pointValue = 100) =>
+      set({
+        currentWord: word,
+        currentWordDifficulty: difficulty,
+        currentWordCategory: category,
+        currentPointValue: pointValue,
+      }),
+
+    setCurrentPointValue: (points) => set({ currentPointValue: points }),
 
     addGuess: (guess) =>
       set((state) => ({ guesses: [...state.guesses, guess] })),

@@ -1,0 +1,104 @@
+{
+  "categories": [
+    {
+      "category": "Sports & Fitness",
+      "items": {
+        "easy": "Basketball hoop",
+        "medium": "Yoga pose",
+        "hard": "Photo finish",
+        "very_hard": "Second wind",
+        "extra_challenge": "Muscle memory"
+      }
+    },
+    {
+      "category": "Animals & Nature",
+      "items": {
+        "easy": "Giraffe",
+        "medium": "Beehive",
+        "hard": "Camouflage",
+        "very_hard": "Food chain",
+        "extra_challenge": "Ecosystem"
+      }
+    },
+    {
+      "category": "Modern Life & Technology",
+      "items": {
+        "easy": "Selfie stick",
+        "medium": "Wireless earbuds",
+        "hard": "Cloud storage",
+        "very_hard": "Algorithm",
+        "extra_challenge": "Artificial Intelligence"
+      }
+    },
+    {
+      "category": "Jobs & Occupations",
+      "items": {
+        "easy": "Firefighter",
+        "medium": "Social media influencer",
+        "hard": "Flight attendant",
+        "very_hard": "Freelancer",
+        "extra_challenge": "Quiet quitting"
+      }
+    },
+    {
+      "category": "Games & Hobbies",
+      "items": {
+        "easy": "Puzzle piece",
+        "medium": "Virtual Reality headset",
+        "hard": "Dungeons & Dragons",
+        "very_hard": "Speedrunning",
+        "extra_challenge": "Checkmate"
+      }
+    },
+    {
+      "category": "Fashion & Style",
+      "items": {
+        "easy": "Sunglasses",
+        "medium": "High heels",
+        "hard": "Vintage thrift store",
+        "very_hard": "Fashion faux pas",
+        "extra_challenge": "Trendsetter"
+      }
+    },
+    {
+      "category": "Household Items",
+      "items": {
+        "easy": "Toaster",
+        "medium": "Air fryer",
+        "hard": "Smart thermostat",
+        "very_hard": "Flat-pack furniture",
+        "extra_challenge": "Spring cleaning"
+      }
+    },
+    {
+      "category": "School & Education",
+      "items": {
+        "easy": "School bus",
+        "medium": "Science experiment",
+        "hard": "Pop quiz",
+        "very_hard": "Graduation cap",
+        "extra_challenge": "Student loans"
+      }
+    },
+    {
+      "category": "Weather & Natural Disasters",
+      "items": {
+        "easy": "Rainbow",
+        "medium": "Thunderstorm",
+        "hard": "Global warming",
+        "very_hard": "Eye of the storm",
+        "extra_challenge": "Heatwave"
+      }
+    },
+    {
+      "category": "Emotions & Feelings",
+      "items": {
+        "easy": "Happy face",
+        "medium": "Stage fright",
+        "hard": "Déjà vu",
+        "very_hard": "Nostalgia",
+        "extra_challenge": "Mixed emotions"
+      }
+    }
+  ]
+}

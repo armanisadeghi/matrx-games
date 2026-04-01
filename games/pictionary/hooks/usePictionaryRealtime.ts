@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { gameRealtime } from "@/lib/game-engine/GameRealtimeService";
 import { usePictionaryStore } from "../state/pictionaryStore";
 import type { Player } from "@/games/types";
+import type { PictionaryDifficultyLevel } from "../types";
 
 interface UsePictionaryRealtimeOptions {
   roomId: string;
@@ -27,26 +28,37 @@ export function usePictionaryRealtime({
   useEffect(() => {
     const unsubs: (() => void)[] = [];
 
-    // Listen for round:start
+    // Round is starting — drawer picks difficulty before word is revealed
     unsubs.push(
-      gameRealtime.onBroadcast(roomId, "round:start", (payload) => {
+      gameRealtime.onBroadcast(roomId, "round:picking", (payload) => {
         const data = payload as {
           roundNumber: number;
           teamId: string;
           drawerId: string;
         };
         store.setCurrentRound(data.roundNumber, data.teamId, data.drawerId);
-        store.setPhase("drawing");
+        store.setPhase("picking_difficulty");
       })
     );
 
-    // Listen for word:assigned (only drawer reads this)
+    // Word assigned after drawer picks difficulty
     unsubs.push(
       gameRealtime.onBroadcast(roomId, "word:assigned", (payload) => {
-        const data = payload as { word: string };
-        if (player.id === store.currentDrawerId) {
-          store.setWord(data.word);
-        }
+        const data = payload as {
+          word: string;
+          difficulty: string;
+          category: string;
+          pointValue: number;
+        };
+        // Everyone gets difficulty/category/points for display;
+        // only the drawer sees the actual word — others get null
+        store.setWord(
+          player.id === store.currentDrawerId ? data.word : null,
+          data.difficulty as PictionaryDifficultyLevel,
+          data.category,
+          data.pointValue,
+        );
+        store.setPhase("drawing");
       })
     );
 
@@ -85,8 +97,12 @@ export function usePictionaryRealtime({
           winnerId: string | null;
           scores: Record<string, number>;
           teamScores: Record<string, number>;
+          pointValue?: number;
         };
         store.setWord(data.word);
+        if (data.pointValue !== undefined) {
+          store.setCurrentPointValue(data.pointValue);
+        }
         store.setRoundWinner(data.winnerId);
         store.updateScores(data.scores, data.teamScores);
         store.setPhase("round_end");

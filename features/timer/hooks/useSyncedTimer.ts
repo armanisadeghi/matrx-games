@@ -32,13 +32,18 @@ export function useSyncedTimer({
   const completedRef = useRef(false);
 
   const computeRemaining = useCallback(
-    (state: { startedAt: number; duration: number; isPaused: boolean; pausedAt: number | null }) => {
+    (state: {
+      startedAt: number;
+      duration: number;
+      isPaused: boolean;
+      pausedAt: number | null;
+    }) => {
       if (state.isPaused && state.pausedAt) {
         return Math.max(0, state.duration - (state.pausedAt - state.startedAt));
       }
       return Math.max(0, state.duration - (Date.now() - state.startedAt));
     },
-    []
+    [],
   );
 
   // Listen for timer sync broadcasts (non-host)
@@ -54,13 +59,20 @@ export function useSyncedTimer({
         pausedAt: sync.pausedAt,
       });
 
-      setTimer({
-        startedAt: sync.startedAt,
-        duration: sync.duration,
-        isPaused: sync.isPaused,
-        pausedAt: sync.pausedAt,
-        isRunning: !sync.isPaused && remaining > 0,
-        remaining,
+      // Reset completed flag whenever we receive a fresh timer start
+      // (new startedAt means a new round started)
+      setTimer((prev) => {
+        if (prev.startedAt !== sync.startedAt) {
+          completedRef.current = false;
+        }
+        return {
+          startedAt: sync.startedAt,
+          duration: sync.duration,
+          isPaused: sync.isPaused,
+          pausedAt: sync.pausedAt,
+          isRunning: !sync.isPaused && remaining > 0,
+          remaining,
+        };
       });
     });
 
@@ -109,7 +121,15 @@ export function useSyncedTimer({
     }, 1000);
 
     return () => clearInterval(syncIntervalRef.current);
-  }, [isHost, roomId, timer.isRunning, timer.startedAt, timer.duration, timer.isPaused, timer.pausedAt]);
+  }, [
+    isHost,
+    roomId,
+    timer.isRunning,
+    timer.startedAt,
+    timer.duration,
+    timer.isPaused,
+    timer.pausedAt,
+  ]);
 
   const start = useCallback(
     (customDuration?: number) => {
@@ -135,7 +155,7 @@ export function useSyncedTimer({
         } satisfies TimerSyncPayload);
       }
     },
-    [duration, isHost, roomId]
+    [duration, isHost, roomId],
   );
 
   const pause = useCallback(() => {

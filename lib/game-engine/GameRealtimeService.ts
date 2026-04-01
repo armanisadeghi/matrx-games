@@ -11,17 +11,18 @@ interface PresenceState {
   isReady: boolean;
 }
 
-type BroadcastHandler = (payload: { event: string; payload: unknown }) => void;
 type PresenceHandler = (state: Record<string, PresenceState[]>) => void;
 
 class GameRealtimeService {
   private channels = new Map<string, RealtimeChannel>();
-  private broadcastHandlers = new Map<
-    string,
-    Map<string, Set<BroadcastHandler>>
-  >();
-  // Track all registered presence sync handlers per room so we can re-register on existing channels
   private presenceHandlers = new Map<string, Set<PresenceHandler>>();
+
+  // Single JS-level dispatch map: roomId → event → Set of handlers
+  // Registered via onBroadcast at any time — not tied to Supabase .on() timing
+  private broadcastDispatch = new Map<
+    string,
+    Map<string, Set<(payload: unknown) => void>>
+  >();
 
   getChannel(roomId: string): RealtimeChannel | undefined {
     return this.channels.get(roomId);
@@ -35,17 +36,11 @@ class GameRealtimeService {
     const existing = this.channels.get(roomId);
 
     if (existing) {
-      // Channel already open — just register the new presence handler if provided
       if (onPresenceSync) {
         const handlers = this.presenceHandlers.get(roomId) ?? new Set();
         if (!handlers.has(onPresenceSync)) {
           handlers.add(onPresenceSync);
           this.presenceHandlers.set(roomId, handlers);
-          existing.on("presence", { event: "sync" }, () => {
-            const state = existing.presenceState<PresenceState>();
-            onPresenceSync(state);
-          });
-          // Fire immediately with current state so caller is in sync
           const currentState = existing.presenceState<PresenceState>();
           if (Object.keys(currentState).length > 0) {
             onPresenceSync(currentState);
@@ -55,36 +50,47 @@ class GameRealtimeService {
       return existing;
     }
 
-    const channel = supabase.channel(`room:${roomId}`, {
-      config: { presence: { key: presenceState.playerId } },
-    });
-
-    const handlers: Set<PresenceHandler> = new Set();
-    if (onPresenceSync) {
-      handlers.add(onPresenceSync);
+    // Ensure dispatch map exists for this room before the channel is created
+    if (!this.broadcastDispatch.has(roomId)) {
+      this.broadcastDispatch.set(roomId, new Map());
     }
-    this.presenceHandlers.set(roomId, handlers);
 
-    channel.on("presence", { event: "sync" }, () => {
+    const channel = supabase.channel(`room:${roomId}`, {
+      config: {
+        presence: { key: presenceState.playerId },
+        broadcast: { self: false },
+      },
+    });
+
+    // Presence — register all three events before subscribe()
+    const firePresence = () => {
       const state = channel.presenceState<PresenceState>();
       for (const handler of this.presenceHandlers.get(roomId) ?? []) {
         handler(state);
       }
-    });
+    };
+    channel.on("presence", { event: "sync" }, firePresence);
+    channel.on("presence", { event: "join" }, firePresence);
+    channel.on("presence", { event: "leave" }, firePresence);
 
-    channel.on("presence", { event: "join" }, () => {
-      const state = channel.presenceState<PresenceState>();
-      for (const handler of this.presenceHandlers.get(roomId) ?? []) {
-        handler(state);
-      }
-    });
+    // Single broadcast catch-all — fans out to JS-level dispatch map
+    // This is registered once before subscribe() so Supabase receives it
+    channel.on(
+      "broadcast",
+      { event: "*" },
+      (msg: { event: string; payload: unknown }) => {
+        const handlers = this.broadcastDispatch.get(roomId)?.get(msg.event);
+        if (handlers) {
+          for (const handler of handlers) {
+            handler(msg.payload);
+          }
+        }
+      },
+    );
 
-    channel.on("presence", { event: "leave" }, () => {
-      const state = channel.presenceState<PresenceState>();
-      for (const handler of this.presenceHandlers.get(roomId) ?? []) {
-        handler(state);
-      }
-    });
+    const presHandlers: Set<PresenceHandler> = new Set();
+    if (onPresenceSync) presHandlers.add(onPresenceSync);
+    this.presenceHandlers.set(roomId, presHandlers);
 
     channel.subscribe(async (status) => {
       if (status === "SUBSCRIBED") {
@@ -93,8 +99,6 @@ class GameRealtimeService {
     });
 
     this.channels.set(roomId, channel);
-    this.broadcastHandlers.set(roomId, new Map());
-
     return channel;
   }
 
@@ -104,8 +108,8 @@ class GameRealtimeService {
       channel.unsubscribe();
       supabase.removeChannel(channel);
       this.channels.delete(roomId);
-      this.broadcastHandlers.delete(roomId);
       this.presenceHandlers.delete(roomId);
+      this.broadcastDispatch.delete(roomId);
     }
   }
 
@@ -124,33 +128,24 @@ class GameRealtimeService {
     });
   }
 
+  // Registers a handler in the JS dispatch map — works at any time,
+  // before or after channel subscription, with no Supabase timing constraints.
   onBroadcast(
     roomId: string,
     event: string,
     handler: (payload: unknown) => void,
   ): () => void {
-    const channel = this.channels.get(roomId);
-    if (!channel) return () => {};
-
-    const wrappedHandler: BroadcastHandler = (msg) => {
-      handler(msg.payload);
-    };
-
-    channel.on("broadcast", { event }, wrappedHandler);
-
-    const roomHandlers = this.broadcastHandlers.get(roomId);
-    if (roomHandlers) {
-      if (!roomHandlers.has(event)) {
-        roomHandlers.set(event, new Set());
-      }
-      roomHandlers.get(event)!.add(wrappedHandler);
+    if (!this.broadcastDispatch.has(roomId)) {
+      this.broadcastDispatch.set(roomId, new Map());
     }
+    const roomDispatch = this.broadcastDispatch.get(roomId)!;
+    if (!roomDispatch.has(event)) {
+      roomDispatch.set(event, new Set());
+    }
+    roomDispatch.get(event)!.add(handler);
 
     return () => {
-      const handlers = this.broadcastHandlers.get(roomId)?.get(event);
-      if (handlers) {
-        handlers.delete(wrappedHandler);
-      }
+      this.broadcastDispatch.get(roomId)?.get(event)?.delete(handler);
     };
   }
 

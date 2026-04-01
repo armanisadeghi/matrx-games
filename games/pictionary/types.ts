@@ -1,9 +1,17 @@
 export type PictionaryPhase =
   | "waiting"
   | "round_start"
+  | "picking_difficulty"  // drawer chooses difficulty before word is revealed
   | "drawing"
   | "round_end"
   | "game_over";
+
+export type PictionaryDifficultyLevel =
+  | "easy"
+  | "medium"
+  | "hard"
+  | "very_hard"
+  | "extra_challenge";
 
 export interface PictionaryGameState {
   phase: PictionaryPhase;
@@ -12,6 +20,9 @@ export interface PictionaryGameState {
   currentTeam: string;
   currentDrawerId: string | null;
   currentWord: string | null;
+  currentWordCategory: string | null;
+  currentWordDifficulty: PictionaryDifficultyLevel | null;
+  currentPointValue: number;
   guesses: PictionaryGuess[];
   scores: Record<string, number>;
   teamScores: Record<string, number>;
@@ -30,6 +41,6 @@ export interface PictionaryGuess {
 export interface PictionarySettings {
   roundsPerTeam: number;
   timerDuration: number;
-  wordDifficulty: "easy" | "medium" | "hard" | "any";
+  wordDifficulty: PictionaryDifficultyLevel | "any";
   wordCategories: string[];
 }

@@ -6,7 +6,7 @@ import { usePictionaryStore } from "../state/pictionaryStore";
 import { DEFAULT_SETTINGS } from "../constants";
 import { usePictionaryWords } from "./usePictionaryWords";
 import type { Player } from "@/games/types";
-import type { PictionaryGuess, PictionarySettings } from "../types";
+import type { PictionaryGuess, PictionarySettings, PictionaryDifficultyLevel } from "../types";
 
 interface UsePictionaryGameOptions {
   roomId: string;
@@ -30,7 +30,7 @@ export function usePictionaryGame({
     ...userSettings,
   };
 
-  const { pickWord, markWordUsed, resetSessionUsage } = usePictionaryWords({
+  const { pickWordByDifficulty, markWordUsed, resetSessionUsage } = usePictionaryWords({
     difficulty: settings.wordDifficulty,
     categories: settings.wordCategories,
   });
@@ -44,17 +44,15 @@ export function usePictionaryGame({
     (teamId: string, currentDrawerId: string | null) => {
       const teamPlayers = players.filter((p) => p.teamId === teamId);
       if (teamPlayers.length === 0) return null;
-
       if (!currentDrawerId) return teamPlayers[0];
-
-      const currentIndex = teamPlayers.findIndex(
-        (p) => p.id === currentDrawerId,
-      );
+      const currentIndex = teamPlayers.findIndex((p) => p.id === currentDrawerId);
       return teamPlayers[(currentIndex + 1) % teamPlayers.length];
     },
     [players],
   );
 
+  // Host calls this to start a round — moves to picking_difficulty so the drawer
+  // can choose their difficulty before the word is revealed
   const startRound = useCallback(() => {
     if (!isHost) return;
 
@@ -70,25 +68,37 @@ export function usePictionaryGame({
     );
     if (!drawer) return;
 
-    const word = pickWord();
-
     store.setCurrentRound(nextRound, team, drawer.id);
-    store.setWord(null); // Don't set locally yet, use broadcast
-    store.setPhase("drawing");
+    store.setPhase("picking_difficulty");
 
-    // Mark used in DB (fire and forget)
-    markWordUsed(word);
-
-    // Broadcast round start to everyone (without the word)
-    gameRealtime.broadcastEvent(roomId, "round:start", {
+    gameRealtime.broadcastEvent(roomId, "round:picking", {
       roundNumber: nextRound,
       teamId: team,
       drawerId: drawer.id,
     });
+  }, [isHost, roomId, store, getTeams, getNextDrawer]);
 
-    // Broadcast the word (all clients receive, only drawer UI reads it)
-    gameRealtime.broadcastEvent(roomId, "word:assigned", { word });
-  }, [isHost, roomId, store, getTeams, getNextDrawer, pickWord, markWordUsed]);
+  // Called by the drawer once they've chosen a difficulty
+  const confirmDifficulty = useCallback(
+    (chosenDifficulty: PictionaryDifficultyLevel) => {
+      if (player.id !== store.currentDrawerId) return;
+
+      const picked = pickWordByDifficulty(chosenDifficulty);
+      markWordUsed(picked.word);
+
+      store.setWord(picked.word, picked.difficulty, picked.category, picked.pointValue);
+      store.setPhase("drawing");
+
+      // Broadcast word to all clients (only drawer UI renders it)
+      gameRealtime.broadcastEvent(roomId, "word:assigned", {
+        word: picked.word,
+        difficulty: picked.difficulty,
+        category: picked.category,
+        pointValue: picked.pointValue,
+      });
+    },
+    [player.id, store, roomId, pickWordByDifficulty, markWordUsed],
+  );
 
   const submitGuess = useCallback(
     (guessText: string) => {
@@ -106,21 +116,21 @@ export function usePictionaryGame({
       store.addGuess(guess);
 
       if (guess.isCorrect && isHost) {
+        const pointValue = store.currentPointValue;
         const newScores = { ...store.scores };
-        newScores[guess.playerId] = (newScores[guess.playerId] ?? 0) + 100;
+        newScores[guess.playerId] = (newScores[guess.playerId] ?? 0) + pointValue;
 
         const newTeamScores = { ...store.teamScores };
-        const guesserTeam = players.find(
-          (p) => p.id === guess.playerId,
-        )?.teamId;
+        const guesserTeam = players.find((p) => p.id === guess.playerId)?.teamId;
         if (guesserTeam) {
-          newTeamScores[guesserTeam] = (newTeamScores[guesserTeam] ?? 0) + 100;
+          newTeamScores[guesserTeam] = (newTeamScores[guesserTeam] ?? 0) + pointValue;
         }
 
-        // Drawer also gets points
+        // Drawer gets half points for a successful round
         if (store.currentDrawerId) {
+          const drawerPoints = Math.ceil(pointValue / 2);
           newScores[store.currentDrawerId] =
-            (newScores[store.currentDrawerId] ?? 0) + 50;
+            (newScores[store.currentDrawerId] ?? 0) + drawerPoints;
         }
 
         store.updateScores(newScores, newTeamScores);
@@ -132,6 +142,7 @@ export function usePictionaryGame({
           winnerId: guess.playerId,
           scores: newScores,
           teamScores: newTeamScores,
+          pointValue,
         });
       }
     },
@@ -149,6 +160,7 @@ export function usePictionaryGame({
       winnerId: null,
       scores: store.scores,
       teamScores: store.teamScores,
+      pointValue: store.currentPointValue,
     });
   }, [isHost, roomId, store]);
 
@@ -179,6 +191,7 @@ export function usePictionaryGame({
     ...store,
     settings,
     startRound,
+    confirmDifficulty,
     submitGuess,
     handleGuessResult,
     handleTimerComplete,

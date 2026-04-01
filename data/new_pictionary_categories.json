@@ -1,0 +1,654 @@
+{
+  "new_categories_to_add_to_all_categories": [
+    "Sounds & Noises",
+    "Relationships & Social Life",
+    "Time & Aging",
+    "Dreams & Imagination",
+    "Disasters & Epic Fails",
+    "Smells & Senses",
+    "Opposites & Contradictions",
+    "Childhood & Nostalgia",
+    "Superstitions & Luck",
+    "Communication & Language",
+    "World Records & Extremes",
+    "Stages & Processes"
+  ],
+  "categories": [
+    {
+      "category": "Sounds & Noises",
+      "items": {
+        "easy": [
+          "Thunder",
+          "Alarm clock ringing",
+          "Dog barking",
+          "Doorbell",
+          "Snoring",
+          "Fireworks boom",
+          "Baby crying",
+          "Car horn honking",
+          "Microphone feedback",
+          "Popping bubble wrap"
+        ],
+        "medium": [
+          "Echo in a canyon",
+          "Nails on a chalkboard",
+          "Stomach growling in a meeting",
+          "Whispering a secret",
+          "Record scratch",
+          "Phone ringing in a quiet room",
+          "Beatboxing",
+          "Crickets chirping after a bad joke",
+          "Creaky floorboard at night",
+          "Ice cream truck jingle"
+        ],
+        "hard": [
+          "Awkward silence",
+          "Ringing in your ears",
+          "White noise",
+          "Sound barrier breaking",
+          "Frequency only dogs can hear",
+          "ASMR",
+          "Soundproof room",
+          "Noise complaint",
+          "Lullaby stuck in your head",
+          "Bass drop"
+        ],
+        "very_hard": [
+          "Earworm",
+          "Deafening silence",
+          "Sound of one hand clapping",
+          "Inner monologue",
+          "Silence is golden",
+          "Lost in translation",
+          "Tone deaf",
+          "Broken telephone effect",
+          "Cognitive dissonance",
+          "Frequency"
+        ]
+      }
+    },
+    {
+      "category": "Relationships & Social Life",
+      "items": {
+        "easy": [
+          "High five",
+          "Group hug",
+          "Handshake",
+          "Waving goodbye",
+          "Family photo",
+          "Best friends",
+          "Holding hands",
+          "Thumbs up",
+          "Blowing a kiss",
+          "Piggyback ride"
+        ],
+        "medium": [
+          "Blind date",
+          "Awkward elevator ride",
+          "Meeting the in-laws",
+          "Friend zone",
+          "Double date",
+          "Forgetting someone's name",
+          "Running into your ex",
+          "Photobombing a couple",
+          "Third wheel",
+          "Long distance relationship"
+        ],
+        "hard": [
+          "Peer pressure",
+          "Trust fall",
+          "Keeping a secret",
+          "Love triangle",
+          "Silent treatment",
+          "Catfishing",
+          "Passive aggressive note",
+          "Ghosting someone",
+          "Social butterfly",
+          "Guilt trip"
+        ],
+        "very_hard": [
+          "Frenemy",
+          "Emotional baggage",
+          "Codependency",
+          "Gaslighting",
+          "Boundaries",
+          "Situationship",
+          "Imposter among friends",
+          "Social contract",
+          "Stockholm syndrome",
+          "Unrequited love"
+        ]
+      }
+    },
+    {
+      "category": "Time & Aging",
+      "items": {
+        "easy": [
+          "Hourglass",
+          "Alarm clock",
+          "Calendar",
+          "Sundial",
+          "Birthday candles",
+          "Stopwatch",
+          "Gray hair",
+          "Baby teeth falling out",
+          "Wrinkles",
+          "Clock tower"
+        ],
+        "medium": [
+          "Time zones",
+          "Daylight saving time",
+          "Speed aging in a movie",
+          "Countdown to New Year",
+          "Time capsule",
+          "Growth chart on a wall",
+          "Before and after photo",
+          "Watching paint dry",
+          "Running late for work",
+          "Hitting snooze five times"
+        ],
+        "hard": [
+          "Déjà vu",
+          "Midlife crisis",
+          "Time flies when having fun",
+          "Biological clock",
+          "Quarter-life crisis",
+          "Living in the moment",
+          "Jet lag across time zones",
+          "Nostalgia",
+          "Aging like fine wine",
+          "Wasted time"
+        ],
+        "very_hard": [
+          "Procrastination",
+          "Existential crisis about time",
+          "Time is money",
+          "Hindsight is twenty-twenty",
+          "Circadian rhythm",
+          "Temporal paradox",
+          "Sands of time",
+          "Borrowed time",
+          "Time heals all wounds",
+          "The present moment"
+        ]
+      }
+    },
+    {
+      "category": "Dreams & Imagination",
+      "items": {
+        "easy": [
+          "Nightmare monster",
+          "Thought bubble",
+          "Cloud shaped like an animal",
+          "Imaginary friend",
+          "Counting sheep",
+          "Magic carpet ride",
+          "Sleeping and dreaming",
+          "Wishing on a star",
+          "Daydream cloud",
+          "Fantasy castle"
+        ],
+        "medium": [
+          "Daydreaming in class",
+          "Recurring dream",
+          "Flying in a dream",
+          "Sleepwalking",
+          "Dream journal",
+          "Teeth falling out dream",
+          "Falling dream jolt awake",
+          "Dream within a dream",
+          "Talking to yourself",
+          "Imagining the worst-case scenario"
+        ],
+        "hard": [
+          "Lucid dreaming",
+          "Sleep paralysis",
+          "Déjà rêvé",
+          "Collective unconscious",
+          "Vision board coming true",
+          "Prophetic dream",
+          "Fever dream",
+          "Hypnosis",
+          "Stream of consciousness",
+          "Mind palace"
+        ],
+        "very_hard": [
+          "Inception",
+          "Manifesting",
+          "Subconscious mind",
+          "Collective hallucination",
+          "Liminal space",
+          "Ego death",
+          "Astral projection",
+          "Imagination vs reality",
+          "Intrusive thought",
+          "Thought experiment"
+        ]
+      }
+    },
+    {
+      "category": "Disasters & Epic Fails",
+      "items": {
+        "easy": [
+          "Banana peel slip",
+          "Spilling coffee",
+          "Tripping on stairs",
+          "Bird pooping on someone",
+          "Stepping in gum",
+          "Broken umbrella in rain",
+          "Walking into a glass door",
+          "Sitting on wet paint",
+          "Burnt toast",
+          "Paper cut"
+        ],
+        "medium": [
+          "Flat tire on a road trip",
+          "Autocorrect fail",
+          "Sending a text to the wrong person",
+          "Forgetting your lines on stage",
+          "Wardrobe malfunction",
+          "Locking yourself out of the house",
+          "Spilling wine on a white shirt",
+          "Photobomb disaster",
+          "Cake falling on the floor",
+          "Accidentally hitting reply all"
+        ],
+        "hard": [
+          "Domino effect",
+          "Murphy's Law",
+          "Snowball effect",
+          "Epic fail compilation",
+          "Chain reaction disaster",
+          "Sinking feeling",
+          "House of cards collapsing",
+          "Rube Goldberg machine of failure",
+          "Wrong place wrong time",
+          "Point of no return"
+        ],
+        "very_hard": [
+          "Butterfly effect",
+          "Catastrophic thinking",
+          "Self-fulfilling prophecy",
+          "Cascading failure",
+          "Pyrrhic victory",
+          "Irony of fate",
+          "Rock bottom",
+          "Trainwreck you can't look away from",
+          "Adding insult to injury",
+          "Famous last words"
+        ]
+      }
+    },
+    {
+      "category": "Smells & Senses",
+      "items": {
+        "easy": [
+          "Skunk spraying",
+          "Smelling a flower",
+          "Stinky cheese",
+          "Fresh baked cookies smell",
+          "Plugging your nose",
+          "Perfume bottle",
+          "Garbage truck",
+          "Campfire smoke",
+          "Lemon zest",
+          "Wet dog smell"
+        ],
+        "medium": [
+          "Smell waking you up in the morning",
+          "Wine tasting",
+          "Gas leak panic",
+          "Walking into a bakery",
+          "Scratch and sniff sticker",
+          "Durian fruit",
+          "Smell of rain on pavement",
+          "Someone wearing too much cologne",
+          "New car smell",
+          "Walking past a restaurant and stopping"
+        ],
+        "hard": [
+          "Smell triggering a memory",
+          "Sensory overload",
+          "Synesthesia",
+          "Blind taste test",
+          "Phantom smell",
+          "Losing your sense of smell",
+          "Bittersweet",
+          "Sixth sense",
+          "Gut feeling",
+          "Acquired taste"
+        ],
+        "very_hard": [
+          "Aromatherapy",
+          "Scent memory",
+          "Sensory deprivation",
+          "Umami",
+          "Olfactory fatigue",
+          "Taste is ninety percent smell",
+          "Rose-tinted glasses but for smell",
+          "Subliminal perception",
+          "Emotional aftertaste",
+          "The smell of fear"
+        ]
+      }
+    },
+    {
+      "category": "Opposites & Contradictions",
+      "items": {
+        "easy": [
+          "Hot and cold",
+          "Day and night",
+          "Giant and tiny",
+          "Happy and sad face",
+          "Fast and slow",
+          "Young and old",
+          "Full and empty glass",
+          "Light and heavy",
+          "Loud and quiet",
+          "Wet and dry"
+        ],
+        "medium": [
+          "Bittersweet ending",
+          "Controlled chaos",
+          "Organized mess",
+          "Comfortable silence",
+          "Friendly competition",
+          "Beautiful disaster",
+          "Sweet revenge",
+          "Open secret",
+          "Living dead",
+          "Painfully funny"
+        ],
+        "hard": [
+          "Less is more",
+          "Cruel to be kind",
+          "Alone in a crowd",
+          "Deafening silence",
+          "Seriously funny",
+          "Act naturally",
+          "Clearly confused",
+          "Only option",
+          "Original copy",
+          "Growing smaller"
+        ],
+        "very_hard": [
+          "Paradox",
+          "Cognitive dissonance",
+          "Bittersweet symphony",
+          "The sound of silence",
+          "Jumbo shrimp",
+          "Virtual reality",
+          "Same difference",
+          "Agree to disagree",
+          "The exception that proves the rule",
+          "Schrodinger's cat"
+        ]
+      }
+    },
+    {
+      "category": "Childhood & Nostalgia",
+      "items": {
+        "easy": [
+          "Teddy bear",
+          "Swing set",
+          "Coloring book",
+          "Lemonade stand",
+          "Pillow fort",
+          "Training wheels",
+          "Sandbox castle",
+          "Jack-in-the-box",
+          "Jump rope",
+          "Rubber duck"
+        ],
+        "medium": [
+          "Losing a tooth for the tooth fairy",
+          "First day of school",
+          "Blanket fort movie night",
+          "Hide and seek",
+          "Learning to ride a bike",
+          "Snow day from school",
+          "Imaginary tea party",
+          "Monster under the bed",
+          "Treehouse club",
+          "School lunch trading"
+        ],
+        "hard": [
+          "Growing out of your favorite toy",
+          "Childhood best friend moving away",
+          "Nostalgia trip",
+          "Innocence lost",
+          "Rose-colored childhood memories",
+          "Playground politics",
+          "The floor is lava",
+          "Waiting for the ice cream truck",
+          "Saturday morning cartoons",
+          "Outgrowing make believe"
+        ],
+        "very_hard": [
+          "Inner child",
+          "Growing pains",
+          "Coming of age",
+          "Arrested development",
+          "Nostalgia isn't what it used to be",
+          "Loss of innocence",
+          "Peter Pan syndrome",
+          "Rite of passage",
+          "Generational nostalgia",
+          "Bittersweet memories"
+        ]
+      }
+    },
+    {
+      "category": "Superstitions & Luck",
+      "items": {
+        "easy": [
+          "Black cat crossing path",
+          "Four-leaf clover",
+          "Horseshoe",
+          "Broken mirror",
+          "Wishbone",
+          "Rabbit's foot",
+          "Lucky penny",
+          "Shooting star wish",
+          "Number thirteen",
+          "Ladybug landing on you"
+        ],
+        "medium": [
+          "Walking under a ladder",
+          "Opening an umbrella indoors",
+          "Knocking on wood",
+          "Blowing out birthday candles wish",
+          "Friday the thirteenth",
+          "Throwing salt over your shoulder",
+          "Lucky socks for a game",
+          "Fortune cookie prediction",
+          "Wishing well",
+          "Beginners luck winning"
+        ],
+        "hard": [
+          "Jinxing yourself",
+          "Karma coming back around",
+          "Tempting fate",
+          "Lucky streak ending",
+          "Superstitious ritual before a game",
+          "Self-fulfilling prophecy",
+          "Curse being broken",
+          "Seeing repeated numbers everywhere",
+          "Third time's the charm",
+          "Knock on wood"
+        ],
+        "very_hard": [
+          "Confirmation bias",
+          "Murphy's Law",
+          "Fate vs free will",
+          "Gambler's fallacy",
+          "Making your own luck",
+          "Serendipity",
+          "Placebo effect of lucky charms",
+          "Chaos theory",
+          "Beginner's luck explained",
+          "When it rains it pours"
+        ]
+      }
+    },
+    {
+      "category": "Communication & Language",
+      "items": {
+        "easy": [
+          "Megaphone",
+          "Speech bubble",
+          "Sign language hand",
+          "Love letter",
+          "Morse code",
+          "Telephone",
+          "Waving a white flag",
+          "Thumbs up sign",
+          "Stop sign",
+          "Exclamation mark"
+        ],
+        "medium": [
+          "Charades game",
+          "Whispering a secret",
+          "Language barrier at a restaurant",
+          "Arguing with hand gestures",
+          "Translator struggling",
+          "Reading lips",
+          "Message in a bottle",
+          "Pigeon carrying a letter",
+          "SOS signal",
+          "Talking with your mouth full"
+        ],
+        "hard": [
+          "Lost in translation",
+          "Reading between the lines",
+          "Double meaning",
+          "Sarcasm going over someone's head",
+          "Body language revealing a lie",
+          "Subtext",
+          "Mixed signals",
+          "Tone of voice changing meaning",
+          "Loaded question",
+          "Elephant in the room"
+        ],
+        "very_hard": [
+          "Miscommunication spiral",
+          "Unspoken understanding",
+          "Propaganda",
+          "Dog whistle politics",
+          "The medium is the message",
+          "Freudian slip",
+          "Plausible deniability",
+          "Doublespeak",
+          "Saying nothing says everything",
+          "Linguistic relativity"
+        ]
+      }
+    },
+    {
+      "category": "World Records & Extremes",
+      "items": {
+        "easy": [
+          "Tallest person ever",
+          "Fastest runner",
+          "Biggest pumpkin",
+          "Longest snake",
+          "Strongest man lifting",
+          "Tallest building",
+          "Biggest wave",
+          "Longest fingernails",
+          "Most hot dogs eaten",
+          "Heaviest person"
+        ],
+        "medium": [
+          "Dominoes world record chain",
+          "Most people in a phone booth",
+          "Speed eating contest",
+          "Longest time without sleep",
+          "Human cannonball",
+          "Stacking cups championship",
+          "Tallest house of cards",
+          "Fastest rubik's cube solve",
+          "Longest marathon dance",
+          "Most tattoos on a body"
+        ],
+        "hard": [
+          "Breaking the sound barrier",
+          "Deepest ocean dive",
+          "Pushing the limits of human endurance",
+          "Peak performance",
+          "World record attempt gone wrong",
+          "Unbreakable record",
+          "Diminishing returns",
+          "Personal best",
+          "Going the extra mile",
+          "Point of no return"
+        ],
+        "very_hard": [
+          "Overachiever",
+          "Law of diminishing returns",
+          "Peak human potential",
+          "Bell curve",
+          "Outlier",
+          "Exponential growth",
+          "Impossible standard",
+          "Moving the goalposts",
+          "Unprecedented",
+          "Once in a lifetime"
+        ]
+      }
+    },
+    {
+      "category": "Stages & Processes",
+      "items": {
+        "easy": [
+          "Caterpillar becoming butterfly",
+          "Seed growing into tree",
+          "Ice melting",
+          "Egg hatching",
+          "Sunrise to sunset",
+          "Tadpole becoming frog",
+          "Baby learning to walk",
+          "Candle melting down",
+          "Water cycle rain cloud",
+          "Dominos falling in a line"
+        ],
+        "medium": [
+          "Assembly line in a factory",
+          "Getting ready in the morning rush",
+          "Evolution of man",
+          "Four seasons changing",
+          "Cooking recipe step by step",
+          "Building a house from foundation to roof",
+          "Rube Goldberg machine",
+          "Grief stages",
+          "Traffic light changing",
+          "Food chain"
+        ],
+        "hard": [
+          "Butterfly effect chain",
+          "Vicious cycle",
+          "Slippery slope",
+          "Chain of command",
+          "Tipping point",
+          "Snowball effect",
+          "Erosion over centuries",
+          "Creative process from idea to product",
+          "Bureaucracy",
+          "Trial and error"
+        ],
+        "very_hard": [
+          "Entropy",
+          "The process is the product",
+          "Compound interest",
+          "Paradigm shift",
+          "Evolution in real time",
+          "Planned obsolescence",
+          "Point of diminishing returns",
+          "Critical mass",
+          "Ship of Theseus",
+          "Regression to the mean"
+        ]
+      }
+    }
+  ]
+}
