@@ -30,10 +30,10 @@ export default function JoinViaLinkPage() {
 
     setIsJoining(true);
     try {
-      // Look up room by code
+      // Look up room by code — also fetch status so we know where to redirect after rejoin
       const { data: room, error: roomError } = await supabase
         .from("game_rooms")
-        .select("id")
+        .select("id, status")
         .eq("room_code", params.roomCode.toUpperCase())
         .single();
 
@@ -41,23 +41,38 @@ export default function JoinViaLinkPage() {
         throw new Error("Room not found. Check the code and try again.");
       }
 
-      // Join the room
+      // Send stored guest_token so the API can match a rejoining player
+      const storedGuestToken =
+        typeof window !== "undefined"
+          ? localStorage.getItem("guest_token")
+          : null;
+
       const res = await fetch(`/api/rooms/${room.id}/join`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ displayName: name }),
+        body: JSON.stringify({
+          displayName: name,
+          guestToken: storedGuestToken ?? undefined,
+        }),
       });
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
 
+      // Persist identity
       if (data.player.guestToken) {
         localStorage.setItem("guest_token", data.player.guestToken);
       }
       localStorage.setItem("player_id", data.player.id);
       localStorage.setItem("display_name", name);
 
-      router.push(ROUTES.ROOM(room.id));
+      if (data.rejoined && room.status === "playing") {
+        // Rejoin mid-game — go straight to the play page
+        router.push(ROUTES.ROOM_PLAY(room.id));
+      } else {
+        // Normal join — go to lobby
+        router.push(ROUTES.ROOM(room.id));
+      }
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Failed to join");
       setIsJoining(false);

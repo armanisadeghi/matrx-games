@@ -1,7 +1,8 @@
 export type PictionaryPhase =
   | "waiting"
   | "round_start"
-  | "picking_difficulty"  // drawer chooses difficulty before word is revealed
+  | "picking_difficulty" // drawer chooses difficulty before word is revealed
+  | "previewing" // 10s countdown while drawer memorises the word
   | "drawing"
   | "round_end"
   | "game_over";

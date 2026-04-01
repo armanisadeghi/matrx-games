@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import type { TimerState } from "../types";
 
@@ -16,6 +17,36 @@ function formatTime(ms: number): string {
   return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
+function playAlarmBeep() {
+  if (typeof window === "undefined") return;
+  try {
+    const ctx = new AudioContext();
+
+    // Three sharp descending beeps
+    const beepAt = (startTime: number, freq: number) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.type = "square";
+      osc.frequency.setValueAtTime(freq, startTime);
+      gain.gain.setValueAtTime(0.4, startTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.18);
+      osc.start(startTime);
+      osc.stop(startTime + 0.18);
+    };
+
+    beepAt(ctx.currentTime, 880);
+    beepAt(ctx.currentTime + 0.22, 660);
+    beepAt(ctx.currentTime + 0.44, 440);
+
+    // Close context after sounds finish
+    setTimeout(() => ctx.close(), 800);
+  } catch {
+    // AudioContext unavailable — silently ignore
+  }
+}
+
 export function GameTimer({ timer, className, size = "md" }: GameTimerProps) {
   const percentage =
     timer.duration > 0 ? (timer.remaining / timer.duration) * 100 : 0;
@@ -25,6 +56,27 @@ export function GameTimer({ timer, className, size = "md" }: GameTimerProps) {
     timer.remaining <= 0 &&
     timer.isRunning === false &&
     timer.startedAt !== null;
+
+  // Fire alarm exactly once when timer hits 0
+  const alarmFiredRef = useRef(false);
+  const prevRemainingRef = useRef(timer.remaining);
+
+  useEffect(() => {
+    const prev = prevRemainingRef.current;
+    prevRemainingRef.current = timer.remaining;
+
+    // Reset alarm flag when a new timer starts
+    if (timer.remaining > 0) {
+      alarmFiredRef.current = false;
+      return;
+    }
+
+    // Crossed from >0 to <=0 this tick
+    if (prev > 0 && timer.remaining <= 0 && !alarmFiredRef.current) {
+      alarmFiredRef.current = true;
+      playAlarmBeep();
+    }
+  }, [timer.remaining]);
 
   return (
     <div className={cn("flex flex-col items-center gap-3", className)}>
@@ -43,7 +95,7 @@ export function GameTimer({ timer, className, size = "md" }: GameTimerProps) {
           isExpired && "text-muted-foreground",
         )}
       >
-        {formatTime(timer.remaining)}
+        {isExpired ? "TIME'S UP" : formatTime(timer.remaining)}
       </div>
 
       {/* Progress bar */}

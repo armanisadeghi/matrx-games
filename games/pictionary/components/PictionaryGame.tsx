@@ -3,6 +3,7 @@
 import { useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import { gameRealtime } from "@/lib/game-engine/GameRealtimeService";
 import type { GameComponentProps } from "@/games/types";
 import { usePictionaryGame } from "../hooks/usePictionaryGame";
 import { usePictionaryRealtime } from "../hooks/usePictionaryRealtime";
@@ -13,6 +14,9 @@ import { SpectatorView } from "./SpectatorView";
 import { RoundResults } from "./RoundResults";
 import { GameOverScreen } from "./GameOverScreen";
 import { DifficultyPicker } from "./DifficultyPicker";
+import { PreviewView } from "./PreviewView";
+import { EmergencyReset } from "./EmergencyReset";
+import { TimerExpiredOverlay } from "@/features/timer/components/TimerExpiredOverlay";
 import type { PictionarySettings, PictionaryDifficultyLevel } from "../types";
 
 export function PictionaryGame({
@@ -52,14 +56,22 @@ export function PictionaryGame({
         timestamp: Date.now(),
       });
 
-      import("@/lib/game-engine/GameRealtimeService").then(({ gameRealtime }) => {
-        gameRealtime.broadcastEvent(room.id, "guess:result", {
-          playerId: data.playerId,
-          displayName: data.displayName,
-          guess: data.guess,
-          isCorrect,
-        });
+      gameRealtime.broadcastEvent(room.id, "guess:result", {
+        playerId: data.playerId,
+        displayName: data.displayName,
+        guess: data.guess,
+        isCorrect,
       });
+    },
+    [isHost, game, room.id],
+  );
+
+  // Host handles skip requests from the drawer
+  const onDrawerSkip = useCallback(
+    (drawerId: string) => {
+      if (!isHost) return;
+      game.skipDrawer();
+      gameRealtime.broadcastEvent(room.id, "drawer:skip", { drawerId });
     },
     [isHost, game, room.id],
   );
@@ -69,13 +81,16 @@ export function PictionaryGame({
     isHost,
     player,
     onGuessReceived,
+    onDrawerSkip,
   });
 
   const isDrawer = player.id === game.currentDrawerId;
   const isOnActiveTeam = player.teamId === game.currentTeam;
   const isGuesser = isOnActiveTeam && !isDrawer;
   const drawerPlayer = players.find((p) => p.id === game.currentDrawerId);
-  const playerNames = Object.fromEntries(players.map((p) => [p.id, p.displayName]));
+  const playerNames = Object.fromEntries(
+    players.map((p) => [p.id, p.displayName]),
+  );
 
   const handleStartGame = () => {
     game.startRound();
@@ -83,6 +98,21 @@ export function PictionaryGame({
 
   const handleDifficultyChosen = (difficulty: PictionaryDifficultyLevel) => {
     game.confirmDifficulty(difficulty);
+  };
+
+  // Called by the drawer's skip button — broadcasts to host who calls skipDrawer()
+  const handleSelfSkip = () => {
+    gameRealtime.broadcastEvent(room.id, "drawer:skip", {
+      drawerId: player.id,
+    });
+    // If this player IS the host, handle it directly
+    if (isHost) game.skipDrawer();
+  };
+
+  // Called when PreviewView countdown ends — only the drawer's client triggers this
+  const handlePreviewComplete = () => {
+    if (!isDrawer) return;
+    game.startDrawing();
     startTimer();
   };
 
@@ -90,7 +120,11 @@ export function PictionaryGame({
     game.nextRoundOrEnd();
   };
 
-  // ── Waiting ────────────────────────────────────────────────────────────────
+  // Emergency reset — available in all active phases
+  const showEmergencyReset =
+    game.phase !== "waiting" && game.phase !== "game_over";
+
+  // ── Waiting ──────────────────────────────────────────────────────────────
   if (game.phase === "waiting") {
     return (
       <div className="flex min-h-dvh flex-col items-center justify-center gap-8 p-6">
@@ -117,13 +151,15 @@ export function PictionaryGame({
           </p>
         )}
         {players.length < 2 && (
-          <p className="text-base text-destructive">Need at least 2 players to start</p>
+          <p className="text-base text-destructive">
+            Need at least 2 players to start
+          </p>
         )}
       </div>
     );
   }
 
-  // ── Drawer picks difficulty ────────────────────────────────────────────────
+  // ── Picking difficulty ───────────────────────────────────────────────────
   if (game.phase === "picking_difficulty") {
     return (
       <div className="flex min-h-dvh flex-col p-4 pt-6">
@@ -133,16 +169,52 @@ export function PictionaryGame({
           roundNumber={game.currentRound}
           teamName={game.currentTeam}
           onPick={handleDifficultyChosen}
+          onSkip={isDrawer ? handleSelfSkip : undefined}
         />
+        {showEmergencyReset && (
+          <EmergencyReset
+            roomId={room.id}
+            playerId={player.id}
+            playerName={player.displayName}
+            onReset={game.resetGame}
+          />
+        )}
       </div>
     );
   }
 
-  // ── Drawing ────────────────────────────────────────────────────────────────
+  // ── Previewing word ──────────────────────────────────────────────────────
+  if (game.phase === "previewing") {
+    return (
+      <div className="flex min-h-dvh flex-col p-4 pt-6">
+        <PreviewView
+          isDrawer={isDrawer}
+          word={game.currentWord}
+          category={game.currentWordCategory ?? undefined}
+          difficulty={game.currentWordDifficulty ?? undefined}
+          pointValue={game.currentPointValue}
+          drawerName={drawerPlayer?.displayName ?? "Someone"}
+          onPreviewComplete={handlePreviewComplete}
+        />
+        {showEmergencyReset && (
+          <EmergencyReset
+            roomId={room.id}
+            playerId={player.id}
+            playerName={player.displayName}
+            onReset={game.resetGame}
+          />
+        )}
+      </div>
+    );
+  }
+
+  // ── Drawing ───────────────────────────────────────────────────────────────
   if (game.phase === "drawing") {
-    if (isDrawer && game.currentWord) {
-      return (
-        <div className="flex min-h-dvh flex-col p-4 pt-6">
+    return (
+      <div className="relative flex min-h-dvh flex-col p-4 pt-6">
+        <TimerExpiredOverlay timer={timer} />
+
+        {isDrawer && game.currentWord ? (
           <DrawerView
             word={game.currentWord}
             category={game.currentWordCategory ?? undefined}
@@ -151,13 +223,7 @@ export function PictionaryGame({
             timer={timer}
             teamName={game.currentTeam}
           />
-        </div>
-      );
-    }
-
-    if (isGuesser) {
-      return (
-        <div className="flex min-h-dvh flex-col p-4 pt-6">
+        ) : isGuesser ? (
           <GuesserView
             timer={timer}
             guesses={game.guesses}
@@ -166,27 +232,30 @@ export function PictionaryGame({
             category={game.currentWordCategory ?? undefined}
             difficulty={game.currentWordDifficulty ?? undefined}
             pointValue={game.currentPointValue}
-            isGuessing={game.phase === "drawing" && !game.roundWinner}
+            isGuessing={!game.roundWinner}
           />
-        </div>
-      );
-    }
+        ) : (
+          <SpectatorView
+            timer={timer}
+            activeTeam={game.currentTeam}
+            drawerName={drawerPlayer?.displayName ?? "Someone"}
+            scores={game.teamScores}
+            difficulty={game.currentWordDifficulty ?? undefined}
+            pointValue={game.currentPointValue}
+          />
+        )}
 
-    return (
-      <div className="flex min-h-dvh flex-col p-4 pt-6">
-        <SpectatorView
-          timer={timer}
-          activeTeam={game.currentTeam}
-          drawerName={drawerPlayer?.displayName ?? "Someone"}
-          scores={game.teamScores}
-          difficulty={game.currentWordDifficulty ?? undefined}
-          pointValue={game.currentPointValue}
+        <EmergencyReset
+          roomId={room.id}
+          playerId={player.id}
+          playerName={player.displayName}
+          onReset={game.resetGame}
         />
       </div>
     );
   }
 
-  // ── Round end ──────────────────────────────────────────────────────────────
+  // ── Round end ─────────────────────────────────────────────────────────────
   if (game.phase === "round_end") {
     const totalRounds = game.settings.roundsPerTeam * game.getTeams().length;
     return (
@@ -196,17 +265,25 @@ export function PictionaryGame({
           category={game.currentWordCategory ?? undefined}
           difficulty={game.currentWordDifficulty ?? undefined}
           pointValue={game.currentPointValue}
-          winnerName={game.roundWinner ? (playerNames[game.roundWinner] ?? null) : null}
+          winnerName={
+            game.roundWinner ? (playerNames[game.roundWinner] ?? null) : null
+          }
           scores={game.teamScores}
           isHost={isHost}
           onNextRound={handleNextRound}
           isLastRound={game.currentRound >= totalRounds}
         />
+        <EmergencyReset
+          roomId={room.id}
+          playerId={player.id}
+          playerName={player.displayName}
+          onReset={game.resetGame}
+        />
       </div>
     );
   }
 
-  // ── Game over ──────────────────────────────────────────────────────────────
+  // ── Game over ─────────────────────────────────────────────────────────────
   if (game.phase === "game_over") {
     return (
       <div className="flex min-h-dvh flex-col p-4 pt-6">

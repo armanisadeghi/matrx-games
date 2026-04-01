@@ -15,6 +15,7 @@ interface UsePictionaryRealtimeOptions {
     displayName: string;
     guess: string;
   }) => void;
+  onDrawerSkip?: (drawerId: string) => void;
 }
 
 export function usePictionaryRealtime({
@@ -22,6 +23,7 @@ export function usePictionaryRealtime({
   isHost,
   player,
   onGuessReceived,
+  onDrawerSkip,
 }: UsePictionaryRealtimeOptions) {
   const store = usePictionaryStore();
 
@@ -38,28 +40,34 @@ export function usePictionaryRealtime({
         };
         store.setCurrentRound(data.roundNumber, data.teamId, data.drawerId);
         store.setPhase("picking_difficulty");
-      })
+      }),
     );
 
-    // Word assigned after drawer picks difficulty
+    // Word previewed — 10s countdown before drawing starts
     unsubs.push(
-      gameRealtime.onBroadcast(roomId, "word:assigned", (payload) => {
+      gameRealtime.onBroadcast(roomId, "word:preview", (payload) => {
         const data = payload as {
           word: string;
           difficulty: string;
           category: string;
           pointValue: number;
         };
-        // Everyone gets difficulty/category/points for display;
-        // only the drawer sees the actual word — others get null
+        // Only the drawer sees the actual word during preview
         store.setWord(
           player.id === store.currentDrawerId ? data.word : null,
           data.difficulty as PictionaryDifficultyLevel,
           data.category,
           data.pointValue,
         );
+        store.setPhase("previewing");
+      }),
+    );
+
+    // Drawer's preview countdown ended — everyone enters drawing phase
+    unsubs.push(
+      gameRealtime.onBroadcast(roomId, "round:start", () => {
         store.setPhase("drawing");
-      })
+      }),
     );
 
     // Listen for guess:submit (host validates)
@@ -72,7 +80,7 @@ export function usePictionaryRealtime({
             guess: string;
           };
           onGuessReceived?.(data);
-        })
+        }),
       );
     }
 
@@ -86,7 +94,7 @@ export function usePictionaryRealtime({
           isCorrect: boolean;
         };
         store.addGuess({ ...data, timestamp: Date.now() });
-      })
+      }),
     );
 
     // Listen for round:end
@@ -106,7 +114,7 @@ export function usePictionaryRealtime({
         store.setRoundWinner(data.winnerId);
         store.updateScores(data.scores, data.teamScores);
         store.setPhase("round_end");
-      })
+      }),
     );
 
     // Listen for game:end
@@ -118,8 +126,18 @@ export function usePictionaryRealtime({
         };
         store.updateScores(data.scores, data.teamScores);
         store.setPhase("game_over");
-      })
+      }),
     );
+
+    // Drawer skip — host handles via usePictionaryGame; non-hosts just wait for round:picking
+    if (isHost) {
+      unsubs.push(
+        gameRealtime.onBroadcast(roomId, "drawer:skip", (payload) => {
+          const { drawerId } = payload as { drawerId: string };
+          onDrawerSkip?.(drawerId);
+        }),
+      );
+    }
 
     // Listen for game:state reset
     unsubs.push(
@@ -128,11 +146,11 @@ export function usePictionaryRealtime({
         if (data.action === "reset") {
           store.reset();
         }
-      })
+      }),
     );
 
     return () => {
       unsubs.forEach((fn) => fn());
     };
-  }, [roomId, isHost, player.id, store, onGuessReceived]);
+  }, [roomId, isHost, player.id, store, onGuessReceived, onDrawerSkip]);
 }

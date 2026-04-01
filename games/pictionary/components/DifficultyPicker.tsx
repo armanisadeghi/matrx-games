@@ -1,6 +1,6 @@
 "use client";
 
-import { Pencil, Star, Zap, Flame, Skull } from "lucide-react";
+import { Pencil, Star, Zap, Flame, Skull, SkipForward } from "lucide-react";
 import { DIFFICULTY_CONFIG } from "../constants";
 import type { PictionaryDifficultyLevel } from "../types";
 
@@ -13,10 +13,10 @@ const DIFFICULTIES: PictionaryDifficultyLevel[] = [
 ];
 
 const ICONS = {
-  easy:            <Star className="h-6 w-6" />,
-  medium:          <Pencil className="h-6 w-6" />,
-  hard:            <Flame className="h-6 w-6" />,
-  very_hard:       <Zap className="h-6 w-6" />,
+  easy: <Star className="h-6 w-6" />,
+  medium: <Pencil className="h-6 w-6" />,
+  hard: <Flame className="h-6 w-6" />,
+  very_hard: <Zap className="h-6 w-6" />,
   extra_challenge: <Skull className="h-6 w-6" />,
 };
 
@@ -26,6 +26,7 @@ interface DifficultyPickerProps {
   roundNumber: number;
   teamName: string;
   onPick: (difficulty: PictionaryDifficultyLevel) => void;
+  onSkip?: () => void;
 }
 
 export function DifficultyPicker({
@@ -34,6 +35,7 @@ export function DifficultyPicker({
   roundNumber,
   teamName,
   onPick,
+  onSkip,
 }: DifficultyPickerProps) {
   if (!isDrawer) {
     return (
@@ -42,9 +44,7 @@ export function DifficultyPicker({
           <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
             Round {roundNumber} — Team {teamName}
           </p>
-          <h2 className="text-3xl font-bold">
-            {drawerName} is choosing...
-          </h2>
+          <h2 className="text-3xl font-bold">{drawerName} is choosing...</h2>
           <p className="text-lg text-muted-foreground">
             Wait while the drawer picks a difficulty level
           </p>
@@ -115,6 +115,16 @@ export function DifficultyPicker({
           );
         })}
       </div>
+
+      {onSkip && (
+        <button
+          onClick={onSkip}
+          className="flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:border-destructive/40 hover:text-destructive"
+        >
+          <SkipForward className="h-4 w-4" />
+          Skip my turn
+        </button>
+      )}
     </div>
   );
 }

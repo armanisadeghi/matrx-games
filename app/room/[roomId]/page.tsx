@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Loader2, Play } from "lucide-react";
 import { RoomCodeDisplay } from "@/features/lobby/components/RoomCodeDisplay";
 import { PlayerList } from "@/features/lobby/components/PlayerList";
+import { TeamSelfAssign } from "@/features/lobby/components/TeamSelfAssign";
 import { useRoom } from "@/features/lobby/hooks/useRoom";
 import { useRoomRealtime } from "@/features/lobby/hooks/useRoomRealtime";
 import { useTeams } from "@/features/lobby/hooks/useTeams";
@@ -20,7 +21,7 @@ export default function RoomLobbyPage() {
   const router = useRouter();
   const { room, players, isLoading, fetchRoom, setPlayers, updateRoomStatus } =
     useRoom();
-  const { autoBalanceTeams } = useTeams(params.roomId);
+  const { assignTeam } = useTeams(params.roomId);
   const [currentPlayerId] = useState(
     () =>
       (typeof window !== "undefined"
@@ -29,7 +30,6 @@ export default function RoomLobbyPage() {
   );
   useWakeLock();
 
-  // Track which player IDs we've already loaded from DB to detect new arrivals
   const knownPlayerIdsRef = useRef<Set<string>>(new Set());
 
   const currentPlayer: Player | null =
@@ -41,23 +41,19 @@ export default function RoomLobbyPage() {
     (connected: Player[]) => {
       const connectedIds = new Set(connected.map((p) => p.id));
 
-      // Check if any connected player is not yet in our DB-fetched list
       const hasNewPlayer = connected.some(
         (p) => !knownPlayerIdsRef.current.has(p.id),
       );
 
       if (hasNewPlayer) {
-        // Re-fetch from DB to pick up the new player row
         fetchRoom(params.roomId);
       }
 
-      // Update connected status on existing players
       setPlayers((prev) => {
         const updated = prev.map((p) => ({
           ...p,
           isConnected: connectedIds.has(p.id),
         }));
-        // Update known IDs
         updated.forEach((p) => knownPlayerIdsRef.current.add(p.id));
         return updated;
       });
@@ -90,6 +86,24 @@ export default function RoomLobbyPage() {
     }
   }, [params.roomId, fetchRoom]);
 
+  // Listen for team:update broadcasts so all clients see team changes live
+  useEffect(() => {
+    const unsub = gameRealtime.onBroadcast(
+      params.roomId,
+      "team:update",
+      (payload) => {
+        const { playerId, teamId } = payload as {
+          playerId: string;
+          teamId: string | null;
+        };
+        setPlayers((prev) =>
+          prev.map((p) => (p.id === playerId ? { ...p, teamId } : p)),
+        );
+      },
+    );
+    return unsub;
+  }, [params.roomId, setPlayers]);
+
   // Non-host: listen for game:start broadcast to navigate immediately
   useEffect(() => {
     if (isHost) return;
@@ -99,28 +113,53 @@ export default function RoomLobbyPage() {
     return unsub;
   }, [isHost, params.roomId, router]);
 
+  const handleJoinTeam = async (teamId: string) => {
+    if (!currentPlayerId) return;
+    const { error } = await assignTeam(currentPlayerId, teamId);
+    if (error) toast.error("Failed to join team");
+    else {
+      // Optimistic local update
+      setPlayers((prev) =>
+        prev.map((p) => (p.id === currentPlayerId ? { ...p, teamId } : p)),
+      );
+    }
+  };
+
+  const handleLeaveTeam = async () => {
+    if (!currentPlayerId) return;
+    const { error } = await assignTeam(currentPlayerId, null);
+    if (error) toast.error("Failed to leave team");
+    else {
+      setPlayers((prev) =>
+        prev.map((p) =>
+          p.id === currentPlayerId ? { ...p, teamId: null } : p,
+        ),
+      );
+    }
+  };
+
   const handleStartGame = async () => {
     if (!isHost || players.length < 2) return;
 
-    // Auto-balance teams if no one has been assigned
-    const unassigned = players.filter((p) => !p.teamId);
-    if (unassigned.length > 0) {
-      const assignments = autoBalanceTeams(players);
-      for (const [playerId, teamId] of assignments) {
-        const { error } = await (
-          await import("@/utils/supabase/client")
-        ).supabase
-          .from("game_players")
-          .update({ team_id: teamId })
-          .eq("id", playerId);
-        if (error) {
-          toast.error("Failed to assign teams");
-          return;
-        }
-      }
+    // Require at least 2 teams with at least 1 player each
+    const teamsWithPlayers = new Set(
+      players.filter((p) => p.teamId).map((p) => p.teamId),
+    );
+    if (teamsWithPlayers.size < 2) {
+      toast.error(
+        "At least 2 teams are needed. Ask players to pick a team first.",
+      );
+      return;
     }
 
-    // Broadcast before updating DB so clients navigate while status is updating
+    const unteamed = players.filter((p) => !p.teamId);
+    if (unteamed.length > 0) {
+      toast.error(
+        `${unteamed.map((p) => p.displayName).join(", ")} still need${unteamed.length === 1 ? "s" : ""} to pick a team.`,
+      );
+      return;
+    }
+
     await gameRealtime.broadcastEvent(params.roomId, "game:start", {});
     await updateRoomStatus("playing");
     router.push(ROUTES.ROOM_PLAY(params.roomId));
@@ -149,6 +188,13 @@ export default function RoomLobbyPage() {
       <RoomCodeDisplay roomCode={room.roomCode} />
 
       <PlayerList players={players} currentPlayerId={currentPlayerId} />
+
+      <TeamSelfAssign
+        players={players}
+        currentPlayerId={currentPlayerId}
+        onJoinTeam={handleJoinTeam}
+        onLeaveTeam={handleLeaveTeam}
+      />
 
       {isHost && (
         <Button

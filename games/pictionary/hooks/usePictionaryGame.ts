@@ -1,12 +1,16 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useRef } from "react";
 import { gameRealtime } from "@/lib/game-engine/GameRealtimeService";
 import { usePictionaryStore } from "../state/pictionaryStore";
 import { DEFAULT_SETTINGS } from "../constants";
 import { usePictionaryWords } from "./usePictionaryWords";
 import type { Player } from "@/games/types";
-import type { PictionaryGuess, PictionarySettings, PictionaryDifficultyLevel } from "../types";
+import type {
+  PictionaryGuess,
+  PictionarySettings,
+  PictionaryDifficultyLevel,
+} from "../types";
 
 interface UsePictionaryGameOptions {
   roomId: string;
@@ -25,15 +29,19 @@ export function usePictionaryGame({
 }: UsePictionaryGameOptions) {
   const store = usePictionaryStore();
 
+  // Guards against double round:end (correct guess races timer expiry)
+  const roundEndedRef = useRef(false);
+
   const settings: PictionarySettings = {
     ...DEFAULT_SETTINGS,
     ...userSettings,
   };
 
-  const { pickWordByDifficulty, markWordUsed, resetSessionUsage } = usePictionaryWords({
-    difficulty: settings.wordDifficulty,
-    categories: settings.wordCategories,
-  });
+  const { pickWordByDifficulty, markWordUsed, resetSessionUsage } =
+    usePictionaryWords({
+      difficulty: settings.wordDifficulty,
+      categories: settings.wordCategories,
+    });
 
   const getTeams = useCallback(() => {
     const teams = new Set(players.map((p) => p.teamId).filter(Boolean));
@@ -44,53 +52,76 @@ export function usePictionaryGame({
     (teamId: string, currentDrawerId: string | null) => {
       const teamPlayers = players.filter((p) => p.teamId === teamId);
       if (teamPlayers.length === 0) return null;
-      if (!currentDrawerId) return teamPlayers[0];
-      const currentIndex = teamPlayers.findIndex((p) => p.id === currentDrawerId);
+      if (!currentDrawerId) {
+        // Round 1: pick a random player from the team
+        return teamPlayers[Math.floor(Math.random() * teamPlayers.length)];
+      }
+      const currentIndex = teamPlayers.findIndex(
+        (p) => p.id === currentDrawerId,
+      );
       return teamPlayers[(currentIndex + 1) % teamPlayers.length];
     },
     [players],
   );
 
-  // Host calls this to start a round — moves to picking_difficulty so the drawer
-  // can choose their difficulty before the word is revealed
-  const startRound = useCallback(() => {
+  const startRound = useCallback(
+    (skipDrawerId?: string) => {
+      if (!isHost) return;
+
+      const teams = getTeams();
+      if (teams.length < 2) return;
+
+      roundEndedRef.current = false;
+
+      const nextRound = skipDrawerId
+        ? store.currentRound
+        : store.currentRound + 1;
+      const teamIndex = (nextRound - 1) % teams.length;
+      const team = teams[teamIndex];
+
+      // When skipping, advance from the skipped drawer; otherwise normal rotation
+      const drawerToAdvanceFrom =
+        skipDrawerId ??
+        (store.currentTeam === team ? store.currentDrawerId : null);
+      const drawer = getNextDrawer(team, drawerToAdvanceFrom);
+      if (!drawer) return;
+
+      store.setCurrentRound(nextRound, team, drawer.id);
+      store.setPhase("picking_difficulty");
+
+      gameRealtime.broadcastEvent(roomId, "round:picking", {
+        roundNumber: nextRound,
+        teamId: team,
+        drawerId: drawer.id,
+      });
+    },
+    [isHost, roomId, store, getTeams, getNextDrawer],
+  );
+
+  const skipDrawer = useCallback(() => {
     if (!isHost) return;
-
-    const teams = getTeams();
-    if (teams.length < 2) return;
-
-    const nextRound = store.currentRound + 1;
-    const teamIndex = (nextRound - 1) % teams.length;
-    const team = teams[teamIndex];
-    const drawer = getNextDrawer(
-      team,
-      store.currentTeam === team ? store.currentDrawerId : null,
-    );
-    if (!drawer) return;
-
-    store.setCurrentRound(nextRound, team, drawer.id);
-    store.setPhase("picking_difficulty");
-
-    gameRealtime.broadcastEvent(roomId, "round:picking", {
-      roundNumber: nextRound,
-      teamId: team,
-      drawerId: drawer.id,
-    });
-  }, [isHost, roomId, store, getTeams, getNextDrawer]);
+    startRound(store.currentDrawerId ?? undefined);
+  }, [isHost, store, startRound]);
 
   // Called by the drawer once they've chosen a difficulty
   const confirmDifficulty = useCallback(
     (chosenDifficulty: PictionaryDifficultyLevel) => {
       if (player.id !== store.currentDrawerId) return;
 
+      roundEndedRef.current = false;
+
       const picked = pickWordByDifficulty(chosenDifficulty);
       markWordUsed(picked.word);
 
-      store.setWord(picked.word, picked.difficulty, picked.category, picked.pointValue);
-      store.setPhase("drawing");
+      store.setWord(
+        picked.word,
+        picked.difficulty,
+        picked.category,
+        picked.pointValue,
+      );
+      store.setPhase("previewing");
 
-      // Broadcast word to all clients (only drawer UI renders it)
-      gameRealtime.broadcastEvent(roomId, "word:assigned", {
+      gameRealtime.broadcastEvent(roomId, "word:preview", {
         word: picked.word,
         difficulty: picked.difficulty,
         category: picked.category,
@@ -99,6 +130,12 @@ export function usePictionaryGame({
     },
     [player.id, store, roomId, pickWordByDifficulty, markWordUsed],
   );
+
+  // Called when preview countdown ends — transitions everyone to drawing
+  const startDrawing = useCallback(() => {
+    store.setPhase("drawing");
+    gameRealtime.broadcastEvent(roomId, "round:start", {});
+  }, [store, roomId]);
 
   const submitGuess = useCallback(
     (guessText: string) => {
@@ -116,14 +153,22 @@ export function usePictionaryGame({
       store.addGuess(guess);
 
       if (guess.isCorrect && isHost) {
+        // Guard: if round already ended (e.g. timer fired at the same moment), ignore
+        if (roundEndedRef.current) return;
+        roundEndedRef.current = true;
+
         const pointValue = store.currentPointValue;
         const newScores = { ...store.scores };
-        newScores[guess.playerId] = (newScores[guess.playerId] ?? 0) + pointValue;
+        newScores[guess.playerId] =
+          (newScores[guess.playerId] ?? 0) + pointValue;
 
         const newTeamScores = { ...store.teamScores };
-        const guesserTeam = players.find((p) => p.id === guess.playerId)?.teamId;
+        const guesserTeam = players.find(
+          (p) => p.id === guess.playerId,
+        )?.teamId;
         if (guesserTeam) {
-          newTeamScores[guesserTeam] = (newTeamScores[guesserTeam] ?? 0) + pointValue;
+          newTeamScores[guesserTeam] =
+            (newTeamScores[guesserTeam] ?? 0) + pointValue;
         }
 
         // Drawer gets half points for a successful round
@@ -151,6 +196,9 @@ export function usePictionaryGame({
 
   const handleTimerComplete = useCallback(() => {
     if (!isHost) return;
+    // Guard: if a correct guess already ended the round, don't overwrite the winner
+    if (roundEndedRef.current) return;
+    roundEndedRef.current = true;
 
     store.setPhase("round_end");
     store.setRoundWinner(null);
@@ -180,18 +228,19 @@ export function usePictionaryGame({
   }, [isHost, roomId, store, settings.roundsPerTeam, getTeams, startRound]);
 
   const resetGame = useCallback(() => {
+    roundEndedRef.current = false;
     store.reset();
     resetSessionUsage();
-    if (isHost) {
-      gameRealtime.broadcastEvent(roomId, "game:state", { action: "reset" });
-    }
-  }, [isHost, roomId, store, resetSessionUsage]);
+    gameRealtime.broadcastEvent(roomId, "game:state", { action: "reset" });
+  }, [roomId, store, resetSessionUsage]);
 
   return {
     ...store,
     settings,
     startRound,
+    skipDrawer,
     confirmDifficulty,
+    startDrawing,
     submitGuess,
     handleGuessResult,
     handleTimerComplete,
