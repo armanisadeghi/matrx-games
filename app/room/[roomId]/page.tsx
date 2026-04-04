@@ -144,9 +144,7 @@ export default function RoomLobbyPage() {
   const handleLeaveTeam = async () => {
     if (!currentPlayerId) return;
     setPlayers((prev) =>
-      prev.map((p) =>
-        p.id === currentPlayerId ? { ...p, teamId: null } : p,
-      ),
+      prev.map((p) => (p.id === currentPlayerId ? { ...p, teamId: null } : p)),
     );
     const { error } = await assignTeam(currentPlayerId, null);
     if (error) {
@@ -198,7 +196,9 @@ export default function RoomLobbyPage() {
               .eq("id", p.id),
           ),
         );
-        toast.info("Teams auto-assigned — tap Refresh if you want to switch before the round starts.");
+        toast.info(
+          "Teams auto-assigned — tap Refresh if you want to switch before the round starts.",
+        );
       }
 
       // Any remaining unteamed players after the auto-assign above are assigned
@@ -252,7 +252,9 @@ export default function RoomLobbyPage() {
           disabled={isRefreshing}
           className="gap-1.5 text-muted-foreground"
         >
-          <RefreshCw className={`h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`} />
+          <RefreshCw
+            className={`h-4 w-4 ${isRefreshing ? "animate-spin" : ""}`}
+          />
           Refresh
         </Button>
       </div>
