@@ -30,6 +30,9 @@ Web-based multiplayer game platform hosting 10-20+ games. Real-time multiplayer 
 ## Architecture
 
 - `proxy.ts` handles auth session refresh (Next.js 16 pattern, replaces middleware.ts)
+- Agent response streams use exact public `@ai-matrx/agents` through
+  `hooks/agent-stream.ts`; never add a local NDJSON decoder or silently discard
+  malformed/unknown frames. Consumer forcing tests live beside that adapter.
 - Most routes are public (guest-friendly). Only `/dashboard`, `/profile`, `/history` require auth
 - Guest mode: display name + `guest_token` (UUID in localStorage). No persistent stats
 - Authenticated mode: Supabase Auth. Persistent leaderboards, game history, profile

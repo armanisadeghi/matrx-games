@@ -2,12 +2,13 @@
 
 import { useState, useCallback, useRef } from "react";
 
-export type AgentEvent =
-  | { event: "status_update"; data: { status: string; system_message?: string; user_message?: string } }
-  | { event: "chunk"; data: { delta: string; tool_use_id?: string | null } }
-  | { event: "data"; data: Record<string, unknown> }
-  | { event: "completion"; data: { status: string; output?: string; iterations?: number } }
-  | { event: "error"; data: { message: string } };
+import {
+  consumeAgentStream,
+  type AgentEvent,
+  type AgentProtocolIssue,
+} from "./agent-stream";
+
+export type { AgentEvent, AgentProtocolIssue } from "./agent-stream";
 
 type AgentStatus = "idle" | "connecting" | "streaming" | "complete" | "error";
 
@@ -16,6 +17,7 @@ type UseAgentOptions = {
   onChunk?: (delta: string) => void;
   onComplete?: (output: string) => void;
   onError?: (error: string) => void;
+  onProtocolIssue?: (issue: AgentProtocolIssue) => void;
 };
 
 export function useAgent(options: UseAgentOptions = {}) {
@@ -47,49 +49,37 @@ export function useAgent(options: UseAgentOptions = {}) {
           throw new Error(text);
         }
 
+        if (!res.body) throw new Error("The agent response had no stream body.");
+
         setStatus("streaming");
-        const reader = res.body!.getReader();
-        const decoder = new TextDecoder();
-        let buffer = "";
         let accumulated = "";
-
-        while (true) {
-          const { done, value } = await reader.read();
-          if (done) break;
-
-          buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split("\n");
-          buffer = lines.pop() ?? "";
-
-          for (const line of lines) {
-            const trimmed = line.trim();
-            if (!trimmed) continue;
-
-            try {
-              const event = JSON.parse(trimmed) as AgentEvent;
-              options.onEvent?.(event);
-
-              if (event.event === "chunk") {
-                accumulated += event.data.delta;
-                setOutput(accumulated);
-                options.onChunk?.(event.data.delta);
-              } else if (event.event === "completion") {
-                const finalOutput = event.data.output ?? accumulated;
-                setOutput(finalOutput);
-                setStatus("complete");
-                options.onComplete?.(finalOutput);
-              } else if (event.event === "error") {
-                setError(event.data.message);
-                setStatus("error");
-                options.onError?.(event.data.message);
+        const result = await consumeAgentStream(
+          res.body,
+          {
+            onEvent: options.onEvent,
+            onChunk: (text) => {
+              accumulated += text;
+              setOutput(accumulated);
+              options.onChunk?.(text);
+            },
+            onComplete: options.onComplete,
+            onServerError: options.onError,
+            onProtocolIssue: (issue) => {
+              options.onProtocolIssue?.(issue);
+              if (!options.onProtocolIssue) {
+                console.warn("Agent stream protocol issue", issue);
               }
-            } catch {
-              // skip malformed lines
-            }
-          }
-        }
+            },
+          },
+          controller.signal,
+        );
 
-        if (status !== "error") {
+        if (controller.signal.aborted) return;
+        setOutput(result.output);
+        if (result.status === "error") {
+          setError(result.error);
+          setStatus("error");
+        } else {
           setStatus("complete");
         }
       } catch (err) {
