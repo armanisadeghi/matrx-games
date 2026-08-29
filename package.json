@@ -10,10 +10,11 @@
     "test": "vitest run",
     "type-check": "tsc --noEmit",
     "types": "npx supabase gen types typescript --project-id eddtfkgtwbyhqdgmmofi --schema public > types/database.types.ts",
-    "seed-words": "dotenv -e .env.local -- tsx scripts/seed-words.ts"
+    "seed-words": "dotenv -e .env.local -- tsx scripts/seed-words.ts",
+    "check:matrx-latest": "node -e \"const p=require('./package.json');const bad=[];for(const s of ['dependencies','devDependencies','optionalDependencies']){for(const [k,v] of Object.entries(p[s]||{})){if(k.startsWith('@ai-matrx/')&&v!=='latest'&&v!=='workspace:*')bad.push(k+'@'+v)}}if(bad.length){console.error('THE LATEST LAW (common-docs/policies/typescript-package-standard.md): pinned @ai-matrx specs found: '+bad.join(', '));process.exit(1)}console.log('matrx-latest: all @ai-matrx specs are latest/workspace')\""
   },
   "dependencies": {
-    "@ai-matrx/agents": "0.5.0",
+    "@ai-matrx/agents": "latest",
     "@base-ui/react": "^1.3.0",
     "@supabase/ssr": "^0.9.0",
     "@supabase/supabase-js": "^2.100.1",

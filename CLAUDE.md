@@ -98,3 +98,11 @@ pnpm type-check   # TypeScript check
 pnpm lint         # ESLint
 pnpm types        # Generate Supabase types
 ```
+
+## 🚨 THE LATEST LAW — @ai-matrx packages are NEVER pinned
+
+Every `@ai-matrx/*` dependency in this repo is declared `"latest"` — never a version, never a
+range. Guard: `npm run check:matrx-latest` (fails on any pin). Version problems are fixed by
+releasing forward, never by pinning — a pin licenses silent drift and workaround code (the
+disaster that nearly killed AI Dream). Law + rationale:
+`../common-docs/policies/typescript-package-standard.md` § THE LATEST LAW.
