@@ -102,7 +102,17 @@ pnpm types        # Generate Supabase types
 ## 🚨 THE LATEST LAW — @ai-matrx packages are NEVER pinned
 
 Every `@ai-matrx/*` dependency in this repo is declared `"latest"` — never a version, never a
-range. Guard: `npm run check:matrx-latest` (fails on any pin). Version problems are fixed by
+range. Guard: `pnpm check:matrx-packages` (fails on any pin AND on an installed version behind
+npm latest; `check:matrx-latest` is an alias). It runs as `prebuild`, so a stale tree cannot
+produce a deploy — the build IS this repo's release. Version problems are fixed by
 releasing forward, never by pinning — a pin licenses silent drift and workaround code (the
 disaster that nearly killed AI Dream). Law + rationale:
 `../common-docs/policies/typescript-package-standard.md` § THE LATEST LAW.
+
+**THE SAME-SESSION LAW:** a fix that belongs in an `@ai-matrx/*` package is made IN the
+package (`aidream/apps/shared/<name>`), released, and adopted in the same session — never
+massaged in host code, never left edited-unpublished. **THE CATCH-UP RULE (C28):** working
+here, refresh `@ai-matrx/*` to latest and reconcile per each package's CHANGELOG
+`Consumer action`s before this repo's next deploy; a publish that needs host changes also
+queues a standing catch-up item for this repo on the Autonomous Work Loop (campaign
+`package-catch-up`). Both: same policy, § THE SAME-SESSION LAW + § THE CATCH-UP RULE.
