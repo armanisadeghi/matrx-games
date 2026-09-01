@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@ai-matrx/agents':
         specifier: latest
-        version: 0.6.0(@supabase/supabase-js@2.100.1)(react@19.2.4)
+        version: 0.6.2(@supabase/supabase-js@2.100.1)(react@19.2.4)
       '@base-ui/react':
         specifier: ^1.3.0
         version: 1.3.0(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -111,8 +111,8 @@ importers:
 
 packages:
 
-  '@ai-matrx/agents@0.6.0':
-    resolution: {integrity: sha512-sKNlkuS+1aMY1/u9gRRyaQGXyTsgeSmR+gMtPpFcOIdHJPAJ6Nyxvt9FEOhgvHMQrRMdjExuHYoWC4jUJWyRdw==}
+  '@ai-matrx/agents@0.6.2':
+    resolution: {integrity: sha512-XyEYRUF4YLMqiG04CTDTOGpITEnOk0BVy7MlMDVOSStbYEe6ocSIHr1ohV9CTq4uacXtQsHkYn0WxU1UHZj7yg==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -120,13 +120,25 @@ packages:
       react:
         optional: true
 
-  '@ai-matrx/data@0.6.1':
-    resolution: {integrity: sha512-gWk2/EMsiAUtZxbTtgdMsJJ2pxD5tjGvY+mntZXwNuBSmu5lEQ0tZhBD5uNSudHoRh2nrdQCnwUPIuxcjtWhag==}
+  '@ai-matrx/data@0.8.4':
+    resolution: {integrity: sha512-5GBZH/yHS03S/yyGXsuTJSNnkLTjl3ErPwTruY6SGwWC32w9/ytaUVemWESFpbDwYgXqya3Ry3IFYnsid0n0nA==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
     peerDependenciesMeta:
       react:
+        optional: true
+
+  '@ai-matrx/realtime@0.2.1':
+    resolution: {integrity: sha512-xOaYlNa6Pt6IyU+AwKr/UyrRcfv7OfURvB6arMsTOs7z6lsI1DA/6QsRtiTQrEZRGihh8fAh7qg1T6PGMUZmGQ==}
+    engines: {node: '>=20'}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-native: '>=0.76.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-native:
         optional: true
 
   '@alloc/quick-lru@5.2.0':
@@ -3798,21 +3810,28 @@ packages:
 
 snapshots:
 
-  '@ai-matrx/agents@0.6.0(@supabase/supabase-js@2.100.1)(react@19.2.4)':
+  '@ai-matrx/agents@0.6.2(@supabase/supabase-js@2.100.1)(react@19.2.4)':
     dependencies:
-      '@ai-matrx/data': 0.6.1(@supabase/supabase-js@2.100.1)(react@19.2.4)
+      '@ai-matrx/data': 0.8.4(@supabase/supabase-js@2.100.1)(react@19.2.4)
     optionalDependencies:
       react: 19.2.4
     transitivePeerDependencies:
       - '@supabase/supabase-js'
+      - react-native
 
-  '@ai-matrx/data@0.6.1(@supabase/supabase-js@2.100.1)(react@19.2.4)':
+  '@ai-matrx/data@0.8.4(@supabase/supabase-js@2.100.1)(react@19.2.4)':
     dependencies:
+      '@ai-matrx/realtime': 0.2.1(react@19.2.4)
       '@supabase/ssr': 0.12.5(@supabase/supabase-js@2.100.1)
     optionalDependencies:
       react: 19.2.4
     transitivePeerDependencies:
       - '@supabase/supabase-js'
+      - react-native
+
+  '@ai-matrx/realtime@0.2.1(react@19.2.4)':
+    optionalDependencies:
+      react: 19.2.4
 
   '@alloc/quick-lru@5.2.0': {}
 
