@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Input, Button } from "@ai-matrx/design-system";
 import { Send, CheckCircle, XCircle } from "lucide-react";
 import { GameTimer } from "@/features/timer/components/GameTimer";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@ai-matrx/design-system";
 import { DIFFICULTY_CONFIG } from "../constants";
 import type { TimerState } from "@/features/timer/types";
 import type { PictionaryGuess, PictionaryDifficultyLevel } from "../types";
