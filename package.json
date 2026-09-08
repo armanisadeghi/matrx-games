@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/check-matrx-packages.mjs",
+    "prebuild": "node scripts/check-matrx-packages.mjs && node scripts/check-package-twins.mjs --self-test && node scripts/check-package-twins.mjs --strict",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
