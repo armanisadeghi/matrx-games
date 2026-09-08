@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Copy, Share2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@ai-matrx/design-system";
 import { Card, CardContent } from "@/components/ui/card";
 import { ShareDialog } from "@/features/sharing/components/ShareDialog";
 import { toast } from "sonner";

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { Gamepad2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, Badge } from "@ai-matrx/design-system";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { getAllGames } from "@/games/registry";
 import { ROUTES } from "@/constants/routes";
 import { JoinRoomForm } from "@/features/lobby/components/JoinRoomForm";
@@ -60,8 +59,8 @@ export default function HomePage() {
                       <CardDescription className="mb-3 text-sm">
                         {game.description}
                       </CardDescription>
-                      <Button render={<Link href={ROUTES.ROOM_CREATE(game.slug)} />} size="sm" className="w-full">
-                        Create Game
+                      <Button asChild size="sm" className="w-full">
+                        <Link href={ROUTES.ROOM_CREATE(game.slug)}>Create Game</Link>
                       </Button>
                     </CardContent>
                   </Card>

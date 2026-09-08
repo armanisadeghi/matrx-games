@@ -1,7 +1,7 @@
 "use client";
 
 import { Users } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@ai-matrx/design-system";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Player } from "@/games/types";
 

@@ -1,6 +1,26 @@
+/* THE LAYER ORDER — must be the FIRST statement in this entry
+   (@ai-matrx/design-system 0.4.0, C26). Declaring the order here puts the
+   package's DEFAULT token values and its utility-shaped rules at the BOTTOM
+   of the cascade, so every token this app declares in `:root` / `.dark`
+   below wins regardless of specificity or source order. */
+@layer matrx-design-system-tokens, matrx-design-system;
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+
+/* The design-system's REQUIRED sheets. `tokens.css` gives every token the
+   package reads a default value; `styles.css` carries the structural rules
+   the package's own components WEAR (`.shadow-input` for Input,
+   `.matrx-scroll-fade`, `.matrx-glass-thin-border`, `.matrx-mobile-sheet`,
+   `.pb-safe`). Without them those components render silently unstyled.
+   This app owns no copy of those rules, so nothing is duplicated. */
+@import "@ai-matrx/design-system/tokens.css";
+@import "@ai-matrx/design-system/styles.css";
+
+/* Tailwind must scan the package's BUILT output — the semantic utility
+   classes its components wear exist only if this is a source. */
+@source "../node_modules/@ai-matrx/design-system/dist";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -24,6 +44,20 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  /* Semantic STATUS colours — required by @ai-matrx/design-system's Badge
+     (`success` / `warning` / `info` / `error` variants) and its ScoreRing
+     helpers. This app declares no values for them, so they resolve from the
+     package's `tokens.css` defaults, which are hsl CHANNEL TRIPLETS (not the
+     oklch full colours this app uses for the base vocabulary) — hence the
+     `hsl(...)` wrapper here and bare `var()` above. Declare `--success` etc.
+     in `:root` / `.dark` below to brand them. */
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-info: hsl(var(--info));
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@ai-matrx/design-system";
 import { Trophy, RotateCcw, Home } from "lucide-react";
 import Link from "next/link";
 import { ROUTES } from "@/constants/routes";
@@ -125,14 +125,11 @@ export function GameOverScreen({
             Play Again
           </Button>
         )}
-        <Button
-          variant="outline"
-          size="lg"
-          className="h-14 w-full text-lg"
-          render={<Link href={ROUTES.HOME} />}
-        >
-          <Home className="mr-2 h-5 w-5" />
-          Back to Games
+        <Button asChild variant="outline" size="lg" className="h-14 w-full text-lg">
+          <Link href={ROUTES.HOME}>
+            <Home className="mr-2 h-5 w-5" />
+            Back to Games
+          </Link>
         </Button>
       </div>
     </div>

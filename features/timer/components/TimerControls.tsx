@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@ai-matrx/design-system";
 import { Play, Pause, RotateCcw } from "lucide-react";
 import type { TimerState } from "../types";
 

@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input, Button } from "@ai-matrx/design-system";
 import { Send, CheckCircle, XCircle } from "lucide-react";
 import { GameTimer } from "@/features/timer/components/GameTimer";
 import { ScrollArea } from "@/components/ui/scroll-area";

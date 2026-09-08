@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@ai-matrx/design-system";
 import { CheckCircle, Clock, ArrowRight } from "lucide-react";
 import { DIFFICULTY_CONFIG } from "../constants";
 import type { PictionaryDifficultyLevel } from "../types";

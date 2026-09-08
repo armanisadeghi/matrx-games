@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { Button } from "@ai-matrx/design-system";
 import { Loader2, Play, RefreshCw } from "lucide-react";
 import { RoomCodeDisplay } from "@/features/lobby/components/RoomCodeDisplay";
 import { PlayerList } from "@/features/lobby/components/PlayerList";

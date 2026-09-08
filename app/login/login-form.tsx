@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { Button, Separator } from "@ai-matrx/design-system";
 import {
   Card,
   CardContent,
@@ -9,7 +9,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { ROUTES } from "@/constants/routes";
 
@@ -59,8 +58,8 @@ export function LoginForm() {
           for leaderboards and game history.
         </p>
 
-        <Button variant="ghost" className="w-full" render={<Link href={ROUTES.HOME} />}>
-          Continue as Guest
+        <Button asChild variant="ghost" className="w-full">
+          <Link href={ROUTES.HOME}>Continue as Guest</Link>
         </Button>
       </CardContent>
     </Card>

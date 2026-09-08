@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@ai-matrx/design-system";
 import { Play } from "lucide-react";
 import { gameRealtime } from "@/lib/game-engine/GameRealtimeService";
 import type { GameComponentProps } from "@/games/types";
