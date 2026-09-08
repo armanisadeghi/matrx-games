@@ -1,10 +1,10 @@
-import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import {
   exchangeCodeForTokens,
   fetchUserInfo,
 } from "@/lib/auth/aimatrx-oauth";
 import { createAdminClient } from "@/utils/supabase/adminClient";
+import { supabaseNext } from "@/utils/supabase/authCookie";
 
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
@@ -99,26 +99,19 @@ export async function GET(request: NextRequest) {
     response.cookies.delete("aimatrx_oauth_state");
     response.cookies.delete("aimatrx_code_verifier");
 
-    const supabase = createServerClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      (
-        process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-        ""
-      ).trim(),
-      {
-        cookies: {
-          getAll() {
-            return request.cookies.getAll();
-          },
-          setAll(cookiesToSet) {
-            cookiesToSet.forEach(({ name, value, options }) => {
-              response.cookies.set(name, value, options);
-            });
-          },
-        },
-      }
-    );
+    // The route-handler door. Identity, the auth-cookie options and the cookie
+    // adapter all live in @ai-matrx/data/next — a hand-rolled client here would
+    // write the session under a DIFFERENT cookie name than every other door in
+    // this app reads, which is a login that appears to succeed and then isn't.
+    const supabase = supabaseNext.routeClient({
+      requestCookies: request.cookies,
+      setCookie: ({ name, value, options }) => {
+        response.cookies.set(name, value, options);
+      },
+      host: request.headers.get("host"),
+      // The RAW header — `request.cookies` has already collapsed a split jar.
+      cookieHeader: request.headers.get("cookie"),
+    });
 
     const { data: sessionData, error: verifyError } =
       await supabase.auth.verifyOtp({

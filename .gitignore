@@ -44,3 +44,6 @@ next-env.d.ts
 # macOS Finder metadata
 .DS_Store
 **/.DS_Store
+
+# supabase CLI scratch (created by `pnpm types`)
+/supabase/.temp

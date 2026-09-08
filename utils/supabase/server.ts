@@ -1,32 +1,25 @@
-import { createServerClient } from "@supabase/ssr";
-import { cookies } from "next/headers";
+// utils/supabase/server.ts — the Server Component / Server Action / Route
+// Handler client.
+//
+// The cookie adapter (including the write that MUST be swallowed inside a
+// Server Component — only the proxy may set cookies there) lives in
+// @ai-matrx/data/next. This file supplies the two Next primitives the package
+// deliberately does not import: the cookie store and the request headers.
+
+import { cookies, headers } from "next/headers";
+import { supabaseNext } from "@/utils/supabase/authCookie";
 
 export async function createClient() {
-  const cookieStore = await cookies();
-
-  return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!.trim(),
-    (
-      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-      ""
-    ).trim(),
-    {
-      cookies: {
-        getAll() {
-          return cookieStore.getAll();
-        },
-        setAll(cookiesToSet) {
-          try {
-            cookiesToSet.forEach(({ name, value, options }) =>
-              cookieStore.set(name, value, options)
-            );
-          } catch {
-            // setAll called from a Server Component — safe to ignore
-            // when proxy.ts handles session refresh
-          }
-        },
-      },
-    }
-  );
+  const [cookieStore, requestHeaders] = await Promise.all([
+    cookies(),
+    headers(),
+  ]);
+  return supabaseNext.serverClient({
+    cookieStore,
+    host: requestHeaders.get("host"),
+    // The RAW header: `cookies()` has already collapsed two same-name cookies
+    // at two Domain scopes into one, keeping whichever the browser sent last
+    // — a coin flip between the session and anonymous.
+    cookieHeader: requestHeaders.get("cookie"),
+  });
 }

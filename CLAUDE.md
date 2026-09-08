@@ -38,10 +38,21 @@ Web-based multiplayer game platform hosting 10-20+ games. Real-time multiplayer 
 - Authenticated mode: Supabase Auth. Persistent leaderboards, game history, profile
 - All `game_` prefixed tables coexist with other Supabase projects on the shared instance
 
-**Supabase clients:**
-- Client-side: `import { supabase } from "@/utils/supabase/client"`
-- Server-side: `import { createClient } from "@/utils/supabase/server"`
-- Admin: `import { createAdminClient } from "@/utils/supabase/adminClient"`
+**Supabase clients — `@ai-matrx/data/next` owns every one of them.** 🚨 Never hand-write
+`createBrowserClient` / `createServerClient` or a cookie `getAll`/`setAll` adapter: the
+package's `createNextSupabase` is THE factory for all five doors a Next app needs, so the
+auth-cookie options can never drift between them (guard: `pnpm check:package-twins`).
+`utils/supabase/authCookie.ts` is this app's ONLY wiring — identity values and nothing
+else — and Games authenticates against its OWN Supabase project, so its cookie name is
+`sb-matrx-games-auth`, never Matrx Main's. Details: `supabase-info.md`.
+
+- Client-side: `import { supabase } from "@/utils/supabase/client"` (→ `browserClient()`)
+- Server-side / Route Handlers: `import { createClient } from "@/utils/supabase/server"` (→ `serverClient()`)
+- A Route Handler writing session cookies onto its own response: `supabaseNext.routeClient(...)`
+  (see `app/api/auth/aimatrx/callback/route.ts`)
+- Proxy auth pass: `supabaseNext.middlewareSession(...)` in `utils/supabase/middleware.ts` —
+  the file holds only THIS app's routing policy
+- Admin (service role, not a package concern): `import { createAdminClient } from "@/utils/supabase/adminClient"`
 
 ---
 

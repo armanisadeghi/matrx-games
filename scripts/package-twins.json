@@ -174,6 +174,18 @@
       "package": "@ai-matrx/kit/html-escape",
       "why": "TEN copies were live across the fleet and THEY DID NOT ESCAPE THE SAME CHARACTERS — three did & < > only, two added \", four added ' (two as &#39;, two as &#039;), and a tenth wore the name escapeHtmlAttr while escaping only & < \" into an HTML ATTRIBUTE. A string safe through one was an attribute break-out through another. kit ships ONE decided set: & < > \" ' — all five, always. It is not in @ai-matrx/print because an HTML escaper must not require jspdf + html2canvas.",
       "allow": []
+    },
+    {
+      "name": "createBrowserClient",
+      "package": "@ai-matrx/data/next",
+      "why": "The BROWSER Supabase client. Hand-rolling it re-grows the whole hazard set @ai-matrx/data/next owns: the auth-cookie options (a client on the default cookie name cannot see the session the other doors wrote), the globalThis-slot singleton (a per-module one splits auth state across ESM and CJS graphs), and static NEXT_PUBLIC_* member access (a dynamic lookup is undefined in every browser bundle). matrx-games' utils/supabase/client.ts body was deleted 2026-09-07 in favour of supabaseNext.browserClient(). Import the name from @supabase/ssr only inside the package.",
+      "allow": []
+    },
+    {
+      "name": "createServerClient",
+      "package": "@ai-matrx/data/next",
+      "why": "The SSR Supabase client and, with it, the cookie getAll/setAll dance that had been copied into three files here (server, middleware, and the AI Matrx OAuth callback route). The package owns serverClient / routeClient / middlewareSession: the swallowed Server-Component cookie write, the legacy storage-key migration, the split-jar heal, the 'nothing may run between construction and getUser()' rule, no-store headers and cookie carry-over onto redirects. Every one of those has logged users out at random at least once. All four matrx-games sites were collapsed 2026-09-07.",
+      "allow": []
     }
   ]
 }

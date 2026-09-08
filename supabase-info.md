@@ -11,7 +11,7 @@ options can never drift between them. Full API + the "why five places, one facto
 rationale: `aidream/apps/shared/data/README.md` § `@ai-matrx/data/next`.
 
 ```ts
-// One module in this app — everything else imports from here.
+// utils/supabase/authCookie.ts — the ONE module in this app that wires it.
 import { createNextSupabase } from "@ai-matrx/data/next";
 import type { Database } from "@/types/database.types";
 
@@ -19,7 +19,12 @@ export const supabaseNext = createNextSupabase<Database>({
   supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
   publishableKey: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
   apexDomain: "aimatrx.com",
-  cookieName: "sb-matrx-auth",
+  // 🚨 Games runs its OWN Supabase project — a DIFFERENT auth authority from
+  // Matrx Main — so it must NOT share Matrx Main's `sb-matrx-auth` key.
+  cookieName: "sb-matrx-games-auth",
+  // The @supabase/ssr default key this app used before adopting the package:
+  // named here so a live session migrates once instead of logging out.
+  legacyCookieName: "sb-eddtfkgtwbyhqdgmmofi-auth-token",
 });
 ```
 
@@ -30,17 +35,23 @@ export const supabaseNext = createNextSupabase<Database>({
 | Route Handler | `supabaseNext.routeClient({ requestCookies: request.cookies, setCookie, host })` |
 | Proxy / middleware | `await supabaseNext.middlewareSession({ host, requestCookies, createResponse, createRedirect })` |
 
-**This repo has not adopted the package yet** — `utils/supabase/{client,server,middleware,adminClient}.ts`
-still carry the hand-rolled bodies this doc used to teach (`CLAUDE.md` § Supabase
-clients names their current import paths). Adopting `@ai-matrx/data/next` here is a
-follow-up task, not a documentation fix; this file's job is to stop pointing new work
-at the pattern the fleet is retiring.
+**Adopted 2026-09-07.** `utils/supabase/{client,server,middleware}.ts` and the AI Matrx
+OAuth callback route now hold no client construction at all — they are thin doors over
+`supabaseNext`, and `utils/supabase/middleware.ts` keeps only THIS app's routing policy
+(where an authed user lands, which routes require a session). `adminClient.ts` is the one
+exception and is NOT a twin: it is the service-role client (`@supabase/supabase-js`), a
+different capability with no cookies and no session. `@supabase/ssr` is no longer a direct
+dependency of this repo — the package owns it.
+
+Guards: `pnpm check:package-twins` fails on any local `createBrowserClient` /
+`createServerClient` definition, and `utils/supabase/authCookie.test.ts` pins the identity
+values (cookie name, legacy key, host-only off the apex).
 
 ## Project connection
 
 ```
 NEXT_PUBLIC_SUPABASE_URL=https://eddtfkgtwbyhqdgmmofi.supabase.co
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY=sb_publishable_DQctohZrwd9MW-CixVJbew_eILhlDn0
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_DQctohZrwd9MW-CixVJbew_eILhlDn0
 ```
 
 (The publishable key is meant to be public — it is not a secret — but treat any

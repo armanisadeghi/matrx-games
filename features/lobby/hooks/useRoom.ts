@@ -2,7 +2,13 @@
 
 import { useState, useCallback } from "react";
 import { supabase } from "@/utils/supabase/client";
-import type { Room, Player } from "@/games/types";
+import {
+  asPlayerRole,
+  asRoomSettings,
+  asRoomStatus,
+  type Room,
+  type Player,
+} from "@/games/types";
 
 export function useRoom(roomId?: string) {
   const [room, setRoom] = useState<Room | null>(null);
@@ -28,8 +34,8 @@ export function useRoom(roomId?: string) {
         gameSlug: roomData.game_catalog?.slug ?? "",
         hostId: roomData.host_id,
         roomCode: roomData.room_code,
-        status: roomData.status,
-        settings: roomData.settings ?? {},
+        status: asRoomStatus(roomData.status),
+        settings: asRoomSettings(roomData.settings),
         maxPlayers: roomData.max_players,
         createdAt: roomData.created_at,
         startedAt: roomData.started_at,
@@ -51,7 +57,7 @@ export function useRoom(roomId?: string) {
           displayName: p.display_name,
           avatarUrl: p.avatar_url,
           teamId: p.team_id,
-          role: p.role,
+          role: asPlayerRole(p.role),
           gameRole: p.game_role,
           isConnected: p.is_connected,
           guestToken: p.guest_token,
