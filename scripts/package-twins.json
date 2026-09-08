@@ -186,6 +186,72 @@
       "package": "@ai-matrx/data/next",
       "why": "The SSR Supabase client and, with it, the cookie getAll/setAll dance that had been copied into three files here (server, middleware, and the AI Matrx OAuth callback route). The package owns serverClient / routeClient / middlewareSession: the swallowed Server-Component cookie write, the legacy storage-key migration, the split-jar heal, the 'nothing may run between construction and getUser()' rule, no-store headers and cookie carry-over onto redirects. Every one of those has logged users out at random at least once. All four matrx-games sites were collapsed 2026-09-07.",
       "allow": []
+    },
+    {
+      "name": "Tooltip",
+      "package": "@ai-matrx/design-system",
+      "why": "Tooltip surface. @ai-matrx/design-system 0.7.0 took ownership from @ai-matrx/tap-target (which re-exports nothing now) and RESTORED the PortalContainerProvider seam a fork had dropped, so a tooltip inside a popped-out panel lands in the right document. This app defines none today; the row exists so the next hand-rolled one fails the gate instead of shipping (C28, 2026-09-07).",
+      "allow": []
+    },
+    {
+      "name": "TooltipTrigger",
+      "package": "@ai-matrx/design-system",
+      "why": "Tooltip surface. @ai-matrx/design-system 0.7.0 took ownership from @ai-matrx/tap-target (which re-exports nothing now) and RESTORED the PortalContainerProvider seam a fork had dropped, so a tooltip inside a popped-out panel lands in the right document. This app defines none today; the row exists so the next hand-rolled one fails the gate instead of shipping (C28, 2026-09-07).",
+      "allow": []
+    },
+    {
+      "name": "TooltipContent",
+      "package": "@ai-matrx/design-system",
+      "why": "Tooltip surface. @ai-matrx/design-system 0.7.0 took ownership from @ai-matrx/tap-target (which re-exports nothing now) and RESTORED the PortalContainerProvider seam a fork had dropped, so a tooltip inside a popped-out panel lands in the right document. This app defines none today; the row exists so the next hand-rolled one fails the gate instead of shipping (C28, 2026-09-07).",
+      "allow": []
+    },
+    {
+      "name": "TooltipProvider",
+      "package": "@ai-matrx/design-system",
+      "why": "Tooltip surface. @ai-matrx/design-system 0.7.0 took ownership from @ai-matrx/tap-target (which re-exports nothing now) and RESTORED the PortalContainerProvider seam a fork had dropped, so a tooltip inside a popped-out panel lands in the right document. This app defines none today; the row exists so the next hand-rolled one fails the gate instead of shipping (C28, 2026-09-07).",
+      "allow": []
+    },
+    {
+      "name": "Accordion",
+      "package": "@ai-matrx/design-system",
+      "why": "Accordion family. @ai-matrx/design-system 0.8.0 collapsed the fleet's last stand-in; the package owns the density prop, the focus-visible ring, the chevron slot selector and the .matrx-accordion-content keyframes in its styles.css (a host that re-forks it gets a component that jumps open, silently, because animate-accordion-* is a host-only utility name). This app defines none (C28, 2026-09-07).",
+      "allow": []
+    },
+    {
+      "name": "AccordionItem",
+      "package": "@ai-matrx/design-system",
+      "why": "Accordion family. @ai-matrx/design-system 0.8.0 collapsed the fleet's last stand-in; the package owns the density prop, the focus-visible ring, the chevron slot selector and the .matrx-accordion-content keyframes in its styles.css (a host that re-forks it gets a component that jumps open, silently, because animate-accordion-* is a host-only utility name). This app defines none (C28, 2026-09-07).",
+      "allow": []
+    },
+    {
+      "name": "AccordionTrigger",
+      "package": "@ai-matrx/design-system",
+      "why": "Accordion family. @ai-matrx/design-system 0.8.0 collapsed the fleet's last stand-in; the package owns the density prop, the focus-visible ring, the chevron slot selector and the .matrx-accordion-content keyframes in its styles.css (a host that re-forks it gets a component that jumps open, silently, because animate-accordion-* is a host-only utility name). This app defines none (C28, 2026-09-07).",
+      "allow": []
+    },
+    {
+      "name": "AccordionContent",
+      "package": "@ai-matrx/design-system",
+      "why": "Accordion family. @ai-matrx/design-system 0.8.0 collapsed the fleet's last stand-in; the package owns the density prop, the focus-visible ring, the chevron slot selector and the .matrx-accordion-content keyframes in its styles.css (a host that re-forks it gets a component that jumps open, silently, because animate-accordion-* is a host-only utility name). This app defines none (C28, 2026-09-07).",
+      "allow": []
+    },
+    {
+      "name": "Collapsible",
+      "package": "@ai-matrx/design-system",
+      "why": "Collapsible family. @ai-matrx/design-system 0.9.0 made the open/close transition package-owned .matrx-collapsible-content CSS keyed off --radix-collapsible-content-height; every host that invented its own either animated in exactly one app or (twice in matrx-frontend) interpolated to the ACCORDION variable and never animated at all, with no error. This app defines none (C28, 2026-09-07).",
+      "allow": []
+    },
+    {
+      "name": "CollapsibleTrigger",
+      "package": "@ai-matrx/design-system",
+      "why": "Collapsible family. @ai-matrx/design-system 0.9.0 made the open/close transition package-owned .matrx-collapsible-content CSS keyed off --radix-collapsible-content-height; every host that invented its own either animated in exactly one app or (twice in matrx-frontend) interpolated to the ACCORDION variable and never animated at all, with no error. This app defines none (C28, 2026-09-07).",
+      "allow": []
+    },
+    {
+      "name": "CollapsibleContent",
+      "package": "@ai-matrx/design-system",
+      "why": "Collapsible family. @ai-matrx/design-system 0.9.0 made the open/close transition package-owned .matrx-collapsible-content CSS keyed off --radix-collapsible-content-height; every host that invented its own either animated in exactly one app or (twice in matrx-frontend) interpolated to the ACCORDION variable and never animated at all, with no error. This app defines none (C28, 2026-09-07).",
+      "allow": []
     }
   ]
 }
