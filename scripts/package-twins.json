@@ -1,16 +1,17 @@
 {
   "$comment": [
-    "THE TWIN REGISTER — every capability whose logic has been COLLAPSED into an",
+    "THE TWIN REGISTER \u2014 every capability whose logic has been COLLAPSED into an",
     "@ai-matrx/* package. A local definition of one of these names in this repo is a",
     "re-grown twin: the exact failure the client-package campaign exists to kill",
     "(Arman: 'the logic of the packages is NEVER duplicated outside of the package').",
     "",
     "Add a row the same session you delete a twin. Never add an allowlist entry to",
-    "silence a NEW twin — an allowlist entry is only for a definition that is",
+    "silence a NEW twin \u2014 an allowlist entry is only for a definition that is",
     "PROVABLY not the same capability, and it must say why in `reason`.",
     "A WRAPPER is not a twin: a local function that BINDS the package function's options (unit, style, fallback) and delegates in a line or two is the sanctioned adapter, and needs no entry. A re-implemented BODY is a twin, always.",
     "",
-    "Register: common-docs /projects/npm-package-extraction/DUPLICATION-CENSUS.md (common-docs)."
+    "Register: common-docs /projects/npm-package-extraction/DUPLICATION-CENSUS.md (common-docs).",
+    "A SHAPE rule (`shapeWhy` + `shapeAllow` + `shapeCensus` on a row) catches the same capability under an UNREGISTERED name, or with no name at all. `shapeAllow` = provably NOT this capability, silent. `shapeCensus` = pre-existing bodies that ARE it and are not collapsed yet: loud every run, shrink-only, and a stale entry fails the guard."
   ],
   "twins": [
     {
@@ -106,13 +107,14 @@
     {
       "name": "isRfc4122Uuid",
       "package": "@ai-matrx/kit/uuid",
-      "why": "The STRICT RFC-4122 predicate (version 1-5, variant 8/9/a/b) — the right question for a validation door on a public route, and it REJECTS what isUuidShape accepts (the nil UUID, v6/v7/v8). Eight host copies collapsed 2026-09-07: six invite/notify API doors plus the two voice readiness doors that had been ALLOWLISTED here because the package shipped only the lax predicate. Never swap one predicate for the other to make a test pass.",
+      "why": "The STRICT RFC-4122 predicate (version 1-5, variant 8/9/a/b) \u2014 the right question for a validation door on a public route, and it REJECTS what isUuidShape accepts (the nil UUID, v6/v7/v8). Eight host copies collapsed 2026-09-07: six invite/notify API doors plus the two voice readiness doors that had been ALLOWLISTED here because the package shipped only the lax predicate. Never swap one predicate for the other to make a test pass.",
       "allow": []
     },
     {
       "name": "formatDurationMs",
       "package": "@ai-matrx/kit/format",
       "why": "THE UNIT LAW: the fleet's ~35 duration twins variously took milliseconds, seconds and minutes behind an identical `formatDuration(n)` signature, so kit ships formatDurationMs / formatDurationSeconds / formatDurationMinutes and NO bare `formatDuration`. Two host copies had already re-grown under this exact name (observational-memory format.ts, marketing crawl-session-panels.tsx) and were deleted 2026-09-07. A local `formatDuration` that BINDS unit+style+fallback and delegates is an adapter, not a twin; a local `formatDurationMs` is always a twin.",
+      "shapeWhy": "A millisecond count becoming a unit string is this capability whatever it is called. The name lane read GREEN on all four formatDuration* exports while aidream's dashboard carried SEVEN bodies under the private names fmtMs and fmtMsSummary, each with its own rounding, and 115 more files in this repo turned ms into `2.3s` / `1.5m` / `3m ago` inline. Pattern and its proof: scripts/duration-shape.mjs. Plain time arithmetic can never match \u2014 the rule requires a DIVISION, MODULO or THRESHOLD COMPARISON against a time base PAIRED with a duration unit label, so a timeout budget (30 * 1000), an API seconds field and a rate denominator all stay untouched. `shapeCensus` below is the pre-existing census, not an exemption: it is reported every run and is ratcheted shrink-only \u2014 a stale entry FAILS the guard.",
       "allow": []
     },
     {
@@ -142,7 +144,7 @@
     {
       "name": "parseTimestamp",
       "package": "@ai-matrx/kit/format",
-      "why": "The Postgres correction: a zone-less `timestamp without time zone` is UTC, not the viewer's local time — the classic 'times are off by N hours' bug. It lived in @ai-matrx/diff and in matrx-frontend's utils/datetime.ts as byte-level twins until 2026-09-07.",
+      "why": "The Postgres correction: a zone-less `timestamp without time zone` is UTC, not the viewer's local time \u2014 the classic 'times are off by N hours' bug. It lived in @ai-matrx/diff and in matrx-frontend's utils/datetime.ts as byte-level twins until 2026-09-07.",
       "allow": []
     },
     {
@@ -154,7 +156,8 @@
     {
       "name": "formatFileSize",
       "package": "@ai-matrx/kit/format",
-      "why": "THE byte-size formatter. It was hiding inside @ai-matrx/media's UploadProgressList React component, so six matrx-frontend twins could only reach it by depending on the media React bundle to print a byte count. Moved to kit 2026-09-07 with the display decisions written down (binary units, short labels, one decimal below ten in a unit, whole bytes below 1 KB, em-dash for unknown/negative — NEVER a confident '0 B').",
+      "why": "THE byte-size formatter. It was hiding inside @ai-matrx/media's UploadProgressList React component, so six matrx-frontend twins could only reach it by depending on the media React bundle to print a byte count. Moved to kit 2026-09-07 with the display decisions written down (binary units, short labels, one decimal below ten in a unit, whole bytes below 1 KB, em-dash for unknown/negative \u2014 NEVER a confident '0 B').",
+      "shapeWhy": "A byte count becoming a unit string is this capability whatever it is called. The 2026-09-07 census predicted this gap ('the census method needs a shape pass') and the 2026-09-11 re-verification proved it: formatBytes, fmtBytes, humanSize, bytesHuman, formatSize, and ~60 bare inline JSX expressions that are not definitions at all and can never be caught by a name. Pattern and its proof: scripts/byte-size-shape.mjs. A capacity constant (80 * 1024 * 1024) can never match \u2014 the rule requires a DIVISION or THRESHOLD COMPARISON against 1024, and this repo has ~60 legitimate byte ceilings that must stay untouched.",
       "allow": []
     },
     {
@@ -172,7 +175,7 @@
     {
       "name": "escapeHtml",
       "package": "@ai-matrx/kit/html-escape",
-      "why": "TEN copies were live across the fleet and THEY DID NOT ESCAPE THE SAME CHARACTERS — three did & < > only, two added \", four added ' (two as &#39;, two as &#039;), and a tenth wore the name escapeHtmlAttr while escaping only & < \" into an HTML ATTRIBUTE. A string safe through one was an attribute break-out through another. kit ships ONE decided set: & < > \" ' — all five, always. It is not in @ai-matrx/print because an HTML escaper must not require jspdf + html2canvas.",
+      "why": "TEN copies were live across the fleet and THEY DID NOT ESCAPE THE SAME CHARACTERS \u2014 three did & < > only, two added \", four added ' (two as &#39;, two as &#039;), and a tenth wore the name escapeHtmlAttr while escaping only & < \" into an HTML ATTRIBUTE. A string safe through one was an attribute break-out through another. kit ships ONE decided set: & < > \" ' \u2014 all five, always. It is not in @ai-matrx/print because an HTML escaper must not require jspdf + html2canvas.",
       "allow": []
     },
     {
