@@ -9,7 +9,7 @@ Web-based multiplayer game platform hosting 10-20+ games. Real-time multiplayer 
 ## Tech Stack
 
 **Web:** Next.js 16.1 (App Router) + React 19.2 + TypeScript 5.9 (strict) + Tailwind CSS 4.1 (CSS-first)
-**UI:** shadcn/ui + Radix UI + Lucide React (no emojis)
+**UI:** `@ai-matrx/design-system` primitives + Lucide React (no emojis)
 **State:** Zustand 5 for per-game client state
 **Database:** Supabase (PostgreSQL + Auth + Realtime)
 **Realtime:** Supabase Broadcast (ephemeral events) + Presence (room state) + Postgres Changes (persistent state)

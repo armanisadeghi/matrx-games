@@ -1,14 +1,15 @@
 "use client";
 
 import { Copy, Mail, MessageSquare, Link2 } from "lucide-react";
-import { Button, Separator } from "@ai-matrx/design-system";
 import {
+  Button,
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
+  Separator,
+} from "@ai-matrx/design-system";
 import { QRCodeDisplay } from "./QRCodeDisplay";
 import { useShareRoom } from "../hooks/useShareRoom";
 import { getRoomShareUrl } from "@/lib/room/code-generator";
