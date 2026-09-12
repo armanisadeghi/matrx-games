@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { formatDurationMs } from "@ai-matrx/kit/format";
 import { cn } from "@/lib/utils";
 import type { TimerState } from "../types";
 
@@ -8,13 +9,6 @@ interface GameTimerProps {
   timer: TimerState;
   className?: string;
   size?: "sm" | "md" | "lg";
-}
-
-function formatTime(ms: number): string {
-  const totalSeconds = Math.ceil(ms / 1000);
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
 function playAlarmBeep() {
@@ -95,7 +89,7 @@ export function GameTimer({ timer, className, size = "md" }: GameTimerProps) {
           isExpired && "text-muted-foreground",
         )}
       >
-        {isExpired ? "TIME'S UP" : formatTime(timer.remaining)}
+        {isExpired ? "TIME'S UP" : formatDurationMs(timer.remaining)}
       </div>
 
       {/* Progress bar */}
