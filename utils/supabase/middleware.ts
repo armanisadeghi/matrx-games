@@ -32,6 +32,7 @@ export async function updateSession(request: NextRequest) {
     createRedirect: (url) => NextResponse.redirect(url),
   });
   const user = session.user;
+  const authUnavailable = session.authUnavailable;
   const pathname = request.nextUrl.pathname;
 
   // Redirect authenticated users away from login/signup.
@@ -43,7 +44,10 @@ export async function updateSession(request: NextRequest) {
     return session.redirect(url);
   }
 
-  if (!user && routeRequiresAuthentication(pathname)) {
+  // A temporarily unreachable auth authority is not proof that the person is
+  // signed out. Keep the current request in place so a brief outage cannot
+  // bounce an authenticated browser to /login.
+  if (!user && !authUnavailable && routeRequiresAuthentication(pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
     url.searchParams.set("redirectTo", pathname + request.nextUrl.search);
