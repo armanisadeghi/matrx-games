@@ -129,8 +129,8 @@ packages:
       react-native-svg:
         optional: true
 
-  '@ai-matrx/content-ir@0.19.6':
-    resolution: {integrity: sha512-S24hionfVKmlWYedlSH3nJLDa/ICLpfK4YHQknm5VJCXpaAXJt+mDAlMfxz0oBwuCNoekGQdoIj6WyiDQyQiDQ==}
+  '@ai-matrx/content-ir@0.19.7':
+    resolution: {integrity: sha512-gzNIwtFTmat7oCr80zURdvBFDhTq50RucwuKVBunAzYwFnnJXrWGKb8dGrLHYSh3YSdqnZCIcvS/ZlXkEYJKPw==}
     engines: {node: '>=20'}
 
   '@ai-matrx/data@0.18.1':
@@ -4583,7 +4583,7 @@ snapshots:
       - '@types/react-dom'
       - react-dom
 
-  '@ai-matrx/content-ir@0.19.6':
+  '@ai-matrx/content-ir@0.19.7':
     dependencies:
       ajv: 8.20.0
 
@@ -4640,7 +4640,7 @@ snapshots:
 
   '@ai-matrx/kit@0.16.7(react@19.2.4)':
     dependencies:
-      '@ai-matrx/content-ir': 0.19.6
+      '@ai-matrx/content-ir': 0.19.7
       dompurify: 3.4.15
       idb: 8.0.3
       json5: 2.2.3
