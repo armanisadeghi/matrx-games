@@ -141,8 +141,8 @@ packages:
       react-dom:
         optional: true
 
-  '@ai-matrx/content-ir@0.19.20':
-    resolution: {integrity: sha512-KgbUM+thrU4JzhRuZeGqXkpk6SH5LlZLNO5rYPswhYjC72xghPzb7J20VfxfWTQXQajFxCS8ONCi28/jv8GAYw==}
+  '@ai-matrx/content-ir@0.19.21':
+    resolution: {integrity: sha512-SibkKSQeUrAhPtr095qbu3WKL9A/pQsOsy+wwwDpGpGyOBCIpsqyzMUuFcVtkYJB4sHtXnOpBrd0rh+s6tlqWg==}
     engines: {node: '>=20'}
 
   '@ai-matrx/data@0.18.1':
@@ -4607,7 +4607,7 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  '@ai-matrx/content-ir@0.19.20':
+  '@ai-matrx/content-ir@0.19.21':
     dependencies:
       ajv: 8.20.0
 
@@ -4665,7 +4665,7 @@ snapshots:
 
   '@ai-matrx/kit@0.16.14(react@19.2.4)':
     dependencies:
-      '@ai-matrx/content-ir': 0.19.20
+      '@ai-matrx/content-ir': 0.19.21
       dompurify: 3.4.15
       idb: 8.0.3
       json5: 2.2.3
