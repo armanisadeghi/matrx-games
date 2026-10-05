@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { Toaster } from "sonner";
+import { cookies, headers } from "next/headers";
+import { ViewportHintProvider } from "@ai-matrx/kit/media-query";
+import {
+  VIEWPORT_HINT_COOKIE,
+  viewportHintIsMobile,
+} from "@ai-matrx/kit/viewport-hint";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,11 +25,17 @@ export const metadata: Metadata = {
   description: "Multiplayer party games - play together in real-time",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [cookieStore, headerStore] = await Promise.all([cookies(), headers()]);
+  const isMobile = viewportHintIsMobile({
+    cookie: cookieStore.get(VIEWPORT_HINT_COOKIE)?.value,
+    chUaMobile: headerStore.get("sec-ch-ua-mobile"),
+    userAgent: headerStore.get("user-agent"),
+  });
   return (
     <html
       lang="en"
@@ -37,7 +49,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ViewportHintProvider isMobile={isMobile}>
+            {children}
+          </ViewportHintProvider>
           <Toaster richColors position="bottom-right" />
         </ThemeProvider>
       </body>
