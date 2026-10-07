@@ -157,8 +157,8 @@ packages:
       react-dom:
         optional: true
 
-  '@ai-matrx/content-ir@0.22.5':
-    resolution: {integrity: sha512-6dhLSPxZA7b+pZdWIyEhkI6AJ/djUlGlLAlRFlzEXKoBqGMeIRbtqIiyIA7vrvSABRpODc29kms7m4PBkT6jVg==}
+  '@ai-matrx/content-ir@0.22.6':
+    resolution: {integrity: sha512-T+uvMnWssgqlJn1OySdgBlKwlHKPBDAwl4kgI/SeAxls+DaBWR014JgGnCkDYdj3wcHvtutkzy2s54sEQU9CxA==}
     engines: {node: '>=20'}
 
   '@ai-matrx/data@0.18.39':
@@ -5130,7 +5130,7 @@ snapshots:
     dependencies:
       '@ai-matrx/alchemy': 0.19.1(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/associations': 0.13.155(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@ai-matrx/content-ir': 0.22.5
+      '@ai-matrx/content-ir': 0.22.6
       '@ai-matrx/data': 0.18.39(@supabase/supabase-js@2.117.2)(react@19.2.4)
       '@ai-matrx/design-system': 0.71.0(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/icons': 0.3.1(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -5173,7 +5173,7 @@ snapshots:
       - '@types/react-dom'
       - recharts
 
-  '@ai-matrx/content-ir@0.22.5':
+  '@ai-matrx/content-ir@0.22.6':
     dependencies:
       '@types/react': 19.3.0
       ajv: 8.20.0
@@ -5246,7 +5246,7 @@ snapshots:
 
   '@ai-matrx/kit@0.32.0(react@19.2.4)':
     dependencies:
-      '@ai-matrx/content-ir': 0.22.5
+      '@ai-matrx/content-ir': 0.22.6
       idb: 8.0.4
       json5: 2.2.3
       jsqr: 1.4.0
@@ -5254,7 +5254,7 @@ snapshots:
 
   '@ai-matrx/print@0.10.0(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@ai-matrx/content-ir': 0.22.5
+      '@ai-matrx/content-ir': 0.22.6
       '@ai-matrx/kit': 0.32.0(react@19.2.4)
       '@radix-ui/react-dialog': 1.2.0(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       bidi-js: 1.1.0
