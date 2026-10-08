@@ -209,8 +209,8 @@ packages:
       react-dom:
         optional: true
 
-  '@ai-matrx/realtime@0.10.0':
-    resolution: {integrity: sha512-r8ahFbjbfZ6v3+ItneICWhbcXLeQINHBfUBFKZlqAlvAWHpeSD2Cq5dXVF2HFGsLJvRddY09yoT+Lw0efIjMLw==}
+  '@ai-matrx/realtime@0.10.1':
+    resolution: {integrity: sha512-5x7fm5LXbsX1dD7rUjil6QLd6epzaTl6tlHoeeN1/PmEZuZsKvkgU3ZiuY2EWy/QoE4M9VgoPTwliNItcudGRQ==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -5250,7 +5250,7 @@ snapshots:
   '@ai-matrx/data@0.22.0(@supabase/supabase-js@2.117.2)(react@19.2.4)':
     dependencies:
       '@ai-matrx/kit': 0.38.0(react@19.2.4)
-      '@ai-matrx/realtime': 0.10.0(react@19.2.4)
+      '@ai-matrx/realtime': 0.10.1(react@19.2.4)
       '@supabase/ssr': 0.12.7(@supabase/supabase-js@2.117.2)
       '@supabase/supabase-js': 2.117.2
       tus-js-client: 4.3.1
@@ -5358,7 +5358,7 @@ snapshots:
       - '@types/react-dom'
       - supports-color
 
-  '@ai-matrx/realtime@0.10.0(react@19.2.4)':
+  '@ai-matrx/realtime@0.10.1(react@19.2.4)':
     dependencies:
       '@ai-matrx/kit': 0.38.0(react@19.2.4)
     optionalDependencies:
