@@ -133,8 +133,8 @@ packages:
       react-native-svg:
         optional: true
 
-  '@ai-matrx/alchemy@0.20.5':
-    resolution: {integrity: sha512-kGR97pycyRofcEvRgfhDDhlLuIxcs74soNQH5PfP1Gq3oOAGGUZIwkYpF3HymPAF7S3vcgvdjx4P7RiZAefpHw==}
+  '@ai-matrx/alchemy@0.20.6':
+    resolution: {integrity: sha512-2uQ0Ksf2Tluo8ul120k9DyH8RWS3gGrs9BsNZFr/MDxFzG1GTZ1SqMCy2JNwKikSkdiXHC3Dq1oCocly+6Qptw==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -5135,7 +5135,7 @@ snapshots:
 
   '@ai-matrx/agents@0.58.0(@supabase/supabase-js@2.117.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@ai-matrx/alchemy': 0.20.5(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/alchemy': 0.20.6(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/associations': 0.13.161(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/content-ir': 0.23.0(react@19.2.4)
       '@ai-matrx/data': 0.19.0(@supabase/supabase-js@2.117.2)(react@19.2.4)
@@ -5152,7 +5152,7 @@ snapshots:
       - recharts
       - supports-color
 
-  '@ai-matrx/alchemy@0.20.5(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ai-matrx/alchemy@0.20.6(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@ai-matrx/design-system': 0.80.6(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/kit': 0.37.0(react@19.2.4)
