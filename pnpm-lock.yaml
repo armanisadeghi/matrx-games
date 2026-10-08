@@ -197,8 +197,8 @@ packages:
       react:
         optional: true
 
-  '@ai-matrx/print@0.12.7':
-    resolution: {integrity: sha512-6d6mY3Mp4mMtaZWEVLmQkL130mZF6S6vPr9nCl7W4cDnm0dLo8S6RAWJUHLhiqgP6U3/UUstmXUkpiCFZr+4EQ==}
+  '@ai-matrx/print@0.12.8':
+    resolution: {integrity: sha512-vSzz0JDVBEG5divwLYLr8wBWQ6PdnOWY3pywgvcXDcL4Blbr8Qju5d095Irs37ACePXv+xmXTSzrmLdROUuoKQ==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -5207,7 +5207,7 @@ snapshots:
       '@ai-matrx/content-ir': 0.24.5(react@19.2.4)
       '@ai-matrx/design-system': 0.86.16(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/kit': 0.40.0(react@19.2.4)
-      '@ai-matrx/print': 0.12.7(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/print': 0.12.8(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       html-to-image: 1.11.13
     optionalDependencies:
       react: 19.2.4
@@ -5316,7 +5316,7 @@ snapshots:
     optionalDependencies:
       react: 19.2.4
 
-  '@ai-matrx/print@0.12.7(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ai-matrx/print@0.12.8(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@ai-matrx/content-ir': 0.24.5(react@19.2.4)
       '@ai-matrx/kit': 0.40.0(react@19.2.4)
