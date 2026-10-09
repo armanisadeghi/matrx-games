@@ -14,7 +14,7 @@ importers:
     dependencies:
       '@ai-matrx/agents':
         specifier: latest
-        version: 0.59.25(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 0.59.26(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/data':
         specifier: latest
         version: 0.28.0(@supabase/supabase-js@2.117.2)(react@19.2.4)
@@ -118,8 +118,8 @@ importers:
 
 packages:
 
-  '@ai-matrx/agents@0.59.25':
-    resolution: {integrity: sha512-TROzDJjv0hBh5F/dUrDLaDeiTi2FnbbbaP3WvaMSOnFFokhnG0n3Eyeq71o4/uNKCzHL198N26tu5jP7RO1riA==}
+  '@ai-matrx/agents@0.59.26':
+    resolution: {integrity: sha512-KDpF2KSphWpbMTOa7+8beijqa9FgBUZFx6+kaPtST6opLYQmHIE+qdPWq3gCD+Io5z6qIuu/xQHNrZJgJcsGhQ==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -133,8 +133,8 @@ packages:
       react-native-svg:
         optional: true
 
-  '@ai-matrx/alchemy@0.23.3':
-    resolution: {integrity: sha512-8AVmQawAMIB0MZK/SSFW7rfuFhub2DdYm271GXwuydZD+5K/byd54qbvqhHFzD7ihefhugXpCKwdw9sy0SE0CA==}
+  '@ai-matrx/alchemy@0.23.4':
+    resolution: {integrity: sha512-oOemxIDe5DaR1eYsneqvft2DFi9C3NRrVQsjHM/GFj4/iq2RDYHxTBNAnTRiS1df3M4MixBbFvIzgvenETpzbw==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -145,8 +145,8 @@ packages:
       react-dom:
         optional: true
 
-  '@ai-matrx/associations@0.14.3':
-    resolution: {integrity: sha512-Rx+hnCrzzMf8uj5t8TIj2Xz0nEHQ4QitaAmxha9OE03sXnWZ/wQpfmiZhLKLtfvFMoDecAygqxx6mR5e52bheA==}
+  '@ai-matrx/associations@0.14.4':
+    resolution: {integrity: sha512-roco07o7BwxhxFqOqqtk16BWUzEQ5Yx6B/hQofFfBRAsxBMzylvZFq2FuYJ/1o6R7x+Wsknu0CQZ4Ocu0zEnWA==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -5193,10 +5193,10 @@ packages:
 
 snapshots:
 
-  '@ai-matrx/agents@0.59.25(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ai-matrx/agents@0.59.26(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@ai-matrx/alchemy': 0.23.3(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@ai-matrx/associations': 0.14.3(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/alchemy': 0.23.4(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/associations': 0.14.4(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/content-ir': 0.24.10(react@19.2.4)
       '@ai-matrx/data': 0.28.0(@supabase/supabase-js@2.117.2)(react@19.2.4)
       '@ai-matrx/design-system': 0.86.44(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -5213,7 +5213,7 @@ snapshots:
       - recharts
       - supports-color
 
-  '@ai-matrx/alchemy@0.23.3(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ai-matrx/alchemy@0.23.4(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@ai-matrx/content-ir': 0.24.10(react@19.2.4)
       '@ai-matrx/data': 0.28.0(@supabase/supabase-js@2.117.2)(react@19.2.4)
@@ -5233,7 +5233,7 @@ snapshots:
       - recharts
       - supports-color
 
-  '@ai-matrx/associations@0.14.3(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ai-matrx/associations@0.14.4(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@ai-matrx/data': 0.28.0(@supabase/supabase-js@2.117.2)(react@19.2.4)
       '@ai-matrx/design-system': 0.86.44(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
