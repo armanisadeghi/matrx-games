@@ -133,8 +133,8 @@ packages:
       react-native-svg:
         optional: true
 
-  '@ai-matrx/alchemy@0.23.2':
-    resolution: {integrity: sha512-hkHA/MeEDXaSCub3o8c9Y0MjTBw0/nYacYIr4X0Zioi59GUkI2+NaNuyXSCeME1wzjO8fLYQ9U18rMRaQq1C8g==}
+  '@ai-matrx/alchemy@0.23.3':
+    resolution: {integrity: sha512-8AVmQawAMIB0MZK/SSFW7rfuFhub2DdYm271GXwuydZD+5K/byd54qbvqhHFzD7ihefhugXpCKwdw9sy0SE0CA==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -5195,7 +5195,7 @@ snapshots:
 
   '@ai-matrx/agents@0.59.23(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@ai-matrx/alchemy': 0.23.2(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/alchemy': 0.23.3(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/associations': 0.14.3(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/content-ir': 0.24.9(react@19.2.4)
       '@ai-matrx/data': 0.28.0(@supabase/supabase-js@2.117.2)(react@19.2.4)
@@ -5213,7 +5213,7 @@ snapshots:
       - recharts
       - supports-color
 
-  '@ai-matrx/alchemy@0.23.2(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ai-matrx/alchemy@0.23.3(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@ai-matrx/content-ir': 0.24.9(react@19.2.4)
       '@ai-matrx/data': 0.28.0(@supabase/supabase-js@2.117.2)(react@19.2.4)
