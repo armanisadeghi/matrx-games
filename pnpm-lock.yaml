@@ -14,13 +14,13 @@ importers:
     dependencies:
       '@ai-matrx/agents':
         specifier: latest
-        version: 0.59.49(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 0.59.50(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/data':
         specifier: latest
-        version: 0.29.2(@supabase/supabase-js@2.117.2)(react@19.2.4)
+        version: 0.29.3(@supabase/supabase-js@2.117.2)(react@19.2.4)
       '@ai-matrx/design-system':
         specifier: latest
-        version: 0.86.82(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        version: 0.86.84(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/kit':
         specifier: latest
         version: 0.42.1(react@19.2.4)
@@ -118,8 +118,8 @@ importers:
 
 packages:
 
-  '@ai-matrx/agents@0.59.49':
-    resolution: {integrity: sha512-AT4L/1eNotkWP/uCwhze7yOafKS0OvQ24EWDeNi4fVxwbprtd6RPVEDibB19nhQAVmWJvYo0U1hN5p1zrft/Yw==}
+  '@ai-matrx/agents@0.59.50':
+    resolution: {integrity: sha512-TyawazBo+JjuxpGRF29lThoXZ5X8zQgXv+f7lPjN2AtYOR8+N7Eq7e4uSf1PnhbPgnEiMwpWiuxfayebngjRbQ==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -133,8 +133,8 @@ packages:
       react-native-svg:
         optional: true
 
-  '@ai-matrx/alchemy@0.23.23':
-    resolution: {integrity: sha512-AP6A+L9oVSx39cu8SORuD0CFgOyMjKzx30jIB/gnVcn/IzlPQGqGEsVHe+yWwMbYrM/QwB4LTHanhcwYETZwEg==}
+  '@ai-matrx/alchemy@0.23.24':
+    resolution: {integrity: sha512-hdX2OHsA5xSlBpgiNQWfqpvp3cCA1kBsE5bIF2RI1JKy22ojOglpjCuhZXb5pOiDwIWtOmG830Zdp0fA4UztWA==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -145,8 +145,8 @@ packages:
       react-dom:
         optional: true
 
-  '@ai-matrx/associations@0.14.23':
-    resolution: {integrity: sha512-0CrFoqrAJRW8dN+jxg98KevztEkjsBjPEQUO4KCguC900s/HfGAmJeDTKBkbh/EhDy+fESe+/fVSGLUcmAx/aw==}
+  '@ai-matrx/associations@0.14.24':
+    resolution: {integrity: sha512-G1Yqo3kYWIa+I9LCxkEa+rvWKq0PoOI91cfV0BjfrkVBymX+2JHNg2tSlA9gCnGCzga2ihZORy6URv9Je/zNIw==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -161,8 +161,8 @@ packages:
     resolution: {integrity: sha512-EknWIkA8lMbCG3gkg0DVSBaQRczV/gxP3kqvMXdYNvJ9Z3zRl2pp/1ITntSCzriiGRb21rBjC5kdfKefKfP5Lg==}
     engines: {node: '>=20'}
 
-  '@ai-matrx/data@0.29.2':
-    resolution: {integrity: sha512-kAbXhhsRe0JqNdXrTGqsqMYhT+sVQtN8dzZUURlg0qjn54ng+YkK18aNsGpn1FsX5+YyxuFbLvkLPL4lmkN1vQ==}
+  '@ai-matrx/data@0.29.3':
+    resolution: {integrity: sha512-9q2wp/ANPICX12SzfTauqonKOZAwz9P99zsSm6VrQoshzPZ6O3gDDHVGMVKf1HHeaaW5RpT5RWZfHuVM3S5EKg==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
@@ -172,8 +172,8 @@ packages:
       react:
         optional: true
 
-  '@ai-matrx/design-system@0.86.82':
-    resolution: {integrity: sha512-MRd/KTQHLmwnN7ZxsZopUl5Zkjwo4VdRccId7bt3KodxVJ0cySzqyTGmcpauyocVSOEoSMX/1o00sLyHuGO/gw==}
+  '@ai-matrx/design-system@0.86.84':
+    resolution: {integrity: sha512-Hr6+wrPSsSf+o1iocuneVw5xt0Fu1gmyjIJvgqHzgTj7bDaZVBGXqp6AVirsbB8jAU/RO7+Q67u5S7mcRWVVNQ==}
     engines: {node: '>=20'}
     peerDependencies:
       '@tailwindcss/typography': 0.5.20
@@ -5193,13 +5193,13 @@ packages:
 
 snapshots:
 
-  '@ai-matrx/agents@0.59.49(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ai-matrx/agents@0.59.50(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@ai-matrx/alchemy': 0.23.23(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@ai-matrx/associations': 0.14.23(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/alchemy': 0.23.24(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/associations': 0.14.24(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/content-ir': 0.24.11(react@19.2.4)
-      '@ai-matrx/data': 0.29.2(@supabase/supabase-js@2.117.2)(react@19.2.4)
-      '@ai-matrx/design-system': 0.86.82(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/data': 0.29.3(@supabase/supabase-js@2.117.2)(react@19.2.4)
+      '@ai-matrx/design-system': 0.86.84(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/icons': 0.3.63(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/kit': 0.42.1(react@19.2.4)
     optionalDependencies:
@@ -5213,11 +5213,11 @@ snapshots:
       - recharts
       - supports-color
 
-  '@ai-matrx/alchemy@0.23.23(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ai-matrx/alchemy@0.23.24(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@ai-matrx/content-ir': 0.24.11(react@19.2.4)
-      '@ai-matrx/data': 0.29.2(@supabase/supabase-js@2.117.2)(react@19.2.4)
-      '@ai-matrx/design-system': 0.86.82(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/data': 0.29.3(@supabase/supabase-js@2.117.2)(react@19.2.4)
+      '@ai-matrx/design-system': 0.86.84(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/kit': 0.42.1(react@19.2.4)
       '@ai-matrx/print': 0.12.24(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       html-to-image: 1.11.13
@@ -5233,10 +5233,10 @@ snapshots:
       - recharts
       - supports-color
 
-  '@ai-matrx/associations@0.14.23(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ai-matrx/associations@0.14.24(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@ai-matrx/data': 0.29.2(@supabase/supabase-js@2.117.2)(react@19.2.4)
-      '@ai-matrx/design-system': 0.86.82(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/data': 0.29.3(@supabase/supabase-js@2.117.2)(react@19.2.4)
+      '@ai-matrx/design-system': 0.86.84(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@ai-matrx/kit': 0.42.1(react@19.2.4)
     optionalDependencies:
       react: 19.2.4
@@ -5259,7 +5259,7 @@ snapshots:
     transitivePeerDependencies:
       - react
 
-  '@ai-matrx/data@0.29.2(@supabase/supabase-js@2.117.2)(react@19.2.4)':
+  '@ai-matrx/data@0.29.3(@supabase/supabase-js@2.117.2)(react@19.2.4)':
     dependencies:
       '@ai-matrx/kit': 0.42.1(react@19.2.4)
       '@ai-matrx/realtime': 0.10.6(react@19.2.4)
@@ -5271,7 +5271,7 @@ snapshots:
     transitivePeerDependencies:
       - react-native
 
-  '@ai-matrx/design-system@0.86.82(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@ai-matrx/design-system@0.86.84(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@ai-matrx/kit': 0.42.1(react@19.2.4)
       '@dnd-kit/core': 6.3.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -5318,7 +5318,7 @@ snapshots:
 
   '@ai-matrx/icons@0.3.63(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@ai-matrx/design-system': 0.86.82(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/design-system': 0.86.84(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       lucide-react: 1.48.0(react@19.2.4)
       react: 19.2.4
     optionalDependencies:
