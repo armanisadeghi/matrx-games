@@ -17,34 +17,20 @@
  * so it binds no `X-Organization-Id` header.
  */
 
-import {
-  applyAiApiVersion,
-  fetchWithMatrxProtocolFallback,
-  MATRX_AI_API_VERSION_DEFAULT,
-} from "@ai-matrx/api";
+import { createMatrxTransport, DEPLOYMENTS } from "@ai-matrx/api";
 
 function getBaseUrl(): string {
   const env = process.env.NEXT_PUBLIC_MATRX_ENV;
-  if (env === "local") return process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL ?? "http://localhost:8000";
+  if (env === "local") {
+    return process.env.NEXT_PUBLIC_BACKEND_URL_LOCAL ?? DEPLOYMENTS.aidream.baseUrl.localhost;
+  }
   if (env === "dev") return process.env.NEXT_PUBLIC_BACKEND_URL_DEV ?? "";
   if (env === "staging") return process.env.NEXT_PUBLIC_BACKEND_URL_STAGING ?? "";
   if (env === "gpu") return process.env.NEXT_PUBLIC_BACKEND_URL_GPU ?? "";
-  return process.env.NEXT_PUBLIC_BACKEND_URL_PROD ?? "https://server.app.matrxserver.com";
+  return process.env.NEXT_PUBLIC_BACKEND_URL_PROD ?? DEPLOYMENTS.aidream.baseUrl.production;
 }
 
 const AIDREAM_API_TOKEN = process.env.AIDREAM_API_TOKEN;
-
-/**
- * The agent-run path, with the version decided by the package's covered-surface
- * allowlist rather than a literal typed here. Exported so the forcing test can
- * assert the exact path without reaching through `fetch`.
- */
-export function agentRunPath(agentId: string): string {
-  return applyAiApiVersion(
-    `/ai/agents/${encodeURIComponent(agentId)}`,
-    MATRX_AI_API_VERSION_DEFAULT,
-  );
-}
 
 export type AgentRequest = {
   user_input?: string | Record<string, unknown>[];
@@ -66,35 +52,30 @@ export async function callAgent(
     throw new Error("Backend URL and AIDREAM_API_TOKEN must be set");
   }
 
-  const path = agentRunPath(agentId);
-
-  // `totalTimeoutMs: null` and `throwOnHttpError: false` are PARITY, not
-  // taste. The shared transport defaults to a 120s total deadline, which would
-  // cut off any agent run longer than two minutes mid-stream; and this
-  // function reports a non-2xx by reading the body and throwing its own
-  // message, so the transport must hand the response back rather than throw a
-  // bare HttpError that loses the server's explanation.
-  const { response: res } = await fetchWithMatrxProtocolFallback(
-    `${baseUrl}${path}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${AIDREAM_API_TOKEN}`,
-      },
-      body: JSON.stringify({ stream: true, ...body }),
+  // Identity is all this app injects: the base URL and the service token. The
+  // transport owns the v2 spine, the loud v1 fallback, the connect deadline
+  // and an uncapped stream (an agent run can outlive any fixed total).
+  const transport = createMatrxTransport({
+    baseUrl,
+    credentials: {
+      get: async () => ({ kind: "service", secret: AIDREAM_API_TOKEN }),
     },
-    {
-      totalTimeoutMs: null,
-      throwOnHttpError: false,
-      onDowngrade: ({ url, reason, status }) => {
+    source: "matrx-games",
+    diagnostics: {
+      onProtocolDowngrade: ({ url, reason, status }) => {
         console.warn(
           `[matrx-games] AI v2 endpoint unavailable, retried on v1: ${url}`,
           { reason, status },
         );
       },
     },
-  );
+  });
+
+  const res = await transport.fetch(`/ai/agents/${encodeURIComponent(agentId)}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ stream: true, ...body }),
+  });
 
   if (!res.ok) {
     const text = await res.text();

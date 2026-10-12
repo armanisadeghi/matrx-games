@@ -12,18 +12,6 @@
 
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { agentRunPath } from "./client";
-
-describe("agentRunPath", () => {
-  it("reaches the v2 spine for an agent run", () => {
-    expect(agentRunPath("abc-123")).toBe("/v2/ai/agents/abc-123");
-  });
-
-  it("encodes the interpolated id", () => {
-    expect(agentRunPath("a/b")).toBe("/v2/ai/agents/a%2Fb");
-  });
-});
-
 describe("callAgent falls back to v1 when the v2 endpoint is missing", () => {
   afterEach(() => {
     vi.unstubAllEnvs();
