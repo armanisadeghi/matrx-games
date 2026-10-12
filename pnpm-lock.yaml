@@ -15,6 +15,9 @@ importers:
       '@ai-matrx/agents':
         specifier: latest
         version: 0.59.75(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@ai-matrx/api':
+        specifier: latest
+        version: 0.1.8(@supabase/supabase-js@2.117.2)(react@19.2.4)
       '@ai-matrx/data':
         specifier: latest
         version: 0.29.22(@supabase/supabase-js@2.117.2)(react@19.2.4)
@@ -145,8 +148,8 @@ packages:
       react-dom:
         optional: true
 
-  '@ai-matrx/api@0.1.7':
-    resolution: {integrity: sha512-GFVUj8V6lK4Bb0o3YBbP3nsFnNu/n+NuYVvnxO5EwiUQlvsoNUO1mQU/noQNyNn6leRqwm+JzS7aT0o+MnXJFA==}
+  '@ai-matrx/api@0.1.8':
+    resolution: {integrity: sha512-ojov4E+kjDk5aTe+c29n8/jCe9rYyUbe7QDNbt+Wcw5CXIB2BPf9YtdmG8IJ6Zf3FbVqVJMjvTc867KHKRjs4Q==}
     engines: {node: '>=20'}
 
   '@ai-matrx/associations@0.14.44':
@@ -161,8 +164,8 @@ packages:
       react-dom:
         optional: true
 
-  '@ai-matrx/auth@0.2.5':
-    resolution: {integrity: sha512-AlqE2Te6Wdw6Jm3RrK5TOo303atHzZwo+dIxlGnStjLMqjVF5I2Xv2JydJibxIt2Rbxo6F4y97vL6fynW09dFw==}
+  '@ai-matrx/auth@0.3.0':
+    resolution: {integrity: sha512-YThhEt8McYeN76razMtZkcVm+Q5Lfn2m/3toutt8YDOlg11lxVJ8KebZUlQw5jX+2X+KHjN0g+o08aPasJyNLA==}
     engines: {node: '>=20'}
     peerDependencies:
       '@supabase/supabase-js': '>=2.0.0'
@@ -5472,9 +5475,9 @@ snapshots:
       - recharts
       - supports-color
 
-  '@ai-matrx/api@0.1.7(@supabase/supabase-js@2.117.2)(react@19.2.4)':
+  '@ai-matrx/api@0.1.8(@supabase/supabase-js@2.117.2)(react@19.2.4)':
     dependencies:
-      '@ai-matrx/auth': 0.2.5(@supabase/supabase-js@2.117.2)(react@19.2.4)
+      '@ai-matrx/auth': 0.3.0(@supabase/supabase-js@2.117.2)(react@19.2.4)
       '@ai-matrx/kit': 0.42.3(react@19.2.4)
     transitivePeerDependencies:
       - '@supabase/supabase-js'
@@ -5496,7 +5499,7 @@ snapshots:
       - react-native
       - recharts
 
-  '@ai-matrx/auth@0.2.5(@supabase/supabase-js@2.117.2)(react@19.2.4)':
+  '@ai-matrx/auth@0.3.0(@supabase/supabase-js@2.117.2)(react@19.2.4)':
     dependencies:
       '@ai-matrx/kit': 0.42.3(react@19.2.4)
       '@supabase/ssr': 0.12.7(@supabase/supabase-js@2.117.2)
@@ -5516,7 +5519,7 @@ snapshots:
 
   '@ai-matrx/data@0.29.22(@supabase/supabase-js@2.117.2)(react@19.2.4)':
     dependencies:
-      '@ai-matrx/auth': 0.2.5(@supabase/supabase-js@2.117.2)(react@19.2.4)
+      '@ai-matrx/auth': 0.3.0(@supabase/supabase-js@2.117.2)(react@19.2.4)
       '@ai-matrx/files': 0.1.6(@supabase/supabase-js@2.117.2)(react@19.2.4)
       '@ai-matrx/kit': 0.42.3(react@19.2.4)
       '@ai-matrx/realtime': 0.10.8(react@19.2.4)
@@ -5575,7 +5578,7 @@ snapshots:
 
   '@ai-matrx/files@0.1.6(@supabase/supabase-js@2.117.2)(react@19.2.4)':
     dependencies:
-      '@ai-matrx/api': 0.1.7(@supabase/supabase-js@2.117.2)(react@19.2.4)
+      '@ai-matrx/api': 0.1.8(@supabase/supabase-js@2.117.2)(react@19.2.4)
       '@ai-matrx/kit': 0.42.3(react@19.2.4)
       tus-js-client: 4.3.1
     optionalDependencies:

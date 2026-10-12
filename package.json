@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@ai-matrx/agents": "latest",
+    "@ai-matrx/api": "latest",
     "@ai-matrx/data": "latest",
     "@ai-matrx/design-system": "latest",
     "@ai-matrx/kit": "latest",

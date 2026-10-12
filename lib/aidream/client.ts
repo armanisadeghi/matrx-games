@@ -21,7 +21,7 @@ import {
   applyAiApiVersion,
   fetchWithMatrxProtocolFallback,
   MATRX_AI_API_VERSION_DEFAULT,
-} from "@ai-matrx/agents/matrx";
+} from "@ai-matrx/api";
 
 function getBaseUrl(): string {
   const env = process.env.NEXT_PUBLIC_MATRX_ENV;
