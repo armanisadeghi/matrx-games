@@ -53,7 +53,7 @@ export async function callAgent(
   }
 
   // Identity is all this app injects: the base URL and the service token. The
-  // transport owns the v2 spine, the loud v1 fallback, the connect deadline
+  // transport owns the v2 spine, the connect deadline
   // and an uncapped stream (an agent run can outlive any fixed total).
   const transport = createMatrxTransport({
     baseUrl,
@@ -61,14 +61,6 @@ export async function callAgent(
       get: async () => ({ kind: "service", secret: AIDREAM_API_TOKEN }),
     },
     source: "matrx-games",
-    diagnostics: {
-      onProtocolDowngrade: ({ url, reason, status }) => {
-        console.warn(
-          `[matrx-games] AI v2 endpoint unavailable, retried on v1: ${url}`,
-          { reason, status },
-        );
-      },
-    },
   });
 
   const res = await transport.fetch(`/ai/agents/${encodeURIComponent(agentId)}`, {
