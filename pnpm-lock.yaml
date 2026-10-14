@@ -14,7 +14,7 @@ importers:
     dependencies:
       '@ai-matrx/agents':
         specifier: latest
-        version: 0.59.84(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
+        version: 0.59.85(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/api':
         specifier: latest
         version: 0.1.18(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
@@ -121,8 +121,8 @@ importers:
 
 packages:
 
-  '@ai-matrx/agents@0.59.84':
-    resolution: {integrity: sha512-n/k5qbW4V8qnPDB24ZY6H9J/ALZWdIiSLBjwpfBJxHtCyVuY0LJL9nRvXp7RDzLLrvTrQXLciOOzsFn3xwoA2Q==}
+  '@ai-matrx/agents@0.59.85':
+    resolution: {integrity: sha512-6lfebN3nW2SBbuNVWPz0CAU4BOfAjCow3nCtPp775oCgegA4TV4quZ2j9spEUEIYltYhnG+khFAMwTO3uVDNNQ==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -5434,7 +5434,7 @@ packages:
 
 snapshots:
 
-  '@ai-matrx/agents@0.59.84(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
+  '@ai-matrx/agents@0.59.85(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
     dependencies:
       '@ai-matrx/alchemy': 0.23.47(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/api': 0.1.18(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
