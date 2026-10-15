@@ -234,16 +234,22 @@ packages:
       react-dom:
         optional: true
 
-  '@ai-matrx/realtime@0.10.8':
-    resolution: {integrity: sha512-BnI5ozG2UCjkmfXfycGEOPKpu/c9Ijesg1FPO5G177429IeLfRPsjUsKO5DAEUb0knHvRfOv/XTZDwBqWyxV/Q==}
+  '@ai-matrx/realtime@0.10.9':
+    resolution: {integrity: sha512-PAJo8DlzDkZVNu+DVHKJoVv4Jp/PRw6Zou23584EINvspuv7xoVmHEQ476ZsjkhTCcAwcwqGdnbl10Kqemf7iw==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
       react-native: '>=0.76.0'
+      y-protocols: '>=1.0.5'
+      yjs: '>=13.6.0'
     peerDependenciesMeta:
       react:
         optional: true
       react-native:
+        optional: true
+      y-protocols:
+        optional: true
+      yjs:
         optional: true
 
   '@alloc/quick-lru@5.3.0':
@@ -5454,6 +5460,8 @@ snapshots:
       - recharts
       - supports-color
       - typescript
+      - y-protocols
+      - yjs
 
   '@ai-matrx/alchemy@0.23.56(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
     dependencies:
@@ -5475,6 +5483,8 @@ snapshots:
       - recharts
       - supports-color
       - typescript
+      - y-protocols
+      - yjs
 
   '@ai-matrx/api@0.1.24(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)':
     dependencies:
@@ -5501,6 +5511,8 @@ snapshots:
       - react-native
       - recharts
       - typescript
+      - y-protocols
+      - yjs
 
   '@ai-matrx/auth@0.3.6(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)':
     dependencies:
@@ -5528,7 +5540,7 @@ snapshots:
       '@ai-matrx/api': 0.1.24(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/auth': 0.3.6(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/kit': 0.45.2(react@19.2.4)(typescript@5.9.3)
-      '@ai-matrx/realtime': 0.10.8(react@19.2.4)(typescript@5.9.3)
+      '@ai-matrx/realtime': 0.10.9(react@19.2.4)(typescript@5.9.3)
       '@supabase/ssr': 0.12.7(@supabase/supabase-js@2.117.2)
       '@supabase/supabase-js': 2.117.2
       cron-parser: 5.10.2
@@ -5539,6 +5551,8 @@ snapshots:
     transitivePeerDependencies:
       - react-native
       - typescript
+      - y-protocols
+      - yjs
 
   '@ai-matrx/design-system@0.86.155(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
     dependencies:
@@ -5647,7 +5661,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@ai-matrx/realtime@0.10.8(react@19.2.4)(typescript@5.9.3)':
+  '@ai-matrx/realtime@0.10.9(react@19.2.4)(typescript@5.9.3)':
     dependencies:
       '@ai-matrx/kit': 0.45.2(react@19.2.4)(typescript@5.9.3)
     optionalDependencies:
