@@ -5,11 +5,8 @@
  * C22 — the hard parts live in the package; hosts inject only identity). This
  * module used to POST a bare `fetch` at a hardcoded `/ai/...` path, which meant
  * it had no connect deadline at all (a hung backend hung this route handler
- * forever), never reached the `/v2` spine, and had nothing to fall back to.
- * `applyAiApiVersion` decides the version and `fetchWithMatrxProtocolFallback`
- * makes reaching for v2 safe by construction: if the v2 endpoint itself is
- * absent or unhealthy, the identical request is retried on v1, loudly, before
- * any stream content is consumed.
+ * forever), and bypassed the package transport. The transport now owns the
+ * canonical agent route, the connect deadline, and streaming lifecycle.
  *
  * Identity stays here: the service token and the base URL. The organization
  * rides in the BODY (`organization_id`), which is the sanctioned conversation
@@ -53,8 +50,8 @@ export async function callAgent(
   }
 
   // Identity is all this app injects: the base URL and the service token. The
-  // transport owns the v2 spine, the connect deadline
-  // and an uncapped stream (an agent run can outlive any fixed total).
+  // transport owns the canonical route, the connect deadline, and an uncapped
+  // stream (an agent run can outlive any fixed total).
   const transport = createMatrxTransport({
     baseUrl,
     credentials: {

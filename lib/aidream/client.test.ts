@@ -2,9 +2,9 @@
  * Forcing test for the AI Dream agent door.
  *
  * Two things must stay true and neither is visible from reading the call site:
- * the agent-run path is decided by the PACKAGE's covered-surface allowlist (not
- * a literal typed in this repo), and a v2 endpoint that is absent or unhealthy
- * must be retried on v1 rather than surfacing as a failed game.
+ * the agent-run path is decided by the PACKAGE's covered-surface allowlist, not
+ * a literal typed in this repo. The package now sends this agent route directly
+ * to its canonical endpoint; it does not probe a retired v2 route first.
  *
  * The expected strings are literals on purpose. Deriving them from the same
  * package helper the code under test uses would prove nothing.
@@ -12,14 +12,14 @@
 
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-describe("callAgent falls back to v1 when the v2 endpoint is missing", () => {
+describe("callAgent uses the canonical agent endpoint", () => {
   afterEach(() => {
     vi.unstubAllEnvs();
     vi.unstubAllGlobals();
     vi.resetModules();
   });
 
-  it("retries the identical request on /ai/agents/... after a 404 on /v2", async () => {
+  it("posts the request directly to /ai/agents/...", async () => {
     vi.stubEnv("AIDREAM_API_TOKEN", "test-token");
     vi.stubEnv("NEXT_PUBLIC_BACKEND_URL_PROD", "https://backend.test");
 
@@ -29,9 +29,6 @@ describe("callAgent falls back to v1 when the v2 endpoint is missing", () => {
       vi.fn(async (url: string | URL) => {
         const href = String(url);
         seen.push(href);
-        if (href.includes("/v2/")) {
-          return new Response("no such route", { status: 404 });
-        }
         return new Response("ok", { status: 200 });
       }),
     );
@@ -45,7 +42,6 @@ describe("callAgent falls back to v1 when the v2 endpoint is missing", () => {
 
     expect(res.status).toBe(200);
     expect(seen).toEqual([
-      "https://backend.test/v2/ai/agents/abc-123",
       "https://backend.test/ai/agents/abc-123",
     ]);
   });
