@@ -20,7 +20,7 @@ importers:
         version: 0.1.26(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/data':
         specifier: latest
-        version: 0.29.43(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
+        version: 0.29.44(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/design-system':
         specifier: latest
         version: 0.86.155(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
@@ -187,15 +187,39 @@ packages:
     resolution: {integrity: sha512-/DF1KAhIHpSElX/6OkISXYvaRuTgNiKpPJHFl1zY+xvbaAiLZHxiVWVKEnVZ87WYk/JQX2y8i/CV6KrOWK21kA==}
     engines: {node: '>=20'}
 
-  '@ai-matrx/data@0.29.43':
-    resolution: {integrity: sha512-Fj8mrfDeCkwp08eNDlGOuUdo76wVINvcSfErkYE97WTjqH4JUitucd39UbFREDjySzBKJmNSIL+QNmkX6c6SDg==}
+  '@ai-matrx/data@0.29.44':
+    resolution: {integrity: sha512-80v898G0H+opX1K/QpgPmgszLYkxVNtveZBSiVG6HMjfkQNmilOlgM9ICyw7ruboivP/ie1tsIQfKuZQxOdL+w==}
     engines: {node: '>=20'}
     hasBin: true
     peerDependencies:
+      '@powersync/common': '>=2.3.1'
+      '@powersync/node': '>=1.1.1'
+      '@powersync/web': '>=2.4.2'
       '@supabase/supabase-js': '>=2.0.0'
+      '@tanstack/db': '>=0.15.0'
+      '@tanstack/powersync-db-collection': '>=0.2.11'
       react: '>=18.0.0'
+      react-native: '>=0.76.0'
+      y-protocols: '>=1.0.5'
+      yjs: '>=13.6.0'
     peerDependenciesMeta:
+      '@powersync/common':
+        optional: true
+      '@powersync/node':
+        optional: true
+      '@powersync/web':
+        optional: true
+      '@tanstack/db':
+        optional: true
+      '@tanstack/powersync-db-collection':
+        optional: true
       react:
+        optional: true
+      react-native:
+        optional: true
+      y-protocols:
+        optional: true
+      yjs:
         optional: true
 
   '@ai-matrx/design-system@0.86.155':
@@ -241,24 +265,6 @@ packages:
       react:
         optional: true
       react-dom:
-        optional: true
-
-  '@ai-matrx/realtime@0.10.9':
-    resolution: {integrity: sha512-PAJo8DlzDkZVNu+DVHKJoVv4Jp/PRw6Zou23584EINvspuv7xoVmHEQ476ZsjkhTCcAwcwqGdnbl10Kqemf7iw==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      react: '>=18.0.0'
-      react-native: '>=0.76.0'
-      y-protocols: '>=1.0.5'
-      yjs: '>=13.6.0'
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-native:
-        optional: true
-      y-protocols:
-        optional: true
-      yjs:
         optional: true
 
   '@alloc/quick-lru@5.3.0':
@@ -5454,15 +5460,20 @@ snapshots:
       '@ai-matrx/api': 0.1.26(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/associations': 0.14.60(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/content-ir': 0.24.21(react@19.2.4)(typescript@5.9.3)
-      '@ai-matrx/data': 0.29.43(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
+      '@ai-matrx/data': 0.29.44(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/design-system': 0.86.155(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/icons': 0.3.78(react@19.2.4)
       '@ai-matrx/kit': 0.45.3(react@19.2.4)(typescript@5.9.3)
     optionalDependencies:
       react: 19.2.4
     transitivePeerDependencies:
+      - '@powersync/common'
+      - '@powersync/node'
+      - '@powersync/web'
       - '@supabase/supabase-js'
       - '@tailwindcss/typography'
+      - '@tanstack/db'
+      - '@tanstack/powersync-db-collection'
       - '@types/react'
       - '@types/react-dom'
       - react-dom
@@ -5475,7 +5486,7 @@ snapshots:
   '@ai-matrx/alchemy@0.23.56(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
     dependencies:
       '@ai-matrx/content-ir': 0.24.21(react@19.2.4)(typescript@5.9.3)
-      '@ai-matrx/data': 0.29.43(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
+      '@ai-matrx/data': 0.29.44(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/design-system': 0.86.155(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/kit': 0.45.3(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/print': 0.12.37(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
@@ -5484,8 +5495,13 @@ snapshots:
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
     transitivePeerDependencies:
+      - '@powersync/common'
+      - '@powersync/node'
+      - '@powersync/web'
       - '@supabase/supabase-js'
       - '@tailwindcss/typography'
+      - '@tanstack/db'
+      - '@tanstack/powersync-db-collection'
       - '@types/react'
       - '@types/react-dom'
       - react-native
@@ -5507,15 +5523,20 @@ snapshots:
 
   '@ai-matrx/associations@0.14.60(@supabase/supabase-js@2.117.2)(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
     dependencies:
-      '@ai-matrx/data': 0.29.43(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
+      '@ai-matrx/data': 0.29.44(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/design-system': 0.86.155(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/kit': 0.45.3(react@19.2.4)(typescript@5.9.3)
     optionalDependencies:
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
     transitivePeerDependencies:
+      - '@powersync/common'
+      - '@powersync/node'
+      - '@powersync/web'
       - '@supabase/supabase-js'
       - '@tailwindcss/typography'
+      - '@tanstack/db'
+      - '@tanstack/powersync-db-collection'
       - '@types/react'
       - '@types/react-dom'
       - react-native
@@ -5549,12 +5570,11 @@ snapshots:
       - react
       - typescript
 
-  '@ai-matrx/data@0.29.43(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)':
+  '@ai-matrx/data@0.29.44(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)':
     dependencies:
       '@ai-matrx/api': 0.1.26(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/auth': 0.3.7(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/kit': 0.45.3(react@19.2.4)(typescript@5.9.3)
-      '@ai-matrx/realtime': 0.10.9(react@19.2.4)(typescript@5.9.3)
       '@supabase/ssr': 0.12.7(@supabase/supabase-js@2.117.2)
       '@supabase/supabase-js': 2.117.2
       cron-parser: 5.10.2
@@ -5563,10 +5583,7 @@ snapshots:
     optionalDependencies:
       react: 19.2.4
     transitivePeerDependencies:
-      - react-native
       - typescript
-      - y-protocols
-      - yjs
 
   '@ai-matrx/design-system@0.86.155(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
     dependencies:
@@ -5665,14 +5682,6 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
       - supports-color
-      - typescript
-
-  '@ai-matrx/realtime@0.10.9(react@19.2.4)(typescript@5.9.3)':
-    dependencies:
-      '@ai-matrx/kit': 0.45.3(react@19.2.4)(typescript@5.9.3)
-    optionalDependencies:
-      react: 19.2.4
-    transitivePeerDependencies:
       - typescript
 
   '@alloc/quick-lru@5.3.0': {}
