@@ -260,8 +260,8 @@ packages:
       typescript:
         optional: true
 
-  '@ai-matrx/print@0.12.39':
-    resolution: {integrity: sha512-+81uKvEPbLqVfWBVTBxfVJJuSuLZuuxvJrwBgkdTtIlr1TSLE7HG34jrjZMTLdKEMwkhneE4nakEujR24TqMGw==}
+  '@ai-matrx/print@0.12.40':
+    resolution: {integrity: sha512-BBQbZ6lujWuFpHhfaz21n2ov/q6J8In9VGYav//2OK2IBPJgd/RPHkhUeayZw+t1+zb6Dkn82qhvd8RAyo0YxQ==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -5494,7 +5494,7 @@ snapshots:
       '@ai-matrx/data': 0.29.45(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/design-system': 0.86.162(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/kit': 0.45.4(react@19.2.4)(typescript@5.9.3)
-      '@ai-matrx/print': 0.12.39(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
+      '@ai-matrx/print': 0.12.40(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       html-to-image: 1.11.13
     optionalDependencies:
       react: 19.2.4
@@ -5658,7 +5658,7 @@ snapshots:
       react: 19.2.4
       typescript: 5.9.3
 
-  '@ai-matrx/print@0.12.39(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
+  '@ai-matrx/print@0.12.40(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)':
     dependencies:
       '@ai-matrx/content-ir': 0.24.22(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/kit': 0.45.4(react@19.2.4)(typescript@5.9.3)
