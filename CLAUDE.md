@@ -2,8 +2,6 @@
 
 Web-based multiplayer game platform hosting 10-20+ games. Real-time multiplayer with team-based gameplay, synchronized timers, and role-based views. Supabase for database, auth, and realtime.
 
-> **Official Next.js/React/TypeScript best practices:** `~/.arman/rules/nextjs-best-practices/nextjs-guide.md`
-
 ---
 
 ## Tech Stack
