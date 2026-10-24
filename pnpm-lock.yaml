@@ -174,8 +174,8 @@ packages:
       react:
         optional: true
 
-  '@ai-matrx/browser-audio@0.5.11':
-    resolution: {integrity: sha512-GcYdRm7tb18nK4IjnXKfn4dBR0xkWNWKSmLH6XCiV1hw3LD0TQt/qGOTzBv7UwOgVN9+mJpF8LH9YNmc/duXvQ==}
+  '@ai-matrx/browser-audio@0.5.12':
+    resolution: {integrity: sha512-EUFbatFcfs3Fby4+U3qeHx+tZqbVRH7NvxOujB7zA7qYJAgbPG33UfDmN+RYAtU61PRNW9WMUMXIXeKOUJAkDg==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -5520,7 +5520,7 @@ snapshots:
   '@ai-matrx/api@0.1.82(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)':
     dependencies:
       '@ai-matrx/auth': 0.4.15(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
-      '@ai-matrx/browser-audio': 0.5.11(react@19.2.4)
+      '@ai-matrx/browser-audio': 0.5.12(react@19.2.4)
       '@ai-matrx/kit': 0.45.39(react@19.2.4)(typescript@5.9.3)
     transitivePeerDependencies:
       - '@supabase/supabase-js'
@@ -5562,7 +5562,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@ai-matrx/browser-audio@0.5.11(react@19.2.4)':
+  '@ai-matrx/browser-audio@0.5.12(react@19.2.4)':
     optionalDependencies:
       react: 19.2.4
 
