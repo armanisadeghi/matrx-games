@@ -1,3 +1,7 @@
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+
+overrides:
+  "@ai-matrx/associations": "latest"
+  "@ai-matrx/design-system": "latest"
