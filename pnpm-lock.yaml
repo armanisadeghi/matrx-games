@@ -257,8 +257,8 @@ packages:
       react-dom:
         optional: true
 
-  '@ai-matrx/icons@0.3.87':
-    resolution: {integrity: sha512-WOY6DaNzCZeLnO2LthUsHrcj6ZFBvfJCDuU89XbgLvY6X9M6eWJWNCAmKiDkfiIyC9yga/pUsADrHqq4bjbT5g==}
+  '@ai-matrx/icons@0.3.88':
+    resolution: {integrity: sha512-B3/SqHvwo8nF8xTQNvt363K0UA0H6LQ/6T5/lKdoJAz+CEqw/T3Tn2bUo51aG0W+PvKaBbYAra0HIq+7ihg0vQ==}
     engines: {node: '>=20'}
     peerDependencies:
       react: '>=18.0.0'
@@ -5462,7 +5462,7 @@ snapshots:
       '@ai-matrx/data': 0.29.123(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/design-system': 0.86.384(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/diff': 0.6.30(@tailwindcss/typography@0.5.20(tailwindcss@4.3.3))(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
-      '@ai-matrx/icons': 0.3.87(react@19.2.4)(typescript@5.9.3)
+      '@ai-matrx/icons': 0.3.88(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/kit': 0.45.45(react@19.2.4)(typescript@5.9.3)
     optionalDependencies:
       react: 19.2.4
@@ -5657,7 +5657,7 @@ snapshots:
       - recharts
       - typescript
 
-  '@ai-matrx/icons@0.3.87(react@19.2.4)(typescript@5.9.3)':
+  '@ai-matrx/icons@0.3.88(react@19.2.4)(typescript@5.9.3)':
     dependencies:
       '@ai-matrx/kit': 0.45.45(react@19.2.4)(typescript@5.9.3)
       lucide-react: 1.48.0(react@19.2.4)
