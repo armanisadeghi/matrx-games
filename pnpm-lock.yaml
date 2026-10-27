@@ -164,8 +164,8 @@ packages:
       react-dom:
         optional: true
 
-  '@ai-matrx/auth@0.4.17':
-    resolution: {integrity: sha512-K5IZZyDVdl/glWI3sQJbDruEqwFj10IMSJih+oeDBkhPoGXHr5hP4HyMrg0GlNE+bbV39Qe4rmGK2ns6maNbyA==}
+  '@ai-matrx/auth@0.4.18':
+    resolution: {integrity: sha512-sZZUhZfu/Fh/rqbJY+bSez/4bSuUAt0K7nRrLTr/IcijSzy2BNgFFslHDynUbAx9bTAemsxitraOnSqe+m7x2g==}
     engines: {node: '>=20'}
     peerDependencies:
       '@supabase/supabase-js': '>=2.0.0'
@@ -5519,7 +5519,7 @@ snapshots:
 
   '@ai-matrx/api@0.1.96(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)':
     dependencies:
-      '@ai-matrx/auth': 0.4.17(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
+      '@ai-matrx/auth': 0.4.18(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/browser-audio': 0.5.16(react@19.2.4)
       '@ai-matrx/kit': 0.45.46(react@19.2.4)(typescript@5.9.3)
     transitivePeerDependencies:
@@ -5552,7 +5552,7 @@ snapshots:
       - y-protocols
       - yjs
 
-  '@ai-matrx/auth@0.4.17(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)':
+  '@ai-matrx/auth@0.4.18(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)':
     dependencies:
       '@ai-matrx/kit': 0.45.46(react@19.2.4)(typescript@5.9.3)
       '@supabase/ssr': 0.12.7(@supabase/supabase-js@2.117.2)
@@ -5585,7 +5585,7 @@ snapshots:
 
   '@ai-matrx/data@0.29.124(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)':
     dependencies:
-      '@ai-matrx/auth': 0.4.17(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
+      '@ai-matrx/auth': 0.4.18(@supabase/supabase-js@2.117.2)(react@19.2.4)(typescript@5.9.3)
       '@ai-matrx/kit': 0.45.46(react@19.2.4)(typescript@5.9.3)
       '@supabase/ssr': 0.12.7(@supabase/supabase-js@2.117.2)
       '@supabase/supabase-js': 2.117.2
